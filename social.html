@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>사회 성향 테스트 — InsideMe</title>
+
+<!-- ✅ 구글 애드센스: ca-pub-XXXXXXXX를 실제 Publisher ID로 교체하세요 -->
+<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script> -->
+
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: { toss: '#0064FF' },
+      fontFamily: { sans: ['Pretendard','Apple SD Gothic Neo','Noto Sans KR','system-ui','sans-serif'] }
+    }
+  }
+}
+</script>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { -webkit-tap-highlight-color: transparent; }
+  body { background: #F3F4F6; font-family: 'Pretendard', 'Apple SD Gothic Neo', system-ui, sans-serif; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes bridgeIn { 0%{opacity:0;transform:scale(0.94) translateY(10px);} 30%{opacity:1;transform:scale(1) translateY(0);} 70%{opacity:1;transform:scale(1) translateY(0);} 100%{opacity:0;transform:scale(1.04) translateY(-10px);} }
+  @keyframes barGrow { from { width: 0%; } to { width: var(--target-width); } }
+  .fade-up { animation: fadeUp 0.38s cubic-bezier(0.22,1,0.36,1) both; }
+  .fade-in { animation: fadeIn 0.3s ease both; }
+  .spinner { animation: spin 0.9s linear infinite; }
+  .bridge-anim { animation: bridgeIn 0.85s cubic-bezier(0.22,1,0.36,1) both; }
+  .bar-fill { animation: barGrow 0.9s cubic-bezier(0.22,1,0.36,1) both; }
+  .btn-choice { transition: all 0.18s cubic-bezier(0.22,1,0.36,1); }
+  .btn-choice:active { transform: scale(0.97); }
+  .btn-choice.selected { background: #0064FF !important; color: #fff !important; border-color: #0064FF !important; transform: scale(0.98); }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+const QUESTIONS = [
+  { id:1,  q:"출근길 엘리베이터에서 어색한 다른 팀 동료를 만났을 때 나는?",                                    a:"먼저 인사하고 스몰토크 시도",  b:"핸드폰 보며 자연스럽게 회피", typeA:'E', typeB:'I' },
+  { id:2,  q:"아침에 출근했더니 내 책상 위에 정체 모를 커피 한 잔이 놓여있다면?",                             a:"누가 챙겨줬을까, 감동한다",    b:"출처가 더 궁금해 분석한다",   typeA:'F', typeB:'T' },
+  { id:3,  q:"오늘 점심 메뉴를 정해야 하는 상황, 내가 취하는 스탠스는?",                                      a:"내가 먼저 메뉴 제안한다",      b:"조용히 다수를 따른다",        typeA:'E', typeB:'I' },
+  { id:4,  q:"친한 동료가 새로 산 옷을 보여주며 '이거 어때?' 할 때 내 반응은?",                               a:"'대박이다!' 폭풍 칭찬",        b:"가격이나 재질부터 물어봄",    typeA:'F', typeB:'T' },
+  { id:5,  q:"사내 메신저 프로필 사진이나 상태 메시지가 바뀐 동료를 보았을 때?",                              a:"'바꿨네!' 먼저 아는 척",       b:"굳이 아는 척 안 함",          typeA:'E', typeB:'I' },
+  { id:6,  q:"새로운 대형 프로젝트의 TF 팀원을 모집한다는 공고가 떴을 때 내 생각은?",                         a:"좋은 기회니 일단 참여해보자", b:"하던 일이나 잘하자",          typeA:'E', typeB:'I' },
+  { id:7,  q:"협업 부서에서 마감 기한을 넘겨 우리 팀 업무에 차질이 생겼을 때 나는?",                          a:"사정 헤아리며 조심스레 독촉", b:"공식적으로 피드백 요구",      typeA:'F', typeB:'T' },
+  { id:8,  q:"팀 회의 중 내 아이디어를 발표해야 하는 순서가 다가오면?",                                        a:"흥미롭고 기대된다",            b:"주목받아 살짝 부담됨",        typeA:'E', typeB:'I' },
+  { id:9,  q:"상사가 내 기획서에 '방향성이 좀 안 맞네요'라고 피드백했다면?",                                   a:"속상함이 먼저 든다",           b:"고칠 점부터 냉정히 파악",     typeA:'F', typeB:'T' },
+  { id:10, q:"동료들과 업무를 분담할 때 내가 더 선호하는 포지션은?",                                           a:"커뮤니케이션·미팅 담당",       b:"자료조사·문서작성 담당",      typeA:'E', typeB:'I' },
+  { id:11, q:"팀원 간의 사소한 말다툼으로 사무실 분위기가 꽁꽁 얼어붙었을 때 나는?",                          a:"분위기 풀어보려 말을 건다",   b:"모니터만 바라본다",           typeA:'E', typeB:'I' },
+  { id:12, q:"큰 실수를 저지른 후배가 자책하며 울먹이고 있을 때 내가 건넬 첫 마디는?",                         a:"'괜찮아, 누구나 실수해' 위로", b:"'정확히 무슨 일이야?' 파악",  typeA:'F', typeB:'T' },
+  { id:13, q:"부당하거나 비효율적인 회사의 업무 프로세스를 맞닥뜨렸을 때 내 행동은?",                          a:"총대 매고 개선 사항 건의",     b:"속으로만 투덜대고 따름",      typeA:'E', typeB:'I' },
+  { id:14, q:"동료가 업무 스트레스로 사표를 고민 중이라며 비밀스럽게 털어놓는다면?",                           a:"마음에 깊이 이입이 된다",      b:"현실적 대책부터 질문",        typeA:'F', typeB:'T' },
+  { id:15, q:"업무 중 예상치 못한 내 실수로 마감이 임박한 위기 상황이 온다면?",                                 a:"즉시 팀장·동료에게 도움 요청", b:"혼자 끙끙대며 해결 먼저 시도", typeA:'E', typeB:'I' },
+  { id:16, q:"드디어 기다리던 금요일 퇴근 시간! 문을 나서며 드는 생각은?",                                     a:"주말에 사람 만나 놀아야지!",   b:"주말 내내 집콕해야지!",       typeA:'E', typeB:'I' },
+  { id:17, q:"팀 회식 자리에서 내가 주로 앉는 위치는 어디인가요?",                                              a:"이야기의 중심 정중앙",         b:"조용히 먹는 끝자리",          typeA:'E', typeB:'I' },
+  { id:18, q:"친한 동료가 사소한 개인사로 우울해하며 술 한잔하자고 연락이 왔을 때?",                            a:"피곤해도 나간다",              b:"몸 피곤하면 솔직히 미룬다",   typeA:'F', typeB:'T' },
+  { id:19, q:"단체 단톡방에서 누군가 재미있는 밈(Meme)을 올렸을 때 내 반응은?",                                  a:"격하게 리액션 날림 😂😂",      b:"속으로만 웃고 이모티콘 하나", typeA:'F', typeB:'T' },
+  { id:20, q:"퇴근 후 집에서 쉬고 있는데 업무 카톡이 왔을 때 내 심리 상태는?",                                  a:"내용에 감정적 스트레스 받음",  b:"짜증나지만 이성적으로 확인",  typeA:'F', typeB:'T' },
+];
+
+const BRIDGE_MESSAGES = {
+  5:  { emoji:'☕', title:'잠깐,', sub:'조직 생활 레이더를 보정 중이에요' },
+  10: { emoji:'🔍', title:'반환점!', sub:'내 사회적 본능을 더 깊이 파고들게요' },
+  15: { emoji:'⚡', title:'거의 다 왔어요!', sub:'진짜 내 모습이 나올 차례예요' },
+};
+
+const RESULTS = {
+  ET: {
+    emoji: '🔥',
+    type: 'ET',
+    title: '따뜻한 벽난로형',
+    subtitle: '공감 만렙 올라운더',
+    desc: '사람 에너지로 충전되는 외향인이면서도, 상대의 감정을 귀신같이 읽는 공감 능력자. 팀의 분위기 메이커이자 갈등 해결사. 단, 가끔은 혼자만의 시간도 필요해요.',
+    traits: ['모임 분위기를 자연스럽게 주도하는 에너지 뱅크', '감정적 공감과 실행력을 동시에 갖춘 올라운더', '상대의 기분을 먼저 헤아리는 따뜻한 리더십'],
+    eScore: 78, fScore: 72,
+    best: { emoji:'🤖', title:'로봇 가이드형', sub:'서로의 약점을 채워주는 환상의 콤비' },
+    worst: { emoji:'🏇', title:'행동파 경주마형', sub:'둘 다 에너지 넘쳐서 충돌 가능성 있음' },
+  },
+  EF: {
+    emoji: '🏇',
+    type: 'EF',
+    title: '행동파 경주마형',
+    subtitle: '팩트 폭격 불도저',
+    desc: '빠른 판단력과 강한 추진력으로 어떤 환경에서도 결과를 만들어내는 타입. 회의실에서 가장 먼저 손을 드는 사람. 단, 상대방 감정을 놓치는 경우가 가끔 있어요.',
+    traits: ['결론부터 말하고 행동하는 강력한 실행가', '팀의 침묵을 깨는 분위기 전환의 아이콘', '목표 달성을 위해 에너지를 아끼지 않는 올인 타입'],
+    eScore: 82, fScore: 38,
+    best: { emoji:'🕵️', title:'비밀 요원형', sub:'냉철함과 추진력의 완벽한 밸런스' },
+    worst: { emoji:'🔥', title:'따뜻한 벽난로형', sub:'서로 에너지를 뺏어 번아웃 위험' },
+  },
+  IT: {
+    emoji: '🕵️',
+    type: 'IT',
+    title: '비밀 요원형',
+    subtitle: '조용한 관찰자',
+    desc: '말 한 마디보다 관찰 한 번으로 더 많은 걸 파악하는 전략가. 혼자 일할 때 최고 효율을 내며, 쓸모없는 에너지는 절대 낭비하지 않아요. 조직의 숨겨진 두뇌.',
+    traits: ['소음 없이 혼자서도 완벽하게 결과물을 뽑는 독립형', '감정보다 데이터와 논리로 판단하는 냉정한 분석가', '불필요한 인간관계 소모를 최소화하는 에너지 절약 마스터'],
+    eScore: 28, fScore: 32,
+    best: { emoji:'🏇', title:'행동파 경주마형', sub:'생각을 행동으로 옮겨줄 완벽한 파트너' },
+    worst: { emoji:'🤖', title:'로봇 가이드형', sub:'둘 다 과묵해서 소통이 없어질 수 있음' },
+  },
+  IF: {
+    emoji: '🤖',
+    type: 'IF',
+    title: '로봇 가이드형',
+    subtitle: '냉철한 해결사',
+    desc: '감정보다 시스템을 믿고, 공감보다 해결책을 먼저 내미는 효율 최적화 타입. 혼자서도 잘 하지만, 가끔은 감정적 표현이 인간관계에 윤활유가 될 수 있어요.',
+    traits: ['어떤 문제든 논리적 프로세스로 분해·해결하는 시스템 사고', '감정에 흔들리지 않는 일관성으로 팀의 신뢰를 얻음', '혼자 깊이 파고드는 집중력으로 최고 품질의 아웃풋 생성'],
+    eScore: 32, fScore: 68,
+    best: { emoji:'🔥', title:'따뜻한 벽난로형', sub:'논리에 온기를 더해주는 이상적인 짝꿍' },
+    worst: { emoji:'🕵️', title:'비밀 요원형', sub:'서로 말이 없어서 답답할 수 있음' },
+  },
+};
+
+/* ─────────────────────────────────────────
+   구글 애드센스 컴포넌트
+   나중에 활성화할 때:
+   1. 위 <head>의 애드센스 <script> 주석 해제
+   2. data-ad-client → 실제 ca-pub-XXXXXXXX 로 교체
+   3. data-ad-slot   → 실제 슬롯 ID로 교체 (로딩용/결과용 각각)
+───────────────────────────────────────── */
+function GoogleAd({ slot, format = 'auto', style = {} }) {
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    try {
+      if (window.adsbygoogle) {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      }
+    } catch(e) {}
+  }, []);
+
+  /* 애드센스 미승인/로컬 환경일 때 보이는 자리 표시자 */
+  const isLive = typeof window !== 'undefined' && window.adsbygoogle;
+
+  return (
+    <div style={{ width:'100%', ...style }}>
+      {isLive ? (
+        <ins
+          ref={ref}
+          className="adsbygoogle"
+          style={{ display:'block', width:'100%' }}
+          data-ad-client="ca-pub-XXXXXXXX"
+          data-ad-slot={slot}
+          data-ad-format={format}
+          data-full-width-responsive="true"
+        />
+      ) : (
+        /* 개발/로컬 환경 전용 자리 표시자 — 실제 서비스에선 표시 안 됨 */
+        <div style={{
+          background:'#f0f4ff',
+          border:'1.5px dashed #bfcfff',
+          borderRadius:'12px',
+          padding:'18px',
+          textAlign:'center',
+          color:'#7a93cc',
+          fontSize:'12px',
+          fontWeight:600
+        }}>
+          📢 광고 영역 (Google AdSense)<br/>
+          <span style={{fontWeight:400, opacity:0.7}}>슬롯 ID: {slot}</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+const LOADING_TEXTS = [
+  '답변 분석 중...',
+  '사회적 생존 지수 계산 중...',
+  '성향 패턴 매칭 중...',
+  '결과 생성 중...',
+];
+
+function ProgressBar({ current, total }) {
+  const pct = Math.round((current / total) * 100);
+  return (
+    <div className="w-full mb-6">
+      <div className="flex justify-between text-xs text-gray-400 mb-1.5 font-medium">
+        <span>{current} / {total}</span>
+        <span>{pct}%</span>
+      </div>
+      <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
+        <div
+          className="h-full rounded-full transition-all duration-500 ease-out"
+          style={{ width: `${pct}%`, background: '#0064FF' }}
+        />
+      </div>
+    </div>
+  );
+}
+
+function IntroPhase({ onStart }) {
+  return (
+    <div className="fade-up flex flex-col items-center justify-center min-h-screen px-5 py-12">
+      <div className="w-full max-w-sm">
+        <div className="text-center mb-8">
+          <div className="text-6xl mb-4">🎭</div>
+          <div className="inline-block bg-blue-50 text-toss text-xs font-bold px-3 py-1 rounded-full mb-4" style={{color:'#0064FF'}}>
+            직장인 성향 테스트
+          </div>
+          <h1 className="text-2xl font-extrabold text-gray-900 leading-tight mb-3">
+            내가 사회에서 숨겨둔<br/>'진짜 모습'은?
+          </h1>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            20개의 직장 상황으로 알아보는<br/>나의 사회적 성향 완전 분석
+          </p>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-sm p-5 mb-5">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-2xl">⚡</span>
+            <div>
+              <div className="text-sm font-bold text-gray-900">약 3분 소요</div>
+              <div className="text-xs text-gray-400">20문항 · 4가지 성향 유형</div>
+            </div>
+          </div>
+          <div className="flex gap-2">
+            {['🔥 벽난로형','🏇 경주마형','🕵️ 요원형','🤖 가이드형'].map(t => (
+              <div key={t} className="flex-1 bg-gray-50 rounded-xl py-2 px-1 text-center text-xs text-gray-600 font-medium">{t}</div>
+            ))}
+          </div>
+        </div>
+
+        <button
+          onClick={onStart}
+          className="w-full py-4 rounded-2xl text-white font-bold text-lg shadow-lg active:scale-95 transition-transform duration-150"
+          style={{background:'#0064FF', boxShadow:'0 4px 24px rgba(0,100,255,0.35)'}}
+        >
+          테스트 시작하기
+        </button>
+        <p className="text-center text-xs text-gray-400 mt-3">
+          현재까지 <span className="font-bold text-gray-600">142,503명</span>이 확인했어요
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function BridgePhase({ msg }) {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center" style={{background:'#0064FF', zIndex:50}}>
+      <div className="bridge-anim text-center text-white px-8">
+        <div className="text-5xl mb-4">{msg.emoji}</div>
+        <div className="text-2xl font-extrabold mb-2">{msg.title}</div>
+        <div className="text-base opacity-80">{msg.sub}</div>
+      </div>
+    </div>
+  );
+}
+
+function QuestionPhase({ question, qIndex, total, onAnswer }) {
+  const [selected, setSelected] = useState(null);
+  const [key, setKey] = useState(0);
+
+  useEffect(() => {
+    setSelected(null);
+    setKey(k => k + 1);
+  }, [qIndex]);
+
+  const handleSelect = (choice) => {
+    if (selected !== null) return;
+    setSelected(choice);
+    setTimeout(() => onAnswer(choice), 220);
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col px-5 py-8" style={{paddingTop:'env(safe-area-inset-top, 32px)'}}>
+      <ProgressBar current={qIndex + 1} total={total} />
+
+      <div key={key} className="fade-up flex-1 flex flex-col justify-center">
+        <div className="bg-white rounded-2xl shadow-sm p-6 mb-4">
+          <div className="text-xs font-bold mb-3 rounded-full inline-block px-3 py-1" style={{background:'#EFF5FF', color:'#0064FF'}}>
+            Q{qIndex + 1}
+          </div>
+          <p className="text-lg font-bold text-gray-900 leading-snug">{question.q}</p>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          {[
+            { choice:'A', label: question.a },
+            { choice:'B', label: question.b },
+          ].map(({ choice, label }) => (
+            <button
+              key={choice}
+              onClick={() => handleSelect(choice)}
+              className={`btn-choice w-full text-left p-5 rounded-2xl border-2 font-semibold text-base transition-all duration-200 ${
+                selected === choice
+                  ? 'selected border-blue-600 bg-blue-600 text-white'
+                  : selected !== null
+                    ? 'border-gray-100 bg-gray-50 text-gray-300'
+                    : 'border-gray-100 bg-white text-gray-800 hover:border-blue-300 hover:bg-blue-50'
+              }`}
+            >
+              <span className="inline-block w-7 h-7 rounded-full text-center leading-7 text-sm font-bold mr-3"
+                style={selected === choice
+                  ? {background:'rgba(255,255,255,0.25)', color:'#fff'}
+                  : {background:'#F3F4F6', color:'#6B7280'}}>
+                {choice}
+              </span>
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <p className="text-center text-xs text-gray-300 mt-6">선택하면 자동으로 다음 질문으로 넘어가요</p>
+    </div>
+  );
+}
+
+function LoadingPhase() {
+  const [textIdx, setTextIdx] = useState(0);
+  useEffect(() => {
+    const iv = setInterval(() => setTextIdx(i => (i + 1) % LOADING_TEXTS.length), 620);
+    return () => clearInterval(iv);
+  }, []);
+
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-between px-5 py-12">
+      <div className="flex-1 flex flex-col items-center justify-center">
+        <div className="mb-8">
+          <div className="w-16 h-16 rounded-full border-4 border-blue-100 border-t-blue-600 spinner" />
+        </div>
+        <h2 className="text-xl font-extrabold text-gray-900 mb-2 text-center">결과 분석 중</h2>
+        <p className="text-sm text-gray-400 fade-in" key={textIdx}>{LOADING_TEXTS[textIdx]}</p>
+      </div>
+
+      <div className="w-full max-w-sm">
+        <div className="text-xs font-bold text-gray-400 mb-2 text-center">광고</div>
+        {/* ✅ 로딩 화면 광고 — data-ad-slot을 실제 슬롯 ID로 교체 */}
+        <GoogleAd slot="1111111111" format="auto" />
+      </div>
+    </div>
+  );
+}
+
+function AdPhase({ onDone }) {
+  const [remaining, setRemaining] = React.useState(30);
+  const [done, setDone] = React.useState(false);
+
+  React.useEffect(() => {
+    if (remaining <= 0) { setDone(true); return; }
+    const t = setTimeout(() => setRemaining(r => r - 1), 1000);
+    return () => clearTimeout(t);
+  }, [remaining]);
+
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-between px-5 py-10">
+      <div className="w-full max-w-sm">
+        <p className="text-xs text-gray-400 font-bold mb-2 text-center">광고 시청 후 결과를 확인할 수 있어요</p>
+
+        {/* 영상 광고 영역 */}
+        <div className="relative w-full rounded-2xl overflow-hidden bg-black mb-3" style={{aspectRatio:'16/9'}}>
+
+          {/* ✅ 실제 광고 영상: 아래 iframe src를 광고 영상 URL로 교체하세요 */}
+          {/* 예) 유튜브 인스트림 광고, 프로그래매틱 VAST 태그 등 */}
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&rel=0&modestbranding=1"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            style={{width:'100%', height:'100%', border:'none', position:'absolute', inset:0}}
+          />
+
+          {/* 카운트다운 배지 */}
+          {!done && (
+            <div className="absolute top-3 right-3 bg-black bg-opacity-70 text-white text-xs font-bold px-2.5 py-1 rounded-full">
+              {remaining}초 후 건너뛰기
+            </div>
+          )}
+          {done && (
+            <div className="absolute top-3 right-3 bg-black bg-opacity-70 text-white text-xs font-bold px-2.5 py-1 rounded-full">
+              ✅ 광고 완료
+            </div>
+          )}
+        </div>
+
+        {/* 광고 라벨 */}
+        <div className="flex items-center justify-between mb-6">
+          <span className="text-xs text-gray-400">스폰서 광고</span>
+          {/* 프로그레스 바 */}
+          <div className="flex-1 mx-3 bg-gray-200 rounded-full h-1 overflow-hidden">
+            <div
+              className="h-full rounded-full transition-all duration-1000 ease-linear"
+              style={{ width: `${((30 - remaining) / 30) * 100}%`, background: '#0064FF' }}
+            />
+          </div>
+          <span className="text-xs font-bold" style={{color: done ? '#10B981' : '#0064FF'}}>
+            {done ? '완료' : `${remaining}s`}
+          </span>
+        </div>
+
+        {/* 결과 보러가기 버튼 */}
+        <button
+          onClick={done ? onDone : undefined}
+          disabled={!done}
+          className="w-full py-4 rounded-2xl font-bold text-base transition-all duration-300"
+          style={{
+            background: done ? '#0064FF' : '#E5E7EB',
+            color: done ? '#fff' : '#9CA3AF',
+            boxShadow: done ? '0 4px 24px rgba(0,100,255,0.35)' : 'none',
+            cursor: done ? 'pointer' : 'not-allowed',
+            transform: done ? 'scale(1)' : 'scale(0.98)',
+          }}
+        >
+          {done ? '🎉 결과 보러가기 →' : `⏳ ${remaining}초 후 결과 확인 가능`}
+        </button>
+
+        {!done && (
+          <p className="text-center text-xs text-gray-400 mt-3">
+            광고를 시청해주셔서 감사해요 🙏
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function BarStat({ label, value, color }) {
+  return (
+    <div className="mb-3">
+      <div className="flex justify-between text-xs font-semibold text-gray-600 mb-1.5">
+        <span>{label}</span>
+        <span style={{color}}>{value}%</span>
+      </div>
+      <div className="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden">
+        <div
+          className="bar-fill h-full rounded-full"
+          style={{ '--target-width': `${value}%`, width:`${value}%`, background: color }}
+        />
+      </div>
+    </div>
+  );
+}
+
+function ResultPhase({ result, onRestart }) {
+  const handleShare = () => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(window.location.href).then(() => alert('링크가 복사되었어요! 친구에게 공유해보세요 😊'));
+    } else {
+      alert('링크를 복사해서 친구에게 공유해보세요!\n' + window.location.href);
+    }
+  };
+
+  return (
+    <div className="min-h-screen px-5 py-10 pb-20">
+      <div className="max-w-sm mx-auto">
+
+        {/* 결과 헤더 카드 */}
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4 text-center">
+          <div className="text-5xl mb-3">{result.emoji}</div>
+          <div className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-2" style={{background:'#EFF5FF', color:'#0064FF'}}>
+            나의 사회 성향 유형
+          </div>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-1">{result.title}</h2>
+          <p className="text-sm font-semibold mb-4" style={{color:'#0064FF'}}>{result.subtitle}</p>
+          <p className="text-sm text-gray-600 leading-relaxed">{result.desc}</p>
+        </div>
+
+        {/* 만렙 지수 */}
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4" style={{animationDelay:'0.08s'}}>
+          <h3 className="text-sm font-extrabold text-gray-900 mb-4">📊 나의 사회생활 만렙 지수</h3>
+          <BarStat label="🗣️ 외향 에너지" value={result.eScore} color="#0064FF" />
+          <BarStat label="❤️ 감성 공감력" value={result.fScore} color="#FF6B6B" />
+          <BarStat label="🧠 논리 분석력" value={100 - result.fScore} color="#7C3AED" />
+          <BarStat label="⚡ 행동 추진력" value={Math.round((result.eScore + (100 - result.fScore)) / 2)} color="#10B981" />
+        </div>
+
+        {/* 특징 3줄 */}
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4" style={{animationDelay:'0.14s'}}>
+          <h3 className="text-sm font-extrabold text-gray-900 mb-4">✨ 나의 핵심 특징 3가지</h3>
+          {result.traits.map((t, i) => (
+            <div key={i} className="flex gap-3 mb-3 last:mb-0">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{background:'#0064FF'}}>
+                {i + 1}
+              </div>
+              <p className="text-sm text-gray-700 leading-relaxed">{t}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* 궁합 */}
+        <div className="fade-up grid grid-cols-2 gap-3 mb-4" style={{animationDelay:'0.2s'}}>
+          <div className="bg-white rounded-2xl shadow-sm p-4">
+            <div className="text-xs font-bold text-green-500 mb-2">💚 찰떡 궁합</div>
+            <div className="text-2xl mb-1">{result.best.emoji}</div>
+            <div className="text-sm font-bold text-gray-900 mb-1">{result.best.title}</div>
+            <div className="text-xs text-gray-400 leading-tight">{result.best.sub}</div>
+          </div>
+          <div className="bg-white rounded-2xl shadow-sm p-4">
+            <div className="text-xs font-bold text-red-400 mb-2">🌶️ 개밥바라기</div>
+            <div className="text-2xl mb-1">{result.worst.emoji}</div>
+            <div className="text-sm font-bold text-gray-900 mb-1">{result.worst.title}</div>
+            <div className="text-xs text-gray-400 leading-tight">{result.worst.sub}</div>
+          </div>
+        </div>
+
+        {/* 결과 화면 광고 */}
+        <div className="fade-up mb-4" style={{animationDelay:'0.22s'}}>
+          <div className="text-xs font-bold text-gray-400 mb-2 text-center">광고</div>
+          {/* ✅ 결과 화면 광고 — data-ad-slot을 실제 슬롯 ID로 교체 */}
+          <GoogleAd slot="2222222222" format="auto" />
+        </div>
+
+        {/* 액션 버튼 */}
+        <div className="fade-up flex flex-col gap-3" style={{animationDelay:'0.26s'}}>
+          <button
+            onClick={handleShare}
+            className="w-full py-4 rounded-2xl font-bold text-base border-2 border-gray-200 bg-white text-gray-800 active:scale-95 transition-transform duration-150"
+          >
+            🔗 결과 공유하기
+          </button>
+          <a
+            href="https://example.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full py-4 rounded-2xl text-white font-bold text-base text-center active:scale-95 transition-transform duration-150"
+            style={{background:'#0064FF', boxShadow:'0 4px 24px rgba(0,100,255,0.3)'}}
+          >
+            💡 내 성향에 맞는 멘탈 관리 팁 보러가기
+          </a>
+          <button
+            onClick={onRestart}
+            className="w-full py-3 rounded-2xl text-sm text-gray-400 font-medium active:scale-95 transition-transform duration-150"
+          >
+            🔄 다시 테스트하기
+          </button>
+          <a
+            href="index.html"
+            className="block w-full py-3 rounded-2xl text-sm text-gray-400 font-medium text-center active:scale-95 transition-transform duration-150"
+            style={{textDecoration:'none'}}
+          >
+            🏠 다른 테스트 보러가기
+          </a>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const [phase, setPhase] = useState('INTRO');
+  const [qIndex, setQIndex] = useState(0);
+  const [scores, setScores] = useState({ E:0, I:0, F:0, T:0 });
+  const [result, setResult] = useState(null);
+  const [showBridge, setShowBridge] = useState(false);
+  const [bridgeMsg, setBridgeMsg] = useState(null);
+
+  const handleStart = () => {
+    setPhase('QUESTION');
+    setQIndex(0);
+    setScores({ E:0, I:0, F:0, T:0 });
+  };
+
+  const handleAnswer = (choice) => {
+    const q = QUESTIONS[qIndex];
+    const type = choice === 'A' ? q.typeA : q.typeB;
+    const newScores = { ...scores, [type]: scores[type] + 1 };
+    setScores(newScores);
+
+    const nextIdx = qIndex + 1;
+
+    if (nextIdx >= QUESTIONS.length) {
+      // Done
+      const ei = newScores.E >= newScores.I ? 'E' : 'I';
+      const ft = newScores.F >= newScores.T ? 'F' : 'T';
+      const key = ei + ft;
+      setResult(RESULTS[key] || RESULTS['ET']);
+      setPhase('LOADING');
+      setTimeout(() => setPhase('AD'), 2500);
+      return;
+    }
+
+    // Bridge at 5, 10, 15
+    if (BRIDGE_MESSAGES[nextIdx]) {
+      setBridgeMsg(BRIDGE_MESSAGES[nextIdx]);
+      setShowBridge(true);
+      setTimeout(() => {
+        setShowBridge(false);
+        setQIndex(nextIdx);
+      }, 850);
+    } else {
+      setQIndex(nextIdx);
+    }
+  };
+
+  const handleAdDone = () => setPhase('RESULT');
+
+  const handleRestart = () => {
+    setPhase('INTRO');
+    setQIndex(0);
+    setScores({ E:0, I:0, F:0, T:0 });
+    setResult(null);
+  };
+
+  return (
+    <div style={{background:'#F3F4F6', minHeight:'100vh'}}>
+      <div className="max-w-sm mx-auto" style={{minHeight:'100vh', background:'#F3F4F6'}}>
+
+        {showBridge && bridgeMsg && <BridgePhase msg={bridgeMsg} />}
+
+        {phase === 'INTRO' && <IntroPhase onStart={handleStart} />}
+        {phase === 'QUESTION' && !showBridge && (
+          <QuestionPhase
+            question={QUESTIONS[qIndex]}
+            qIndex={qIndex}
+            total={QUESTIONS.length}
+            onAnswer={handleAnswer}
+          />
+        )}
+        {phase === 'LOADING' && <LoadingPhase />}
+        {phase === 'AD' && <AdPhase onDone={handleAdDone} />}
+        {phase === 'RESULT' && result && <ResultPhase result={result} onRestart={handleRestart} />}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
