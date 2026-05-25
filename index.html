@@ -3,7 +3,51 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>InsideMe — 나를 알아가는 테스트</title>
+
+<!-- Primary SEO -->
+<title>InsideMe — 무료 심리테스트 모음 | 나를 알아가는 테스트</title>
+<meta name="title" content="InsideMe — 무료 심리테스트 모음 | 나를 알아가는 테스트"/>
+<meta name="description" content="사회 성향, 연애 유형, 직업 적성까지 — 다양한 무료 심리테스트로 나의 진짜 모습을 발견하세요. 3분이면 결과가 나와요."/>
+<meta name="keywords" content="심리테스트, 성향테스트, 무료심리테스트, 성격테스트, MBTI, 연애테스트, 직장인테스트, 사회성향테스트"/>
+<meta name="author" content="InsideMe"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://insideme.kr/"/>
+
+<!-- Open Graph (카카오톡/SNS 공유) -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://insideme.kr/"/>
+<meta property="og:site_name" content="InsideMe"/>
+<meta property="og:title" content="InsideMe — 무료 심리테스트 모음"/>
+<meta property="og:description" content="사회 성향, 연애 유형, 직업 적성까지 — 무료 심리테스트로 나의 진짜 모습을 발견하세요."/>
+<meta property="og:image" content="https://insideme.kr/og/home.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="ko_KR"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:url" content="https://insideme.kr/"/>
+<meta name="twitter:title" content="InsideMe — 무료 심리테스트 모음"/>
+<meta name="twitter:description" content="사회 성향, 연애 유형, 직업 적성까지 — 무료 심리테스트로 나의 진짜 모습을 발견하세요."/>
+<meta name="twitter:image" content="https://insideme.kr/og/home.png"/>
+
+<!-- JSON-LD 구조화 데이터 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "InsideMe",
+  "url": "https://insideme.kr",
+  "description": "다양한 무료 심리테스트로 나의 진짜 모습을 발견하는 사이트",
+  "inLanguage": "ko",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://insideme.kr/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
@@ -91,20 +135,24 @@
     <!-- 🔒 준비 중 테스트들 -->
     <!-- 새 테스트 추가할 때: 위 카드를 복사하고 href, 이모지, 제목, 설명, 통계만 바꾸면 됩니다 -->
 
-    <div class="fade-up" style="animation-delay:0.13s;">
-      <div style="background:#fff; border-radius:20px; padding:20px; display:flex; align-items:center; gap:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); opacity:0.5;">
-        <div style="width:52px; height:52px; background:#F3F4F6; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0;">💘</div>
-        <div style="flex:1;">
+    <a href="love.html" style="text-decoration:none;" class="fade-up" style="animation-delay:0.13s;">
+      <div class="card-hover" style="background:#fff; border-radius:20px; padding:20px; display:flex; align-items:center; gap:16px; box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+        <div style="width:52px; height:52px; background:#FFF0F5; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:26px; flex-shrink:0;">💘</div>
+        <div style="flex:1; min-width:0;">
           <div style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
             <span style="font-size:0.95rem; font-weight:800; color:#111;">연애 성향 테스트</span>
-            <span style="background:#F3F4F6; color:#9CA3AF; font-size:0.65rem; font-weight:700; padding:2px 8px; border-radius:100px;">준비중</span>
+            <span style="background:#FFF0F5; color:#FF4081; font-size:0.65rem; font-weight:700; padding:2px 8px; border-radius:100px;">NEW</span>
           </div>
-          <p style="font-size:0.8rem; color:#6B7280; margin:0 0 8px; line-height:1.4;">나는 어떤 연애를 하는 사람일까?</p>
-          <div style="font-size:0.72rem; color:#9CA3AF;">곧 출시 예정이에요</div>
+          <p style="font-size:0.8rem; color:#6B7280; margin:0 0 8px; line-height:1.4;">나는 어떤 사랑을 하는 사람일까?</p>
+          <div style="display:flex; gap:8px; font-size:0.72rem; color:#9CA3AF;">
+            <span>📝 20문항</span>
+            <span>⏱ 약 3분</span>
+            <span>💑 4가지 연애 유형</span>
+          </div>
         </div>
-        <div style="color:#E5E7EB; font-size:1.1rem;">›</div>
+        <div style="color:#D1D5DB; font-size:1.1rem; flex-shrink:0;">›</div>
       </div>
-    </div>
+    </a>
 
     <div class="fade-up" style="animation-delay:0.16s;">
       <div style="background:#fff; border-radius:20px; padding:20px; display:flex; align-items:center; gap:16px; box-shadow:0 1px 4px rgba(0,0,0,0.04); opacity:0.5;">

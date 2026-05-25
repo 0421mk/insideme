@@ -7,6 +7,22 @@
 
 ---
 
+## [v1.2.0] — 2026-05-25
+### Added
+- 연애 성향 테스트 (`love.html`) — 20문항, 4가지 유형 (불꽃 낭만형·전략적 헌터형·수줍은 달빛형·쿨한 관망형)
+- `robots.txt` — 검색엔진 크롤링 허용
+- `sitemap.xml` — 전체 페이지 색인 등록
+
+### Changed (SEO 전면 적용)
+- 모든 페이지 Primary 메타태그 추가 (title, description, keywords, canonical)
+- 모든 페이지 Open Graph 태그 추가 (카카오톡/SNS 공유 미리보기)
+- 모든 페이지 Twitter Card 태그 추가
+- 모든 페이지 JSON-LD 구조화 데이터 추가 (WebSite / Quiz 스키마)
+- `social.html` noscript 폴백 콘텐츠 추가 (검색봇 대응)
+- `index.html` 연애 성향 테스트 카드 활성화
+
+---
+
 ## [v1.0.0] — 2026-05-25
 ### Added
 - InsideMe 홈페이지 (`index.html`) — 테스트 목록 카드 UI
