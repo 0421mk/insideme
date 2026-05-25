@@ -506,14 +506,23 @@ function ResultPhase({ result, onRestart }) {
 }
 
 function App() {
-  const [phase, setPhase] = useState('INTRO');
+  const getInitial = () => {
+    const m = window.location.hash.match(/#r=([A-Z]{2})/);
+    if (m && RESULTS[m[1]]) return { phase:'RESULT', result:RESULTS[m[1]] };
+    return { phase:'INTRO', result:null };
+  };
+  const init = getInitial();
+  const [phase, setPhase] = useState(init.phase);
   const [qIndex, setQIndex] = useState(0);
   const [scores, setScores] = useState({ E:0, S:0, C:0, V:0 });
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState(init.result);
   const [showBridge, setShowBridge] = useState(false);
   const [bridgeMsg, setBridgeMsg] = useState(null);
 
-  const handleStart = () => { setPhase('QUESTION'); setQIndex(0); setScores({E:0,S:0,C:0,V:0}); };
+  const handleStart = () => {
+    history.replaceState(null, '', window.location.pathname);
+    setPhase('QUESTION'); setQIndex(0); setScores({E:0,S:0,C:0,V:0});
+  };
 
   const handleAnswer = (choice) => {
     const q = QUESTIONS[qIndex];
@@ -524,7 +533,9 @@ function App() {
     if (nextIdx >= QUESTIONS.length) {
       const es = newScores.E >= newScores.S ? 'E' : 'S';
       const cv = newScores.C >= newScores.V ? 'C' : 'V';
-      setResult(RESULTS[es+cv] || RESULTS['EC']);
+      const key = es+cv;
+      setResult(RESULTS[key] || RESULTS['EC']);
+      history.replaceState(null, '', '#r=' + key);
       setPhase('LOADING');
       setTimeout(() => setPhase('AD'), 2500);
       return;
@@ -538,7 +549,10 @@ function App() {
     }
   };
 
-  const handleRestart = () => { setPhase('INTRO'); setQIndex(0); setScores({E:0,S:0,C:0,V:0}); setResult(null); };
+  const handleRestart = () => {
+    history.replaceState(null, '', window.location.pathname);
+    setPhase('INTRO'); setQIndex(0); setScores({E:0,S:0,C:0,V:0}); setResult(null);
+  };
 
   return (
     <div style={{background:'#F3F4F6', minHeight:'100vh'}}>

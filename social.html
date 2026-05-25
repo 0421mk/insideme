@@ -601,14 +601,21 @@ function ResultPhase({ result, onRestart }) {
 }
 
 function App() {
-  const [phase, setPhase] = useState('INTRO');
+  const getInitial = () => {
+    const m = window.location.hash.match(/#r=([A-Z]{2})/);
+    if (m && RESULTS[m[1]]) return { phase:'RESULT', result:RESULTS[m[1]] };
+    return { phase:'INTRO', result:null };
+  };
+  const init = getInitial();
+  const [phase, setPhase] = useState(init.phase);
   const [qIndex, setQIndex] = useState(0);
   const [scores, setScores] = useState({ E:0, I:0, F:0, T:0 });
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState(init.result);
   const [showBridge, setShowBridge] = useState(false);
   const [bridgeMsg, setBridgeMsg] = useState(null);
 
   const handleStart = () => {
+    history.replaceState(null, '', window.location.pathname);
     setPhase('QUESTION');
     setQIndex(0);
     setScores({ E:0, I:0, F:0, T:0 });
@@ -628,6 +635,7 @@ function App() {
       const ft = newScores.F >= newScores.T ? 'F' : 'T';
       const key = ei + ft;
       setResult(RESULTS[key] || RESULTS['ET']);
+      history.replaceState(null, '', '#r=' + key);
       setPhase('LOADING');
       setTimeout(() => setPhase('AD'), 2500);
       return;
@@ -649,6 +657,7 @@ function App() {
   const handleAdDone = () => setPhase('RESULT');
 
   const handleRestart = () => {
+    history.replaceState(null, '', window.location.pathname);
     setPhase('INTRO');
     setQIndex(0);
     setScores({ E:0, I:0, F:0, T:0 });
