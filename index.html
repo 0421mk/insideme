@@ -59,6 +59,8 @@
   body { background: #F3F4F6; font-family: 'Pretendard', 'Apple SD Gothic Neo', system-ui, sans-serif; margin: 0; }
   @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
   .fade-up { animation: fadeUp 0.4s cubic-bezier(0.22,1,0.36,1) both; }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  .info-row { animation: fadeIn 0.4s ease both; }
   .card-hover { transition: transform 0.2s cubic-bezier(0.22,1,0.36,1), box-shadow 0.2s; }
   .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.10); }
   .card-hover:active { transform: scale(0.98); }
@@ -127,10 +129,14 @@
             <span id="badge-social" style="display:none; background:#FEF3C7; color:#D97706; font-size:0.65rem; font-weight:700; padding:2px 8px; border-radius:100px;">🏆 인기</span>
           </div>
           <p style="font-size:0.8rem; color:#6B7280; margin:0 0 8px; line-height:1.4;">내가 사회에서 숨겨둔 진짜 모습은?</p>
-          <div style="display:flex; gap:8px; font-size:0.72rem; color:#9CA3AF;">
-            <span>📝 20문항</span>
-            <span>⏱ 약 3분</span>
-            <span id="count-social"></span>
+          <div id="stats-social" class="info-row" style="display:flex; gap:8px; font-size:0.72rem; color:#9CA3AF;">
+            <span>📝 20문항</span><span>⏱ 약 3분</span><span id="count-social"></span>
+          </div>
+          <div id="types-social" class="info-row" style="display:none; gap:6px; flex-wrap:wrap;">
+            <span style="background:#EFF5FF; color:#0064FF; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🔥 벽난로형</span>
+            <span style="background:#EFF5FF; color:#0064FF; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🏇 경주마형</span>
+            <span style="background:#EFF5FF; color:#0064FF; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🕵️ 요원형</span>
+            <span style="background:#EFF5FF; color:#0064FF; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🤖 가이드형</span>
           </div>
         </div>
         <div style="color:#D1D5DB; font-size:1.1rem; flex-shrink:0;">›</div>
@@ -150,10 +156,14 @@
             <span id="badge-love" style="display:none; background:#FEF3C7; color:#D97706; font-size:0.65rem; font-weight:700; padding:2px 8px; border-radius:100px;">🏆 인기</span>
           </div>
           <p style="font-size:0.8rem; color:#6B7280; margin:0 0 8px; line-height:1.4;">나는 어떤 사랑을 하는 사람일까?</p>
-          <div style="display:flex; gap:8px; font-size:0.72rem; color:#9CA3AF;">
-            <span>📝 20문항</span>
-            <span>⏱ 약 3분</span>
-            <span id="count-love"></span>
+          <div id="stats-love" class="info-row" style="display:flex; gap:8px; font-size:0.72rem; color:#9CA3AF;">
+            <span>📝 20문항</span><span>⏱ 약 3분</span><span id="count-love"></span>
+          </div>
+          <div id="types-love" class="info-row" style="display:none; gap:6px; flex-wrap:wrap;">
+            <span style="background:#FFF0F5; color:#FF4081; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🔥 불꽃 낭만형</span>
+            <span style="background:#FFF0F5; color:#FF4081; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🎯 헌터형</span>
+            <span style="background:#FFF0F5; color:#FF4081; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🌙 달빛형</span>
+            <span style="background:#FFF0F5; color:#FF4081; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🧊 관망형</span>
           </div>
         </div>
         <div style="color:#D1D5DB; font-size:1.1rem; flex-shrink:0;">›</div>
@@ -170,13 +180,15 @@
             <span id="badge-career" style="display:none; background:#FEF3C7; color:#D97706; font-size:0.65rem; font-weight:700; padding:2px 8px; border-radius:100px;">🏆 인기</span>
           </div>
           <p style="font-size:0.8rem; color:#6B7280; margin:0 0 8px; line-height:1.4;">나는 어떤 직업 DNA를 가졌을까?</p>
-          <div style="display:flex; gap:4px; flex-wrap:wrap;">
-            <span style="background:#F3F4F6; color:#6B7280; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🔥 불꽃형</span>
-            <span style="background:#F3F4F6; color:#6B7280; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🤝 연결형</span>
-            <span style="background:#F3F4F6; color:#6B7280; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🎯 전략형</span>
-            <span style="background:#F3F4F6; color:#6B7280; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🔬 전문가형</span>
+          <div id="stats-career" class="info-row" style="display:flex; gap:8px; font-size:0.72rem; color:#9CA3AF;">
+            <span>📝 20문항</span><span>⏱ 약 3분</span><span id="count-career"></span>
           </div>
-          <div style="margin-top:6px; font-size:0.72rem; color:#9CA3AF;"><span id="count-career"></span></div>
+          <div id="types-career" class="info-row" style="display:none; gap:6px; flex-wrap:wrap;">
+            <span style="background:#FFFBEB; color:#F59E0B; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🔥 불꽃형</span>
+            <span style="background:#FFFBEB; color:#F59E0B; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🤝 연결형</span>
+            <span style="background:#FFFBEB; color:#F59E0B; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🎯 전략형</span>
+            <span style="background:#FFFBEB; color:#F59E0B; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🔬 전문가형</span>
+          </div>
         </div>
         <div style="color:#D1D5DB; font-size:1.1rem; flex-shrink:0;">›</div>
       </div>
@@ -193,13 +205,15 @@
             <span id="badge-stress" style="display:none; background:#FEF3C7; color:#D97706; font-size:0.65rem; font-weight:700; padding:2px 8px; border-radius:100px;">🏆 인기</span>
           </div>
           <p style="font-size:0.8rem; color:#6B7280; margin:0 0 8px; line-height:1.4;">나는 스트레스를 어떻게 다루는 사람?</p>
-          <div style="display:flex; gap:4px; flex-wrap:wrap;">
-            <span style="background:#F3F4F6; color:#6B7280; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🔥 화산형</span>
-            <span style="background:#F3F4F6; color:#6B7280; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🎪 탈출형</span>
-            <span style="background:#F3F4F6; color:#6B7280; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🧊 냉동형</span>
-            <span style="background:#F3F4F6; color:#6B7280; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🐌 잠수형</span>
+          <div id="stats-stress" class="info-row" style="display:flex; gap:8px; font-size:0.72rem; color:#9CA3AF;">
+            <span>📝 20문항</span><span>⏱ 약 3분</span><span id="count-stress"></span>
           </div>
-          <div style="margin-top:6px; font-size:0.72rem; color:#9CA3AF;"><span id="count-stress"></span></div>
+          <div id="types-stress" class="info-row" style="display:none; gap:6px; flex-wrap:wrap;">
+            <span style="background:#F5F3FF; color:#8B5CF6; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🔥 화산형</span>
+            <span style="background:#F5F3FF; color:#8B5CF6; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🎪 탈출형</span>
+            <span style="background:#F5F3FF; color:#8B5CF6; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🧊 냉동형</span>
+            <span style="background:#F5F3FF; color:#8B5CF6; font-size:0.68rem; font-weight:600; padding:2px 8px; border-radius:100px;">🐌 잠수형</span>
+          </div>
         </div>
         <div style="color:#D1D5DB; font-size:1.1rem; flex-shrink:0;">›</div>
       </div>
@@ -219,6 +233,27 @@
 </div>
 
 <script>
+(function () {
+  var keys = ['social', 'love', 'career', 'stress'];
+  var showStats = true;
+  function toggleInfo() {
+    showStats = !showStats;
+    keys.forEach(function(k) {
+      var s = document.getElementById('stats-' + k);
+      var t = document.getElementById('types-' + k);
+      if (!s || !t) return;
+      if (showStats) {
+        t.style.display = 'none'; s.style.display = 'flex';
+        s.style.animation = 'none'; s.offsetHeight; s.style.animation = '';
+      } else {
+        s.style.display = 'none'; t.style.display = 'flex';
+        t.style.animation = 'none'; t.offsetHeight; t.style.animation = '';
+      }
+    });
+  }
+  setInterval(toggleInfo, 5000);
+})();
+
 (function () {
   var tests = ['social', 'love', 'career', 'stress'];
   var icons = { social: '👥', love: '💑', career: '💼', stress: '🌀' };
