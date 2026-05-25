@@ -58,8 +58,7 @@
 }
 </script>
 
-<!-- ✅ 구글 애드센스: ca-pub-XXXXXXXX를 실제 Publisher ID로 교체하세요 -->
-<!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script> -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4166451401478371" crossorigin="anonymous"></script>
 
 <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -104,9 +103,24 @@
 <body>
 <div id="root"></div>
 <script type="text/babel">
-const { useState, useEffect } = React;
+const { useState, useEffect, useRef } = React;
 
 const ACCENT = '#FF4081';
+
+function GoogleAd({ slot }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+  }, []);
+  return (
+    <ins ref={ref} className="adsbygoogle"
+      style={{display:'block', width:'100%'}}
+      data-ad-client="ca-pub-4166451401478371"
+      data-ad-slot={slot}
+      data-ad-format="auto"
+      data-full-width-responsive="true" />
+  );
+}
 const ACCENT_GLOW = 'rgba(255,64,129,0.3)';
 
 const QUESTIONS = [
@@ -322,10 +336,7 @@ function LoadingPhase() {
       </div>
       <div className="w-full max-w-sm">
         <div className="text-xs font-bold text-gray-400 mb-2 text-center">광고</div>
-        <div style={{background:'#f0f4ff',border:'1.5px dashed #bfcfff',borderRadius:'12px',padding:'18px',textAlign:'center',color:'#7a93cc',fontSize:'12px',fontWeight:600}}>
-          📢 광고 영역 (Google AdSense)<br/>
-          <span style={{fontWeight:400,opacity:0.7}}>도메인 연결 후 애드센스 코드로 교체하세요</span>
-        </div>
+        <GoogleAd slot="1111111111" />
       </div>
     </div>
   );
@@ -456,9 +467,7 @@ function ResultPhase({ result, onRestart }) {
 
         <div className="fade-up mb-4" style={{animationDelay:'0.22s'}}>
           <div className="text-xs font-bold text-gray-400 mb-2 text-center">광고</div>
-          <div style={{background:'#f0f4ff',border:'1.5px dashed #bfcfff',borderRadius:'12px',padding:'18px',textAlign:'center',color:'#7a93cc',fontSize:'12px',fontWeight:600}}>
-            📢 광고 영역 (Google AdSense)
-          </div>
+          <GoogleAd slot="2222222222" />
         </div>
 
         <div className="fade-up flex flex-col gap-3" style={{animationDelay:'0.26s'}}>
