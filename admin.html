@@ -160,6 +160,7 @@ function tryLogin() {
     document.getElementById('loginWrap').style.display = 'none';
     document.getElementById('dashboard').style.display = 'block';
     loadData();
+    setInterval(loadData, 30000);
   } else {
     document.getElementById('errMsg').textContent = '비밀번호가 틀렸어요.';
     document.getElementById('pwInput').value = '';
@@ -227,6 +228,7 @@ if (sessionStorage.getItem(PASS_KEY) === '1') {
   document.getElementById('loginWrap').style.display = 'none';
   document.getElementById('dashboard').style.display = 'block';
   loadData();
+  setInterval(loadData, 30000);
 }
 </script>
 </body>
