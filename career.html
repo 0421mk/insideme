@@ -631,6 +631,12 @@ function App() {
   return (
     <div style={{background:'#F3F4F6', minHeight:'100vh'}}>
       <div className="max-w-sm mx-auto" style={{minHeight:'100vh', background:'#F3F4F6'}}>
+
+        <a href="index.html" style={{textDecoration:'none', display:'flex', alignItems:'center', gap:'8px', padding:'16px 20px 8px'}}>
+          <div style={{width:'32px', height:'32px', background:'#0064FF', borderRadius:'10px', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'16px'}}>🧠</div>
+          <span style={{fontSize:'1rem', fontWeight:900, color:'#111', letterSpacing:'-0.5px'}}>InsideMe</span>
+        </a>
+
         {showBridge && bridgeMsg && <BridgePhase msg={bridgeMsg} />}
         {phase === 'INTRO' && <IntroPhase onStart={handleStart} />}
         {phase === 'QUESTION' && !showBridge && (
