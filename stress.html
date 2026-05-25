@@ -416,11 +416,24 @@ function BarStat({ label, value, color }) {
 }
 
 function ResultPhase({ result, onRestart }) {
-  const handleShare = () => {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(window.location.href).then(() => alert('링크가 복사되었어요! 친구에게 공유해보세요 🌀'));
-    } else {
-      alert('링크를 복사해서 친구에게 공유해보세요!\n' + window.location.href);
+  const handleShare = async () => {
+    const url = window.location.href;
+    const shareData = {
+      title: 'InsideMe 스트레스 유형 테스트',
+      text: `나의 스트레스 유형은 '${result.title}'! 너는 어떤 유형이야? 테스트해봐 👇`,
+      url,
+    };
+    if (navigator.share) {
+      try { await navigator.share(shareData); return; } catch(e) {}
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      alert('링크가 복사되었어요! 친구에게 공유해보세요 🌀');
+    } catch(e) {
+      const el = document.createElement('textarea');
+      el.value = url; document.body.appendChild(el); el.select();
+      document.execCommand('copy'); document.body.removeChild(el);
+      alert('링크가 복사되었어요! 친구에게 공유해보세요 🌀');
     }
   };
   return (
