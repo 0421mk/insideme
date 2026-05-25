@@ -503,6 +503,9 @@ function App() {
     return { phase:'INTRO', result:null };
   };
   const init = getInitial();
+  React.useEffect(() => {
+    fetch('https://api.counterapi.dev/v1/insideme-kr/love/up').catch(() => {});
+  }, []);
   const [phase, setPhase] = useState(init.phase);
   const [qIndex, setQIndex] = useState(0);
   const [scores, setScores] = useState({ X:0, P:0, E:0, R:0 });
