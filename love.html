@@ -214,7 +214,7 @@ function ProgressBar({ current, total }) {
   );
 }
 
-function IntroPhase({ onStart }) {
+function IntroPhase({ onStart, count }) {
   return (
     <div className="fade-up flex flex-col items-center justify-center min-h-screen px-5 py-12">
       <div className="w-full max-w-sm">
@@ -253,7 +253,7 @@ function IntroPhase({ onStart }) {
           테스트 시작하기
         </button>
         <p className="text-center text-xs text-gray-400 mt-3">
-          현재까지 <span className="font-bold text-gray-600">89,241명</span>이 확인했어요
+          현재까지 <span className="font-bold text-gray-600">{count ? count.toLocaleString('ko-KR') + '명' : '...'}</span>이 확인했어요
         </p>
         <div className="text-center mt-4">
           <a href="index.html" className="text-xs text-gray-300 hover:text-gray-400" style={{textDecoration:'none'}}>
@@ -512,8 +512,10 @@ function App() {
     return { phase:'INTRO', result:null };
   };
   const init = getInitial();
+  const [visitCount, setVisitCount] = useState(0);
   React.useEffect(() => {
-    fetch('https://api.counterapi.dev/v1/insideme-kr/love/up').catch(() => {});
+    fetch('https://api.counterapi.dev/v1/insideme-kr/love/up')
+      .then(r => r.json()).then(d => setVisitCount(d.count || 0)).catch(() => {});
   }, []);
   const [phase, setPhase] = useState(init.phase);
   const [qIndex, setQIndex] = useState(0);
@@ -569,7 +571,7 @@ function App() {
         </a>
 
         {showBridge && bridgeMsg && <BridgePhase msg={bridgeMsg}/>}
-        {phase==='INTRO' && <IntroPhase onStart={handleStart}/>}
+        {phase==='INTRO' && <IntroPhase onStart={handleStart} count={visitCount}/>}
         {phase==='QUESTION' && !showBridge && (
           <QuestionPhase question={QUESTIONS[qIndex]} qIndex={qIndex} total={QUESTIONS.length} onAnswer={handleAnswer}/>
         )}
