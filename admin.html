@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>InsideMe — 관리자</title>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; background: #F3F4F6; font-family: 'Pretendard', 'Apple SD Gothic Neo', system-ui, sans-serif; color: #111; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+  .fade-up { animation: fadeUp 0.4s ease both; }
+  .bar { height: 8px; border-radius: 100px; background: #E5E7EB; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 100px; transition: width 0.7s cubic-bezier(0.22,1,0.36,1); }
+
+  /* login */
+  #loginWrap { display:flex; align-items:center; justify-content:center; min-height:100vh; padding:24px; }
+  .login-box { background:#fff; border-radius:24px; padding:40px 32px; width:100%; max-width:360px; box-shadow:0 4px 24px rgba(0,0,0,0.08); text-align:center; }
+  .login-box h2 { font-size:1.2rem; font-weight:900; margin:12px 0 4px; }
+  .login-box p { font-size:0.82rem; color:#9CA3AF; margin:0 0 28px; }
+  .pw-input { width:100%; padding:14px 16px; border:2px solid #E5E7EB; border-radius:14px; font-size:0.95rem; font-family:inherit; outline:none; transition:border-color 0.15s; }
+  .pw-input:focus { border-color:#0064FF; }
+  .login-btn { width:100%; margin-top:12px; padding:14px; background:#0064FF; color:#fff; border:none; border-radius:14px; font-size:0.95rem; font-weight:700; font-family:inherit; cursor:pointer; transition:opacity 0.15s; }
+  .login-btn:hover { opacity:0.88; }
+  .err { color:#EF4444; font-size:0.78rem; margin-top:8px; min-height:20px; }
+
+  /* dashboard */
+  #dashboard { display:none; max-width:560px; margin:0 auto; padding:40px 20px 60px; }
+  .header { display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; }
+  .logo { display:flex; align-items:center; gap:10px; }
+  .logo-icon { width:38px; height:38px; background:#0064FF; border-radius:11px; display:flex; align-items:center; justify-content:center; font-size:18px; }
+  .logo-text { font-size:1.1rem; font-weight:900; }
+  .logo-sub { font-size:0.72rem; color:#9CA3AF; }
+  .refresh-btn { background:#0064FF; color:#fff; border:none; border-radius:10px; padding:9px 18px; font-size:0.8rem; font-weight:700; font-family:inherit; cursor:pointer; transition:opacity 0.15s; }
+  .refresh-btn:hover { opacity:0.85; }
+  .refresh-btn:disabled { opacity:0.5; cursor:default; }
+
+  .card { background:#fff; border-radius:20px; padding:22px; box-shadow:0 1px 4px rgba(0,0,0,0.06); margin-bottom:12px; }
+  .total-label { font-size:0.72rem; font-weight:700; color:#9CA3AF; letter-spacing:0.5px; margin-bottom:6px; }
+  .total-num { font-size:2.6rem; font-weight:900; line-height:1; }
+  .total-sub { font-size:0.8rem; color:#6B7280; margin-top:6px; }
+
+  .test-row { display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+  .test-icon { width:46px; height:46px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+  .test-info { flex:1; min-width:0; }
+  .test-name { font-size:0.88rem; font-weight:800; margin-bottom:2px; display:flex; align-items:center; gap:6px; }
+  .test-share { font-size:0.72rem; color:#9CA3AF; }
+  .test-count { text-align:right; flex-shrink:0; }
+  .test-count-num { font-size:1.35rem; font-weight:900; }
+  .test-count-label { font-size:0.65rem; color:#9CA3AF; }
+  .rank-badge { font-size:0.6rem; font-weight:700; padding:2px 8px; border-radius:100px; background:#FEF3C7; color:#D97706; }
+
+  .section-title { font-size:0.72rem; font-weight:700; color:#9CA3AF; letter-spacing:0.8px; text-transform:uppercase; margin:24px 0 12px; }
+
+  .stat-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .stat-card { background:#fff; border-radius:16px; padding:18px 16px; box-shadow:0 1px 4px rgba(0,0,0,0.06); }
+  .stat-icon { font-size:1.3rem; margin-bottom:8px; }
+  .stat-val { font-size:1.4rem; font-weight:900; }
+  .stat-label { font-size:0.72rem; color:#6B7280; margin-top:3px; }
+
+  .ga-notice { background:#FFF7ED; border-radius:16px; padding:16px; font-size:0.78rem; color:#92400E; line-height:1.7; margin-top:8px; }
+  .ga-notice a { color:#0064FF; text-decoration:none; }
+  .timestamp { text-align:center; font-size:0.7rem; color:#D1D5DB; margin-top:20px; }
+
+  .logout-btn { display:block; margin:24px auto 0; background:none; border:none; font-size:0.75rem; color:#D1D5DB; cursor:pointer; font-family:inherit; }
+  .logout-btn:hover { color:#9CA3AF; }
+</style>
+</head>
+<body>
+
+<!-- 로그인 -->
+<div id="loginWrap">
+  <div class="login-box fade-up">
+    <div style="font-size:36px;">🧠</div>
+    <h2>InsideMe 관리자</h2>
+    <p>비밀번호를 입력하세요</p>
+    <input id="pwInput" class="pw-input" type="password" placeholder="비밀번호" onkeydown="if(event.key==='Enter') tryLogin()"/>
+    <button class="login-btn" onclick="tryLogin()">로그인</button>
+    <div class="err" id="errMsg"></div>
+  </div>
+</div>
+
+<!-- 대시보드 -->
+<div id="dashboard">
+
+  <div class="header">
+    <div class="logo">
+      <div class="logo-icon">🧠</div>
+      <div>
+        <div class="logo-text">InsideMe</div>
+        <div class="logo-sub">관리자 대시보드</div>
+      </div>
+    </div>
+    <button class="refresh-btn" id="refreshBtn" onclick="loadData()">🔄 새로고침</button>
+  </div>
+
+  <!-- 총 방문 -->
+  <div class="card fade-up">
+    <div class="total-label">총 누적 방문</div>
+    <div class="total-num" id="totalCount">—</div>
+    <div class="total-sub">4개 테스트 합산</div>
+  </div>
+
+  <!-- 테스트별 -->
+  <div class="section-title">테스트별 방문</div>
+  <div id="testCards"></div>
+
+  <!-- 요약 스탯 -->
+  <div class="section-title">요약</div>
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="stat-icon">🏆</div>
+      <div class="stat-val" id="statTop">—</div>
+      <div class="stat-label">가장 인기있는 테스트</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">📊</div>
+      <div class="stat-val" id="statAvg">—</div>
+      <div class="stat-label">테스트당 평균 방문</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">📝</div>
+      <div class="stat-val">4</div>
+      <div class="stat-label">운영 중인 테스트</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">⏱</div>
+      <div class="stat-val">약 3분</div>
+      <div class="stat-label">테스트 평균 소요시간</div>
+    </div>
+  </div>
+
+  <!-- GA 안내 -->
+  <div class="section-title">더 자세한 분석</div>
+  <div class="ga-notice">
+    💡 <strong>체류시간 · 유입경로 · 기기별 · 지역별 통계</strong>는 Google Analytics(GA4) 연동이 필요합니다.<br/>
+    <a href="https://analytics.google.com" target="_blank">analytics.google.com</a>에서 무료로 설정하고 측정 ID를 각 페이지에 추가하면 돼요.
+  </div>
+
+  <div class="timestamp">마지막 업데이트: <span id="lastUpdated">—</span></div>
+  <button class="logout-btn" onclick="logout()">로그아웃</button>
+</div>
+
+<script>
+const PASS_KEY = 'im_admin_auth';
+const PASSWORD = 'insideme2026';
+
+const TESTS = [
+  { key:'social', name:'사회 성향 테스트', emoji:'🎭', color:'#0064FF', bg:'#EFF5FF' },
+  { key:'love',   name:'연애 성향 테스트', emoji:'💘', color:'#FF4081', bg:'#FFF0F5' },
+  { key:'career', name:'직업 적성 테스트', emoji:'🧬', color:'#F59E0B', bg:'#FFFBEB' },
+  { key:'stress', name:'스트레스 유형 테스트', emoji:'🌀', color:'#8B5CF6', bg:'#F5F3FF' },
+];
+
+function tryLogin() {
+  const val = document.getElementById('pwInput').value;
+  if (val === PASSWORD) {
+    sessionStorage.setItem(PASS_KEY, '1');
+    document.getElementById('loginWrap').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    loadData();
+  } else {
+    document.getElementById('errMsg').textContent = '비밀번호가 틀렸어요.';
+    document.getElementById('pwInput').value = '';
+  }
+}
+
+function logout() {
+  sessionStorage.removeItem(PASS_KEY);
+  location.reload();
+}
+
+async function loadData() {
+  const btn = document.getElementById('refreshBtn');
+  btn.textContent = '로딩 중...';
+  btn.disabled = true;
+
+  const results = await Promise.all(TESTS.map(t =>
+    fetch('https://api.counterapi.dev/v1/insideme-kr/' + t.key)
+      .then(r => r.json())
+      .then(d => ({ ...t, count: d.count || 0 }))
+      .catch(() => ({ ...t, count: 0 }))
+  ));
+
+  const total = results.reduce((s, r) => s + r.count, 0);
+  const max = Math.max(...results.map(r => r.count), 1);
+  const sorted = [...results].sort((a, b) => b.count - a.count);
+
+  document.getElementById('totalCount').textContent = total.toLocaleString('ko-KR') + '명';
+  document.getElementById('statTop').textContent = sorted[0].emoji + ' ' + sorted[0].name.replace(' 테스트', '');
+  document.getElementById('statAvg').textContent = Math.round(total / 4).toLocaleString('ko-KR') + '명';
+
+  document.getElementById('testCards').innerHTML = sorted.map((r, i) => {
+    const pct = Math.round(r.count / max * 100);
+    const share = total > 0 ? (r.count / total * 100).toFixed(1) : '0.0';
+    return `
+      <div class="card">
+        <div class="test-row">
+          <div class="test-icon" style="background:${r.bg};">${r.emoji}</div>
+          <div class="test-info">
+            <div class="test-name">
+              ${r.name}
+              ${i === 0 ? '<span class="rank-badge">🏆 1위</span>' : ''}
+            </div>
+            <div class="test-share">전체의 ${share}%</div>
+          </div>
+          <div class="test-count">
+            <div class="test-count-num">${r.count.toLocaleString('ko-KR')}</div>
+            <div class="test-count-label">방문</div>
+          </div>
+        </div>
+        <div class="bar">
+          <div class="bar-fill" style="width:${pct}%; background:${r.color};"></div>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  document.getElementById('lastUpdated').textContent = new Date().toLocaleString('ko-KR');
+  btn.textContent = '🔄 새로고침';
+  btn.disabled = false;
+}
+
+// 세션 유지 확인
+if (sessionStorage.getItem(PASS_KEY) === '1') {
+  document.getElementById('loginWrap').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'block';
+  loadData();
+}
+</script>
+</body>
+</html>
