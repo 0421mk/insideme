@@ -8,10 +8,10 @@
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"/>
 
 <!-- Primary SEO -->
-<title>직장인 사회 성향 테스트 — 내가 숨겨둔 진짜 모습은? | InsideMe</title>
-<meta name="title" content="직장인 사회 성향 테스트 — 내가 숨겨둔 진짜 모습은? | InsideMe"/>
-<meta name="description" content="20가지 직장 상황으로 알아보는 나의 사회적 성향. 벽난로형, 경주마형, 비밀요원형, 로봇가이드형 — 나는 어떤 유형? 무료 심리테스트 3분 완성."/>
-<meta name="keywords" content="직장인 성향 테스트, 사회 성향 테스트, 직장인 심리테스트, 무료 성향 테스트, 직장인 유형, 사회생활 테스트, MBTI 직장인"/>
+<title>직장인 사회 성향 테스트 — 내가 숨겨둔 진짜 모습은? | 인사이드미</title>
+<meta name="title" content="직장인 사회 성향 테스트 — 내가 숨겨둔 진짜 모습은? | 인사이드미"/>
+<meta name="description" content="인사이드미 사회 성향 테스트 — 20가지 직장 상황으로 알아보는 나의 사회적 성향. 벽난로형, 경주마형, 비밀요원형, 로봇가이드형 중 나는 어떤 유형? 무료 심리테스트 3분 완성."/>
+<meta name="keywords" content="인사이드미, 사회성향테스트, 직장인성향테스트, 직장인심리테스트, 무료성향테스트, 직장인유형, 사회생활테스트, MBTI직장인, 사회성테스트, 직장인테스트, 내성향알아보기"/>
 <meta name="author" content="InsideMe"/>
 <meta name="robots" content="index, follow"/>
 <link rel="canonical" href="https://insideme.kr/social.html"/>
@@ -19,9 +19,9 @@
 <!-- Open Graph (카카오톡/SNS 공유) -->
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://insideme.kr/social.html"/>
-<meta property="og:site_name" content="InsideMe"/>
-<meta property="og:title" content="내가 사회에서 숨겨둔 '진짜 모습'은? | 직장인 성향 테스트"/>
-<meta property="og:description" content="20가지 직장 상황 테스트 — 벽난로형, 경주마형, 비밀요원형, 로봇가이드형. 나는 어떤 유형? 지금 바로 확인해보세요!"/>
+<meta property="og:site_name" content="인사이드미 InsideMe"/>
+<meta property="og:title" content="내가 사회에서 숨겨둔 '진짜 모습'은? | 인사이드미 직장인 성향 테스트"/>
+<meta property="og:description" content="20가지 직장 상황 테스트 — 벽난로형, 경주마형, 비밀요원형, 로봇가이드형. 나는 어떤 유형? 인사이드미에서 지금 바로 확인해보세요!"/>
 <meta property="og:image" content="https://insideme.kr/og/social.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
@@ -47,7 +47,8 @@
   "educationalLevel": "adult",
   "author": {
     "@type": "Organization",
-    "name": "InsideMe",
+    "name": "인사이드미",
+    "alternateName": "InsideMe",
     "url": "https://insideme.kr"
   },
   "about": [
@@ -391,100 +392,13 @@ function LoadingPhase() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-between px-5 py-12">
-      <div className="flex-1 flex flex-col items-center justify-center">
+    <div className="min-h-screen flex flex-col items-center justify-center px-5 py-12">
+      <div className="flex flex-col items-center justify-center">
         <div className="mb-8">
           <div className="w-16 h-16 rounded-full border-4 border-blue-100 border-t-blue-600 spinner" />
         </div>
         <h2 className="text-xl font-extrabold text-gray-900 mb-2 text-center">결과 분석 중</h2>
         <p className="text-sm text-gray-400 fade-in" key={textIdx}>{LOADING_TEXTS[textIdx]}</p>
-      </div>
-
-      <div className="w-full max-w-sm">
-        <div className="text-xs font-bold text-gray-400 mb-2 text-center">광고</div>
-        {/* ✅ 로딩 화면 광고 — data-ad-slot을 실제 슬롯 ID로 교체 */}
-        <GoogleAd slot="1111111111" format="auto" />
-      </div>
-    </div>
-  );
-}
-
-function AdPhase({ onDone }) {
-  const [remaining, setRemaining] = React.useState(30);
-  const [done, setDone] = React.useState(false);
-
-  React.useEffect(() => {
-    if (remaining <= 0) { setDone(true); return; }
-    const t = setTimeout(() => setRemaining(r => r - 1), 1000);
-    return () => clearTimeout(t);
-  }, [remaining]);
-
-  return (
-    <div className="min-h-screen flex flex-col items-center justify-between px-5 py-10">
-      <div className="w-full max-w-sm">
-        <p className="text-xs text-gray-400 font-bold mb-2 text-center">광고 시청 후 결과를 확인할 수 있어요</p>
-
-        {/* 영상 광고 영역 */}
-        <div className="relative w-full rounded-2xl overflow-hidden bg-black mb-3" style={{aspectRatio:'16/9'}}>
-
-          {/* ✅ 실제 광고 영상: 아래 iframe src를 광고 영상 URL로 교체하세요 */}
-          {/* 예) 유튜브 인스트림 광고, 프로그래매틱 VAST 태그 등 */}
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&rel=0&modestbranding=1"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-            style={{width:'100%', height:'100%', border:'none', position:'absolute', inset:0}}
-          />
-
-          {/* 카운트다운 배지 */}
-          {!done && (
-            <div className="absolute top-3 right-3 bg-black bg-opacity-70 text-white text-xs font-bold px-2.5 py-1 rounded-full">
-              {remaining}초 후 건너뛰기
-            </div>
-          )}
-          {done && (
-            <div className="absolute top-3 right-3 bg-black bg-opacity-70 text-white text-xs font-bold px-2.5 py-1 rounded-full">
-              ✅ 광고 완료
-            </div>
-          )}
-        </div>
-
-        {/* 광고 라벨 */}
-        <div className="flex items-center justify-between mb-6">
-          <span className="text-xs text-gray-400">스폰서 광고</span>
-          {/* 프로그레스 바 */}
-          <div className="flex-1 mx-3 bg-gray-200 rounded-full h-1 overflow-hidden">
-            <div
-              className="h-full rounded-full transition-all duration-1000 ease-linear"
-              style={{ width: `${((30 - remaining) / 30) * 100}%`, background: '#0064FF' }}
-            />
-          </div>
-          <span className="text-xs font-bold" style={{color: done ? '#10B981' : '#0064FF'}}>
-            {done ? '완료' : `${remaining}s`}
-          </span>
-        </div>
-
-        {/* 결과 보러가기 버튼 */}
-        <button
-          onClick={done ? onDone : undefined}
-          disabled={!done}
-          className="w-full py-4 rounded-2xl font-bold text-base transition-all duration-300"
-          style={{
-            background: done ? '#0064FF' : '#E5E7EB',
-            color: done ? '#fff' : '#9CA3AF',
-            boxShadow: done ? '0 4px 24px rgba(0,100,255,0.35)' : 'none',
-            cursor: done ? 'pointer' : 'not-allowed',
-            transform: done ? 'scale(1)' : 'scale(0.98)',
-          }}
-        >
-          {done ? '🎉 결과 보러가기 →' : `⏳ ${remaining}초 후 결과 확인 가능`}
-        </button>
-
-        {!done && (
-          <p className="text-center text-xs text-gray-400 mt-3">
-            광고를 시청해주셔서 감사해요 🙏
-          </p>
-        )}
       </div>
     </div>
   );
@@ -651,7 +565,7 @@ function App() {
       setResult(RESULTS[key] || RESULTS['ET']);
       history.replaceState(null, '', '#r=' + key);
       setPhase('LOADING');
-      setTimeout(() => setPhase('AD'), 2500);
+      setTimeout(() => setPhase('RESULT'), 2500);
       return;
     }
 
@@ -668,8 +582,6 @@ function App() {
     }
   };
 
-  const handleAdDone = () => setPhase('RESULT');
-
   const handleRestart = () => {
     history.replaceState(null, '', window.location.pathname);
     setPhase('INTRO');
@@ -684,7 +596,7 @@ function App() {
 
         <a href="index.html" style={{textDecoration:'none', display:'flex', alignItems:'center', gap:'8px', padding:'16px 20px 8px'}}>
           <div style={{width:'32px', height:'32px', background:'#0064FF', borderRadius:'10px', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'16px'}}>🧠</div>
-          <span style={{fontSize:'1rem', fontWeight:900, color:'#111', letterSpacing:'-0.5px'}}>InsideMe</span>
+          <span style={{fontSize:'1rem', fontWeight:900, color:'#111', letterSpacing:'-0.5px'}}>인사이드미</span>
         </a>
 
         {showBridge && bridgeMsg && <BridgePhase msg={bridgeMsg} />}
@@ -699,7 +611,6 @@ function App() {
           />
         )}
         {phase === 'LOADING' && <LoadingPhase />}
-        {phase === 'AD' && <AdPhase onDone={handleAdDone} />}
         {phase === 'RESULT' && result && <ResultPhase result={result} onRestart={handleRestart} />}
       </div>
     </div>
