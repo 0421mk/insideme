@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="shortcut icon" href="/favicon.svg"/>
+<meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+<meta http-equiv="X-Frame-Options" content="DENY"/>
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"/>
+
+<!-- Primary SEO -->
+<title>애착 유형 테스트 — 나는 어떤 애착 스타일? | 인사이드미</title>
+<meta name="title" content="애착 유형 테스트 — 나는 어떤 애착 스타일? | 인사이드미"/>
+<meta name="description" content="인사이드미 애착 유형 테스트 — 20문항으로 알아보는 나의 애착 스타일. 안정형, 불안형, 회피형, 혼란형 중 내 애착 유형은? 무료 심리테스트 3분 완성."/>
+<meta name="keywords" content="애착유형테스트, 애착스타일테스트, 안정형애착, 불안형애착, 회피형애착, 혼란형애착, 애착심리테스트, 연애심리, 무료심리테스트, 인사이드미"/>
+<meta name="author" content="InsideMe"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://insideme.kr/attachment.html"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://insideme.kr/attachment.html"/>
+<meta property="og:site_name" content="인사이드미 InsideMe"/>
+<meta property="og:title" content="나의 애착 유형은? | 인사이드미 애착 유형 테스트"/>
+<meta property="og:description" content="안정형? 불안형? 회피형? 혼란형? 20문항으로 내 애착 스타일을 파헤쳐보세요!"/>
+<meta property="og:image" content="https://insideme.kr/og/attachment.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="ko_KR"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:url" content="https://insideme.kr/attachment.html"/>
+<meta name="twitter:title" content="나의 애착 유형은? | 애착 유형 테스트"/>
+<meta name="twitter:description" content="안정형? 불안형? 회피형? 혼란형? 20문항으로 내 애착 스타일을 파헤쳐보세요!"/>
+<meta name="twitter:image" content="https://insideme.kr/og/attachment.png"/>
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Quiz",
+  "name": "애착 유형 테스트",
+  "description": "20문항으로 알아보는 나의 애착 스타일. 안정형, 불안형, 회피형, 혼란형 4가지 유형으로 결과를 알려줍니다.",
+  "url": "https://insideme.kr/attachment.html",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "educationalLevel": "adult",
+  "author": {
+    "@type": "Organization",
+    "name": "인사이드미",
+    "alternateName": "InsideMe",
+    "url": "https://insideme.kr"
+  },
+  "about": [
+    { "@type": "Thing", "name": "애착 유형" },
+    { "@type": "Thing", "name": "애착 스타일" },
+    { "@type": "Thing", "name": "연애 심리" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://insideme.kr/" },
+    { "@type": "ListItem", "position": 2, "name": "애착 유형 테스트", "item": "https://insideme.kr/attachment.html" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4166451401478371" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { -webkit-tap-highlight-color: transparent; }
+  body { background: #F3F4F6; font-family: 'Pretendard','Apple SD Gothic Neo','Noto Sans KR',system-ui,sans-serif; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);} }
+  @keyframes fadeIn { from{opacity:0;}to{opacity:1;} }
+  @keyframes spin { to{transform:rotate(360deg);} }
+  @keyframes bridgeIn { 0%{opacity:0;transform:scale(0.94) translateY(10px);}30%{opacity:1;transform:scale(1) translateY(0);}70%{opacity:1;transform:scale(1) translateY(0);}100%{opacity:0;transform:scale(1.04) translateY(-10px);} }
+  @keyframes barGrow { from{width:0%;}to{width:var(--target-width);} }
+  .fade-up { animation: fadeUp 0.38s cubic-bezier(0.22,1,0.36,1) both; }
+  .fade-in { animation: fadeIn 0.3s ease both; }
+  .spinner { animation: spin 0.9s linear infinite; }
+  .bridge-anim { animation: bridgeIn 0.85s cubic-bezier(0.22,1,0.36,1) both; }
+  .bar-fill { animation: barGrow 0.9s cubic-bezier(0.22,1,0.36,1) both; }
+  .btn-choice { transition: all 0.18s cubic-bezier(0.22,1,0.36,1); }
+  .btn-choice:active { transform: scale(0.97); }
+  .btn-choice.selected { background:#7C3AED!important;color:#fff!important;border-color:#7C3AED!important;transform:scale(0.98); }
+</style>
+
+<noscript>
+  <style>body{display:block!important;}</style>
+  <div style="max-width:480px;margin:40px auto;padding:24px;font-family:sans-serif;">
+    <h1>애착 유형 테스트 | InsideMe</h1>
+    <p>나의 애착 스타일은 무엇일까? 20문항으로 알아보는 나의 애착 유형 테스트.</p>
+    <h2>4가지 애착 유형</h2>
+    <ul>
+      <li>🌿 안정형 — 신뢰와 여유로 사랑하는 타입</li>
+      <li>🌊 불안형 — 사랑받고 싶어서 늘 긴장하는 타입</li>
+      <li>🧊 회피형 — 가까워질수록 거리를 두는 타입</li>
+      <li>🌀 혼란형 — 원하면서도 밀어내는 복잡한 타입</li>
+    </ul>
+    <p>이 테스트를 이용하려면 JavaScript를 활성화해주세요.</p>
+  </div>
+</noscript>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+const ACCENT = '#7C3AED';
+const ACCENT_GLOW = 'rgba(124,58,237,0.3)';
+
+function GoogleAd({ slot }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+  }, []);
+  return (
+    <ins ref={ref} className="adsbygoogle"
+      style={{display:'block', width:'100%'}}
+      data-ad-client="ca-pub-4166451401478371"
+      data-ad-slot={slot}
+      data-ad-format="auto"
+      data-full-width-responsive="true" />
+  );
+}
+
+// 4가지 유형: S(안정), A(불안), V(회피), D(혼란)
+const QUESTIONS = [
+  { id:1,  q:"연인이 연락이 평소보다 2시간 늦을 때 나는?",
+    a:"바쁜가 보다, 별 생각 없이 기다린다",             typeA:'S',
+    b:"혹시 나한테 화가 난 건지 자꾸 생각하게 된다",   typeB:'A' },
+  { id:2,  q:"관계가 깊어질수록 나는?",
+    a:"편안하고 자연스럽게 더 가까워진다",              typeA:'S',
+    b:"왠지 부담스럽고 슬슬 거리를 두고 싶어진다",     typeB:'V' },
+  { id:3,  q:"연인이 내 단점을 지적했을 때 드는 생각은?",
+    a:"그럴 수도 있지, 고쳐보려고 노력한다",           typeA:'S',
+    b:"나를 싫어하게 된 건 아닐까 불안해진다",         typeB:'A' },
+  { id:4,  q:"나에게 '혼자만의 시간'이란?",
+    a:"충전되는 시간, 가끔은 꼭 필요하다",             typeA:'V',
+    b:"연인이랑 떨어져 있으면 뭔가 허전하다",          typeB:'A' },
+  { id:5,  q:"사랑받고 있다는 걸 어떻게 확인해?",
+    a:"굳이 확인 안 해도 느껴진다",                    typeA:'S',
+    b:"자꾸 확인하고 싶고, 말로 들어야 안심이 된다",   typeB:'A' },
+  { id:6,  q:"연인이 친구들을 만나러 간다고 할 때?",
+    a:"잘 다녀오라고, 나도 내 시간 보낸다",            typeA:'S',
+    b:"갑자기 서운해지고 나도 끼고 싶다는 생각이 든다",typeB:'A' },
+  { id:7,  q:"누군가와 가까워지고 싶을 때 나는?",
+    a:"자연스럽게 다가가는 편이다",                    typeA:'S',
+    b:"가까워지고 싶으면서도 거절당할까봐 먼저 못 한다",typeB:'D' },
+  { id:8,  q:"연인이 나에게 감정을 털어놓으면?",
+    a:"들어주면서 같이 감정을 나눈다",                 typeA:'S',
+    b:"어떻게 반응해야 할지 몰라서 어색해진다",        typeB:'V' },
+  { id:9,  q:"헤어지자는 말이 나왔을 때 내 첫 반응은?",
+    a:"왜인지 차분히 얘기해보자고 한다",               typeA:'S',
+    b:"절대 안 된다, 무슨 수를 써서라도 잡아야 한다",  typeB:'A' },
+  { id:10, q:"연인이 나에게 잘해줄 때 드는 솔직한 마음은?",
+    a:"고맙고 기쁘다, 자연스럽게 받아들인다",          typeA:'S',
+    b:"이러다가 갑자기 떠나면 어떡하지, 라는 걱정이 든다",typeB:'D' },
+  { id:11, q:"싸우고 나서 내 행동 패턴은?",
+    a:"어느 정도 감정이 가라앉으면 먼저 연락한다",     typeA:'S',
+    b:"내가 먼저 연락하면 지는 것 같아서 기다린다",    typeB:'V' },
+  { id:12, q:"연인이 나한테 서운함을 표현하면?",
+    a:"미안하고 어떻게 하면 좋을지 같이 생각한다",     typeA:'S',
+    b:"내가 뭘 잘못한 건지 과하게 자책하게 된다",      typeB:'A' },
+  { id:13, q:"연애할 때 감정 표현이 자연스러워?",
+    a:"그렇다, 크게 어렵지 않다",                      typeA:'S',
+    b:"감정을 드러내는 게 왠지 약해 보일 것 같아서 꺼린다",typeB:'V' },
+  { id:14, q:"좋아하는 사람이 생겼을 때 내 마음은?",
+    a:"설레고 기대된다",                               typeA:'S',
+    b:"좋으면서도 상처받을까봐 겁이 난다",             typeB:'D' },
+  { id:15, q:"연인이 다른 이성 친구와 가깝게 지낸다면?",
+    a:"신경은 쓰이지만 믿어보기로 한다",               typeA:'S',
+    b:"불안해서 자꾸 확인하게 되고 속이 탄다",         typeB:'A' },
+  { id:16, q:"연애에서 '독립적인 공간'에 대한 내 생각은?",
+    a:"서로 각자 영역이 있어야 더 건강한 관계다",      typeA:'V',
+    b:"연인이면 거의 모든 걸 공유해야 한다고 생각한다",typeB:'A' },
+  { id:17, q:"연인에게 '사랑해'라는 말을 먼저 하는 건?",
+    a:"감정이 생기면 자연스럽게 나온다",               typeA:'S',
+    b:"먼저 말하면 상대가 부담 느낄까봐 망설인다",     typeB:'V' },
+  { id:18, q:"관계에서 갑자기 불안해질 때 나는?",
+    a:"왜 불안한지 생각해보고 상대와 얘기한다",        typeA:'S',
+    b:"표현 못하고 혼자 끙끙 앓는다",                  typeB:'D' },
+  { id:19, q:"연인이 잠깐 연락 두절이 됐다가 나타났을 때?",
+    a:"무슨 일 있었냐고 물어보고 넘어간다",            typeA:'S',
+    b:"화가 나면서도 동시에 안도된다, 감정이 복잡하다",typeB:'D' },
+  { id:20, q:"지금 내가 연애에서 가장 두려운 것은?",
+    a:"크게 두렵진 않다, 어떻게든 되겠지",             typeA:'S',
+    b:"사랑하는 사람에게 버림받는 것",                 typeB:'A' },
+];
+
+const BRIDGE_MESSAGES = {
+  5:  { emoji:'🔍', title:'나를 들여다보는 중', sub:'솔직하게 답할수록 정확해요' },
+  10: { emoji:'💜', title:'반환점!', sub:'내 애착 패턴이 보이기 시작해요' },
+  15: { emoji:'🌿', title:'거의 다 왔어요!', sub:'진짜 내 모습이 드러날 시간' },
+};
+
+const LOADING_TEXTS = ['애착 패턴 분석 중...','관계 스타일 매칭 중...','심리 유형 계산 중...','결과 생성 중...'];
+
+const RESULTS = {
+  S: {
+    emoji:'🌿', type:'S', title:'안정형', subtitle:'신뢰와 여유로 사랑하는 타입',
+    desc:'연인을 믿고, 나 자신도 믿는 균형 잡힌 애착 스타일. 가까움과 독립을 자연스럽게 오가고, 감정을 솔직하게 표현할 수 있어요. 관계에서 불필요한 에너지 낭비가 적은 건강한 타입이에요.',
+    traits:['연인을 신뢰하고, 불안보다는 여유로 관계를 바라본다','감정을 있는 그대로 표현하고, 갈등도 대화로 풀어낸다','가까움과 각자의 독립을 동시에 유지하는 균형감이 있다'],
+    secureScore:88, anxietyScore:15, avoidScore:12, disorgScore:10,
+    best:{ emoji:'🌊', title:'불안형', sub:'안정적인 존재감으로 불안형의 두려움을 녹여줄 수 있음' },
+    worst:{ emoji:'🌀', title:'혼란형', sub:'예측 불가한 혼란형과는 서로 피로감이 쌓일 수 있음' },
+  },
+  A: {
+    emoji:'🌊', type:'A', title:'불안형', subtitle:'사랑받고 싶어서 늘 긴장하는 타입',
+    desc:'연인을 깊이 사랑하지만, 버림받을지도 모른다는 불안이 항상 따라다녀요. 확인과 안심이 필요하고, 연인의 작은 변화에도 민감하게 반응해요. 사랑의 에너지가 넘치는 대신 소진도 빠른 타입이에요.',
+    traits:['연인의 반응에 민감하고, 사소한 변화도 놓치지 않는다','확인받고 싶은 욕구가 강하고, 직접 들어야 안심이 된다','사랑할 때 감정을 아낌없이 쏟아붓는 헌신적인 스타일'],
+    secureScore:30, anxietyScore:85, avoidScore:15, disorgScore:35,
+    best:{ emoji:'🌿', title:'안정형', sub:'안정형의 일관된 사랑이 불안형의 두려움을 잠재워줌' },
+    worst:{ emoji:'🧊', title:'회피형', sub:'가까울수록 멀어지는 회피형과는 불안이 극대화됨' },
+  },
+  V: {
+    emoji:'🧊', type:'V', title:'회피형', subtitle:'가까워질수록 거리를 두는 타입',
+    desc:'감정 표현이 불편하고, 관계가 너무 밀착되면 숨이 막히는 느낌이 들어요. 독립성을 중요하게 여기고, 약한 모습을 보이는 게 부담스러워요. 혼자가 편하지만, 사실 연결을 원하는 마음도 있어요.',
+    traits:['너무 가까워지면 오히려 불편하고 거리를 두고 싶어진다','감정을 드러내는 것에 익숙하지 않고, 취약함을 숨기려 한다','독립적인 삶을 중시하고, 연인에게 의존하는 것을 꺼린다'],
+    secureScore:28, anxietyScore:12, avoidScore:88, disorgScore:30,
+    best:{ emoji:'🧊', title:'회피형', sub:'서로 독립성을 존중하며 부담 없이 맞춰가는 궁합' },
+    worst:{ emoji:'🌊', title:'불안형', sub:'확인을 요구하는 불안형과는 서로 지치는 관계가 됨' },
+  },
+  D: {
+    emoji:'🌀', type:'D', title:'혼란형', subtitle:'원하면서도 밀어내는 복잡한 타입',
+    desc:'가까워지고 싶지만 동시에 두렵고, 사랑받으면 의심이 들고, 혼자면 외로운 복잡한 애착 패턴. 감정 기복이 크고 관계에서 혼란스러운 순간이 많지만, 그만큼 감수성이 풍부하고 깊은 사람이에요.',
+    traits:['친밀해지고 싶으면서도 막상 가까워지면 불안하고 도망치고 싶어진다','사랑받을 때 오히려 의심이 들거나 불안해지는 경험을 한다','감정이 복잡하고 기복이 있어서 스스로도 당황할 때가 있다'],
+    secureScore:20, anxietyScore:55, avoidScore:50, disorgScore:85,
+    best:{ emoji:'🌿', title:'안정형', sub:'일관된 안정형의 존재가 혼란형의 패턴을 치유해줄 수 있음' },
+    worst:{ emoji:'🌀', title:'혼란형', sub:'둘 다 혼란스러우면 관계 자체가 롤러코스터가 됨' },
+  },
+};
+
+function ProgressBar({ current, total }) {
+  const pct = Math.round((current / total) * 100);
+  return (
+    <div className="w-full mb-6">
+      <div className="flex justify-between text-xs text-gray-400 mb-1.5 font-medium">
+        <span>{current} / {total}</span><span>{pct}%</span>
+      </div>
+      <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
+        <div className="h-full rounded-full transition-all duration-500 ease-out"
+          style={{ width:`${pct}%`, background: ACCENT }} />
+      </div>
+    </div>
+  );
+}
+
+function IntroPhase({ onStart, count }) {
+  return (
+    <div className="fade-up flex flex-col items-center justify-center min-h-screen px-5 py-12">
+      <div className="w-full max-w-sm">
+        <div className="text-center mb-8">
+          <div className="text-6xl mb-4">🔗</div>
+          <div className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-4"
+            style={{background:'#F5F3FF', color: ACCENT}}>
+            애착 유형 테스트
+          </div>
+          <h1 className="text-2xl font-extrabold text-gray-900 leading-tight mb-3">
+            나는 어떤 방식으로<br/>사람에게 연결될까?
+          </h1>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            20문항으로 알아보는 나의 애착 스타일<br/>관계 속 진짜 내 모습을 발견해보세요
+          </p>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-sm p-5 mb-5">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-2xl">💜</span>
+            <div>
+              <div className="text-sm font-bold text-gray-900">약 3분 소요</div>
+              <div className="text-xs text-gray-400">20문항 · 4가지 애착 유형</div>
+            </div>
+          </div>
+          <div className="flex gap-2 flex-wrap">
+            {['🌿 안정형','🌊 불안형','🧊 회피형','🌀 혼란형'].map(t => (
+              <div key={t} className="flex-1 bg-gray-50 rounded-xl py-2 px-1 text-center text-xs text-gray-600 font-medium" style={{minWidth:'70px'}}>{t}</div>
+            ))}
+          </div>
+        </div>
+
+        <button onClick={onStart}
+          className="w-full py-4 rounded-2xl text-white font-bold text-lg active:scale-95 transition-transform duration-150"
+          style={{background: ACCENT, boxShadow:`0 4px 24px ${ACCENT_GLOW}`}}>
+          테스트 시작하기
+        </button>
+        <p className="text-center text-xs text-gray-400 mt-3">
+          현재까지 <span className="font-bold text-gray-600">{count ? count.toLocaleString('ko-KR') + '명' : '...'}</span>이 확인했어요
+        </p>
+        <div className="text-center mt-4">
+          <a href="index.html" className="text-xs text-gray-300 hover:text-gray-400" style={{textDecoration:'none'}}>
+            ← 다른 테스트 보러가기
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function BridgePhase({ msg }) {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center" style={{background: ACCENT, zIndex:50}}>
+      <div className="bridge-anim text-center text-white px-8">
+        <div className="text-5xl mb-4">{msg.emoji}</div>
+        <div className="text-2xl font-extrabold mb-2">{msg.title}</div>
+        <div className="text-base opacity-80">{msg.sub}</div>
+      </div>
+    </div>
+  );
+}
+
+function QuestionPhase({ question, qIndex, total, onAnswer }) {
+  const [selected, setSelected] = useState(null);
+  const [key, setKey] = useState(0);
+
+  useEffect(() => { setSelected(null); setKey(k => k+1); }, [qIndex]);
+
+  const handleSelect = (choice) => {
+    if (selected !== null) return;
+    setSelected(choice);
+    setTimeout(() => onAnswer(choice), 220);
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col px-5 py-8">
+      <ProgressBar current={qIndex+1} total={total} />
+      <div key={key} className="fade-up flex-1 flex flex-col justify-center">
+        <div className="bg-white rounded-2xl shadow-sm p-6 mb-4">
+          <div className="text-xs font-bold mb-3 rounded-full inline-block px-3 py-1"
+            style={{background:'#F5F3FF', color: ACCENT}}>
+            Q{qIndex+1}
+          </div>
+          <p className="text-lg font-bold text-gray-900 leading-snug">{question.q}</p>
+        </div>
+        <div className="flex flex-col gap-3">
+          {[{choice:'A', label:question.a},{choice:'B', label:question.b}].map(({choice, label}) => (
+            <button key={choice} onClick={() => handleSelect(choice)}
+              className={`btn-choice w-full text-left p-5 rounded-2xl border-2 font-semibold text-base transition-all duration-200 ${
+                selected === choice
+                  ? 'selected'
+                  : selected !== null
+                    ? 'border-gray-100 bg-gray-50 text-gray-300'
+                    : 'border-gray-100 bg-white text-gray-800'
+              }`}>
+              <span className="inline-block w-7 h-7 rounded-full text-center leading-7 text-sm font-bold mr-3"
+                style={selected === choice
+                  ? {background:'rgba(255,255,255,0.25)', color:'#fff'}
+                  : {background:'#F3F4F6', color:'#6B7280'}}>
+                {choice}
+              </span>
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <p className="text-center text-xs text-gray-300 mt-6">선택하면 자동으로 다음 질문으로 넘어가요</p>
+    </div>
+  );
+}
+
+function LoadingPhase() {
+  const [textIdx, setTextIdx] = useState(0);
+  useEffect(() => {
+    const iv = setInterval(() => setTextIdx(i => (i+1) % LOADING_TEXTS.length), 620);
+    return () => clearInterval(iv);
+  }, []);
+
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center px-5 py-12">
+      <div className="flex flex-col items-center justify-center">
+        <div className="mb-8">
+          <div className="w-16 h-16 rounded-full border-4 border-purple-100 border-t-purple-500 spinner"/>
+        </div>
+        <h2 className="text-xl font-extrabold text-gray-900 mb-2 text-center">결과 분석 중</h2>
+        <p className="text-sm text-gray-400 fade-in" key={textIdx}>{LOADING_TEXTS[textIdx]}</p>
+      </div>
+    </div>
+  );
+}
+
+function BarStat({ label, value, color }) {
+  return (
+    <div className="mb-3">
+      <div className="flex justify-between text-xs font-semibold text-gray-600 mb-1.5">
+        <span>{label}</span><span style={{color}}>{value}%</span>
+      </div>
+      <div className="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden">
+        <div className="bar-fill h-full rounded-full"
+          style={{'--target-width':`${value}%`, width:`${value}%`, background:color}}/>
+      </div>
+    </div>
+  );
+}
+
+function ResultPhase({ result, onRestart }) {
+  const handleShare = async () => {
+    const url = window.location.href;
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch(e) {
+      const el = document.createElement('textarea');
+      el.value = url; document.body.appendChild(el); el.select();
+      document.execCommand('copy'); document.body.removeChild(el);
+    }
+    alert('링크가 복사되었어요! 친구에게 공유해보세요 💜');
+  };
+
+  return (
+    <div className="min-h-screen px-5 py-10 pb-20">
+      <div className="max-w-sm mx-auto">
+
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4 text-center">
+          <div className="text-5xl mb-3">{result.emoji}</div>
+          <div className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-2"
+            style={{background:'#F5F3FF', color: ACCENT}}>
+            나의 애착 유형
+          </div>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-1">{result.title}</h2>
+          <p className="text-sm font-semibold mb-4" style={{color: ACCENT}}>{result.subtitle}</p>
+          <p className="text-sm text-gray-600 leading-relaxed">{result.desc}</p>
+        </div>
+
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4" style={{animationDelay:'0.08s'}}>
+          <h3 className="text-sm font-extrabold text-gray-900 mb-4">📊 나의 애착 지수</h3>
+          <BarStat label="🌿 안정성" value={result.secureScore} color="#10B981"/>
+          <BarStat label="🌊 불안 지수" value={result.anxietyScore} color="#3B82F6"/>
+          <BarStat label="🧊 회피 지수" value={result.avoidScore} color="#6B7280"/>
+          <BarStat label="🌀 혼란 지수" value={result.disorgScore} color="#8B5CF6"/>
+        </div>
+
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4" style={{animationDelay:'0.14s'}}>
+          <h3 className="text-sm font-extrabold text-gray-900 mb-4">✨ 나의 핵심 특징 3가지</h3>
+          {result.traits.map((t, i) => (
+            <div key={i} className="flex gap-3 mb-3 last:mb-0">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold"
+                style={{background: ACCENT}}>
+                {i+1}
+              </div>
+              <p className="text-sm text-gray-700 leading-relaxed">{t}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="fade-up grid grid-cols-2 gap-3 mb-4" style={{animationDelay:'0.2s'}}>
+          <div className="bg-white rounded-2xl shadow-sm p-4">
+            <div className="text-xs font-bold text-green-500 mb-2">💚 잘 맞는 유형</div>
+            <div className="text-2xl mb-1">{result.best.emoji}</div>
+            <div className="text-sm font-bold text-gray-900 mb-1">{result.best.title}</div>
+            <div className="text-xs text-gray-400 leading-tight">{result.best.sub}</div>
+          </div>
+          <div className="bg-white rounded-2xl shadow-sm p-4">
+            <div className="text-xs font-bold text-red-400 mb-2">⚠️ 조심해야 할 유형</div>
+            <div className="text-2xl mb-1">{result.worst.emoji}</div>
+            <div className="text-sm font-bold text-gray-900 mb-1">{result.worst.title}</div>
+            <div className="text-xs text-gray-400 leading-tight">{result.worst.sub}</div>
+          </div>
+        </div>
+
+        <div className="fade-up mb-4" style={{animationDelay:'0.22s'}}>
+          <div className="text-xs font-bold text-gray-400 mb-2 text-center">광고</div>
+          <GoogleAd slot="3333333333" />
+        </div>
+
+        <div className="fade-up flex flex-col gap-3" style={{animationDelay:'0.26s'}}>
+          <button onClick={handleShare}
+            className="w-full py-4 rounded-2xl font-bold text-base border-2 border-gray-200 bg-white text-gray-800 active:scale-95 transition-transform duration-150">
+            🔗 결과 공유하기
+          </button>
+          <button onClick={onRestart}
+            className="w-full py-3 rounded-2xl text-sm text-gray-400 font-medium active:scale-95 transition-transform duration-150">
+            🔄 다시 테스트하기
+          </button>
+          <a href="index.html"
+            className="block w-full py-3 rounded-2xl text-sm text-gray-400 font-medium text-center active:scale-95 transition-transform duration-150"
+            style={{textDecoration:'none'}}>
+            🏠 다른 테스트 보러가기
+          </a>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const getInitial = () => {
+    const m = window.location.hash.match(/#r=([A-Z])/);
+    if (m && RESULTS[m[1]]) return { phase:'RESULT', result:RESULTS[m[1]] };
+    return { phase:'INTRO', result:null };
+  };
+  const init = getInitial();
+  const [visitCount, setVisitCount] = useState(0);
+  React.useEffect(() => {
+    fetch('https://api.counterapi.dev/v1/insideme-kr/attachment/up')
+      .then(r => r.json()).then(d => setVisitCount(d.count || 0)).catch(() => {});
+  }, []);
+  const [phase, setPhase] = useState(init.phase);
+  const [qIndex, setQIndex] = useState(0);
+  const [scores, setScores] = useState({ S:0, A:0, V:0, D:0 });
+  const [result, setResult] = useState(init.result);
+  const [showBridge, setShowBridge] = useState(false);
+  const [bridgeMsg, setBridgeMsg] = useState(null);
+
+  const handleStart = () => {
+    history.replaceState(null, '', window.location.pathname);
+    setPhase('QUESTION'); setQIndex(0); setScores({S:0,A:0,V:0,D:0});
+  };
+
+  const handleAnswer = (choice) => {
+    const q = QUESTIONS[qIndex];
+    const type = choice === 'A' ? q.typeA : q.typeB;
+    const newScores = { ...scores, [type]: scores[type]+1 };
+    setScores(newScores);
+    const nextIdx = qIndex+1;
+
+    if (nextIdx >= QUESTIONS.length) {
+      // 가장 높은 점수 유형 선택, 동점이면 S 우선
+      const order = ['S','A','V','D'];
+      const key = order.reduce((best, t) => newScores[t] > newScores[best] ? t : best, 'S');
+      setResult(RESULTS[key]);
+      history.replaceState(null, '', '#r=' + key);
+      setPhase('LOADING');
+      setTimeout(() => setPhase('RESULT'), 2500);
+      return;
+    }
+
+    if (BRIDGE_MESSAGES[nextIdx]) {
+      setBridgeMsg(BRIDGE_MESSAGES[nextIdx]);
+      setShowBridge(true);
+      setTimeout(() => { setShowBridge(false); setQIndex(nextIdx); }, 850);
+    } else {
+      setQIndex(nextIdx);
+    }
+  };
+
+  const handleRestart = () => {
+    history.replaceState(null, '', window.location.pathname);
+    setPhase('INTRO'); setQIndex(0); setScores({S:0,A:0,V:0,D:0}); setResult(null);
+  };
+
+  return (
+    <div style={{background:'#F3F4F6', minHeight:'100vh'}}>
+      <div className="max-w-sm mx-auto" style={{minHeight:'100vh', background:'#F3F4F6'}}>
+
+        <a href="index.html" style={{textDecoration:'none', display:'flex', alignItems:'center', gap:'8px', padding:'16px 20px 8px'}}>
+          <div style={{width:'32px', height:'32px', background:'#0064FF', borderRadius:'10px', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'16px'}}>🧠</div>
+          <span style={{fontSize:'1rem', fontWeight:900, color:'#111', letterSpacing:'-0.5px'}}>인사이드미</span>
+        </a>
+
+        {showBridge && bridgeMsg && <BridgePhase msg={bridgeMsg}/>}
+        {phase==='INTRO' && <IntroPhase onStart={handleStart} count={visitCount}/>}
+        {phase==='QUESTION' && !showBridge && (
+          <QuestionPhase question={QUESTIONS[qIndex]} qIndex={qIndex} total={QUESTIONS.length} onAnswer={handleAnswer}/>
+        )}
+        {phase==='LOADING' && <LoadingPhase/>}
+        {phase==='RESULT' && result && <ResultPhase result={result} onRestart={handleRestart}/>}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>
