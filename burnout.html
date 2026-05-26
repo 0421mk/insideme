@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="shortcut icon" href="/favicon.svg"/>
+<meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+<meta http-equiv="X-Frame-Options" content="DENY"/>
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"/>
+
+<!-- Primary SEO -->
+<title>번아웃 유형 테스트 — 나는 지금 몇 % 번아웃인가? | 인사이드미</title>
+<meta name="title" content="번아웃 유형 테스트 — 나는 지금 몇 % 번아웃인가? | 인사이드미"/>
+<meta name="description" content="인사이드미 번아웃 유형 테스트 — 20가지 상황으로 알아보는 나의 번아웃 상태. 완전연소형, 감각마비형, 경고신호형, 안개방황형 중 나는 어떤 유형? 무료 심리테스트 3분 완성."/>
+<meta name="keywords" content="인사이드미, 번아웃테스트, 번아웃유형, 무료번아웃테스트, 직장인번아웃, 번아웃자가진단, 멘탈테스트, 심리테스트, 무기력테스트, 지침테스트, 번아웃체크"/>
+<meta name="author" content="인사이드미 InsideMe"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://insideme.kr/burnout.html"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://insideme.kr/burnout.html"/>
+<meta property="og:site_name" content="인사이드미 InsideMe"/>
+<meta property="og:title" content="나는 지금 몇 % 번아웃인가? | 인사이드미 번아웃 유형 테스트"/>
+<meta property="og:description" content="완전연소형? 감각마비형? 경고신호형? 안개방황형? 인사이드미에서 20문항으로 내 번아웃 유형을 파헤쳐보세요!"/>
+<meta property="og:image" content="https://insideme.kr/og/burnout.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="ko_KR"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:url" content="https://insideme.kr/burnout.html"/>
+<meta name="twitter:title" content="나는 지금 몇 % 번아웃인가? | 번아웃 유형 테스트"/>
+<meta name="twitter:description" content="완전연소형? 감각마비형? 경고신호형? 안개방황형? 20문항으로 내 번아웃 유형을 파헤쳐보세요!"/>
+<meta name="twitter:image" content="https://insideme.kr/og/burnout.png"/>
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Quiz",
+  "name": "번아웃 유형 테스트",
+  "description": "20가지 상황으로 알아보는 나의 번아웃 상태와 유형. 완전연소형, 감각마비형, 경고신호형, 안개방황형 4가지 유형으로 결과를 알려줍니다.",
+  "url": "https://insideme.kr/burnout.html",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "author": { "@type": "Organization", "name": "인사이드미", "alternateName": "InsideMe", "url": "https://insideme.kr" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://insideme.kr/" },
+    { "@type": "ListItem", "position": 2, "name": "번아웃 유형 테스트", "item": "https://insideme.kr/burnout.html" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4166451401478371" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { -webkit-tap-highlight-color: transparent; }
+  body { background: #F3F4F6; font-family: 'Pretendard','Apple SD Gothic Neo','Noto Sans KR',system-ui,sans-serif; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);} }
+  @keyframes fadeIn { from{opacity:0;}to{opacity:1;} }
+  @keyframes spin { to{transform:rotate(360deg);} }
+  @keyframes bridgeIn { 0%{opacity:0;transform:scale(0.94) translateY(10px);}30%{opacity:1;transform:scale(1) translateY(0);}70%{opacity:1;transform:scale(1) translateY(0);}100%{opacity:0;transform:scale(1.04) translateY(-10px);} }
+  @keyframes barGrow { from{width:0%;}to{width:var(--target-width);} }
+  .fade-up { animation: fadeUp 0.38s cubic-bezier(0.22,1,0.36,1) both; }
+  .fade-in { animation: fadeIn 0.3s ease both; }
+  .spinner { animation: spin 0.9s linear infinite; }
+  .bridge-anim { animation: bridgeIn 0.85s cubic-bezier(0.22,1,0.36,1) both; }
+  .bar-fill { animation: barGrow 0.9s cubic-bezier(0.22,1,0.36,1) both; }
+  .btn-choice { transition: all 0.18s cubic-bezier(0.22,1,0.36,1); }
+  .btn-choice:active { transform: scale(0.97); }
+  .btn-choice.selected { background:#F97316!important;color:#fff!important;border-color:#F97316!important;transform:scale(0.98); }
+</style>
+
+<noscript>
+  <style>body{display:block!important;}</style>
+  <div style="max-width:480px;margin:40px auto;padding:24px;font-family:sans-serif;">
+    <h1>번아웃 유형 테스트 | 인사이드미</h1>
+    <p>나는 지금 몇 % 번아웃인가? 20가지 상황으로 알아보는 나의 번아웃 유형 테스트.</p>
+    <ul>
+      <li>🔥 완전연소형 — 지쳐서 감정이 폭발하는 타입</li>
+      <li>🫥 감각마비형 — 아무것도 안 느껴지는 무감각 상태</li>
+      <li>⚡ 경고신호형 — 번아웃 초기, 힘들다고 신호 보내는 타입</li>
+      <li>☁️ 안개방황형 — 왜 힘든지 모르겠는 조용한 번아웃</li>
+    </ul>
+    <p>이 테스트를 이용하려면 JavaScript를 활성화해주세요.</p>
+  </div>
+</noscript>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+const ACCENT = '#F97316';
+const ACCENT_GLOW = 'rgba(249,115,22,0.35)';
+const ACCENT_BG = '#FFF7ED';
+
+const QUESTIONS = [
+  { id:1,  q:"아침 알람이 울렸을 때 드는 첫 감정은?",                                              a:"또 하루를 버텨야 한다는 무게감이 든다",           b:"조금 피곤하지만 그냥 일어난다",                  typeA:'H', typeB:'L' },
+  { id:2,  q:"요즘 하루를 마치고 퇴근하거나 집에 돌아오면?",                                       a:"아무것도 하기 싫고 그냥 쓰러지고 싶다",           b:"피곤하지만 뭔가 하고 싶은 게 남아있다",           typeA:'H', typeB:'L' },
+  { id:3,  q:"예전에 즐기던 것들이 요즘은?",                                                       a:"조금 덜 하게 됐지만 하면 아직 재밌다",            b:"해봐도 재미없고 하고 싶지도 않다",                typeA:'L', typeB:'H' },
+  { id:4,  q:"주말이나 휴일을 보내고 나서 느끼는 것은?",                                           a:"쉬었는데도 충전이 안 된 느낌이다",                b:"쉬고 나면 그나마 다시 에너지가 생긴다",           typeA:'H', typeB:'L' },
+  { id:5,  q:"앞으로의 일이나 미래를 생각하면?",                                                   a:"막막하거나 아무런 기대감이 없다",                 b:"걱정되지만 그래도 뭔가 해보고 싶다",              typeA:'H', typeB:'L' },
+  { id:6,  q:"업무나 공부 중 실수를 했을 때?",                                                     a:"그냥 수습하면 된다고 생각한다",                   b:"예전보다 훨씬 더 크게 자책하거나 무너진다",       typeA:'L', typeB:'H' },
+  { id:7,  q:"요즘 사람들과 만나거나 연락하는 것이?",                                              a:"에너지 소모가 커서 자꾸 피하게 된다",             b:"귀찮을 때도 있지만 만나면 기운이 나기도 한다",   typeA:'H', typeB:'L' },
+  { id:8,  q:"칭찬이나 좋은 피드백을 받았을 때?",                                                  a:"기쁘긴 한데 별로 와닿지 않는다",                  b:"기분이 좋고 더 하고 싶어진다",                   typeA:'H', typeB:'L' },
+  { id:9,  q:"요즘 몸 상태는 어떤가요?",                                                           a:"잘 자도 피곤하고 두통이나 소화불량이 잦다",       b:"가끔 피곤하지만 큰 이상은 없다",                 typeA:'H', typeB:'L' },
+  { id:10, q:"새로운 일이나 프로젝트가 생겼을 때?",                                                a:"귀찮지만 해볼 만하다고 생각한다",                 b:"또 뭐가 생겼다는 생각에 한숨이 나온다",           typeA:'L', typeB:'H' },
+  { id:11, q:"힘들 때 주변 사람들이 눈치채는 편인가요?",                                           a:"표정이나 말투에 바로 티가 난다",                  b:"잘 모르는 편, 혼자 조용히 감당한다",             typeA:'E', typeB:'I' },
+  { id:12, q:"누군가 '요즘 어때?' 라고 물어보면?",                                                 a:"그냥 그래, 괜찮아 하고 넘어간다",                 b:"솔직하게 힘들다고 털어놓는 편이다",              typeA:'I', typeB:'E' },
+  { id:13, q:"스트레스나 피로가 쌓이면 어떻게 푸나요?",                                            a:"친구한테 연락하거나 어딘가로 나간다",              b:"혼자 유튜브 보거나 그냥 자버린다",               typeA:'E', typeB:'I' },
+  { id:14, q:"힘든 감정이 생겼을 때 나의 반응은?",                                                 a:"말하거나 행동으로 감정이 표출된다",               b:"그냥 혼자 속으로 삭히는 편이다",                 typeA:'E', typeB:'I' },
+  { id:15, q:"번아웃이 심해질 때 나에게 나타나는 변화는?",                                         a:"말이 없어지고 멍하니 있거나 사라지고 싶다",       b:"감정이 요동쳐 갑자기 울거나 짜증이 난다",        typeA:'I', typeB:'E' },
+  { id:16, q:"마음이 힘들 때 카카오톡 알림을 보면?",                                               a:"답장이 귀찮아도 대화하고 싶어지기도 한다",        b:"다 읽어도 답장하기 싫어서 창을 닫는다",          typeA:'E', typeB:'I' },
+  { id:17, q:"번아웃 상태에서 감정은 어떻게 변하나요?",                                            a:"감정 기복이 커지고 예민해지거나 눈물이 난다",     b:"오히려 아무것도 안 느껴지는 무감각 상태가 된다", typeA:'E', typeB:'I' },
+  { id:18, q:"힘든 상황을 다른 사람에게 말할 때?",                                                 a:"말해봤자 뭐가 달라지겠나 싶어서 안 한다",         b:"털어놓고 나면 그나마 후련해서 말하는 편이다",     typeA:'I', typeB:'E' },
+  { id:19, q:"지금 당장 가장 하고 싶은 것은?",                                                     a:"아무도 없는 곳에서 혼자 조용히 있고 싶다",        b:"내 얘기를 들어줄 사람과 대화하고 싶다",           typeA:'I', typeB:'E' },
+  { id:20, q:"지금 내 상태를 한 마디로 표현하면?",                                                 a:"힘들어, 누가 좀 알아줬으면 해",                   b:"그냥 혼자 조용히 있고 싶어",                     typeA:'E', typeB:'I' },
+];
+
+const BRIDGE_MESSAGES = {
+  5:  { emoji:'😮‍💨', title:'잠깐,', sub:'번아웃 패턴을 더 들여다볼게요' },
+  10: { emoji:'🔍', title:'반환점!', sub:'내 에너지 상태가 보이기 시작해요' },
+  15: { emoji:'🧡', title:'거의 다 왔어요!', sub:'당신의 번아웃 유형이 윤곽을 드러내고 있어요' },
+};
+
+const RESULTS = {
+  HE: {
+    emoji: '🔥',
+    type: 'HE',
+    title: '완전연소형',
+    subtitle: '지쳐서 감정이 밖으로 터지는 타입',
+    desc: '번아웃이 꽤 진행된 상태예요. 에너지는 바닥났지만 감정은 오히려 폭발하듯 터져나오는 타입. 예민함, 갑작스러운 눈물, 짜증이 번아웃의 주요 신호예요. 지금 당장 충분한 휴식과 회복이 필요해요.',
+    traits: [
+      '번아웃이 심해질수록 감정이 격해지고 예민해지는 감정 폭발형 패턴',
+      '지쳐도 혼자 끌어안기보다 표현을 통해 해소하려는 외향적 에너지',
+      '주변에서 상태 변화를 바로 알아챌 만큼 솔직하고 투명한 감정 표현',
+    ],
+    burnoutLevel: 88,
+    expressionScore: 82,
+    tip: '지금 당신에게 필요한 건 "잘 버티는 것"이 아니라 "잠깐 멈추는 것"이에요. 쉬는 게 나약한 게 아니에요.',
+    best: { emoji:'🫥', title:'감각마비형', sub:'폭발하는 감정을 조용히 받아줄 수 있는 파트너' },
+    worst: { emoji:'⚡', title:'경고신호형', sub:'둘 다 격렬해서 서로 지칠 수 있음' },
+  },
+  HI: {
+    emoji: '🫥',
+    type: 'HI',
+    title: '감각마비형',
+    subtitle: '아무것도 안 느껴지는 무감각 상태',
+    desc: '번아웃이 심각하게 진행된 상태예요. 너무 오래 혼자 감당하다 보니 이제는 기쁨도 슬픔도 잘 느껴지지 않는 상태가 됐어요. 그냥 살아만 가는 느낌이 드는 타입. 지금 자신을 돌볼 깊은 휴식이 필요해요.',
+    traits: [
+      '감정이 고갈되어 무감각해진 "감정 방전" 상태 — 아무것도 안 느껴지는 게 신호',
+      '힘들어도 표현하지 않아 주변에서 눈치채기 어려운 조용한 번아웃',
+      '혼자 오래 감당해온 탓에 도움 요청 자체가 익숙하지 않은 타입',
+    ],
+    burnoutLevel: 95,
+    expressionScore: 18,
+    tip: '"괜찮아야 해"라는 강박에서 내려오세요. 지금 이 무감각함이 당신의 몸이 보내는 SOS 신호예요.',
+    best: { emoji:'⚡', title:'경고신호형', sub:'힘들다고 먼저 말해줘서 자신도 표현할 수 있게 도와줌' },
+    worst: { emoji:'☁️', title:'안개방황형', sub:'둘 다 조용해서 서로 힘든 줄 모르고 지나침' },
+  },
+  LE: {
+    emoji: '⚡',
+    type: 'LE',
+    title: '경고신호형',
+    subtitle: '번아웃 초기, 힘들다고 신호를 보내는 타입',
+    desc: '아직 초기 단계예요. 번아웃이 완전히 오지는 않았지만 몸과 마음이 경고 신호를 보내고 있어요. 다행히 힘들다는 걸 표현할 수 있는 상태라 지금 바로 관리하면 빠르게 회복할 수 있어요.',
+    traits: [
+      '번아웃 초기 신호를 감지하고 표현할 수 있는 회복 탄력성 보유',
+      '힘들 때 주변에 도움을 요청하거나 표현할 수 있는 건강한 감정 표현 습관',
+      '아직 에너지가 완전히 소진되지 않았지만 지금이 적극적으로 관리할 타이밍',
+    ],
+    burnoutLevel: 42,
+    expressionScore: 80,
+    tip: '지금 느끼는 피로감을 무시하지 마세요. 신호가 왔을 때 쉬는 게 번아웃을 막는 가장 빠른 방법이에요.',
+    best: { emoji:'☁️', title:'안개방황형', sub:'상대가 표현 못 하는 걸 대신 읽어주는 찰떡 조합' },
+    worst: { emoji:'🔥', title:'완전연소형', sub:'둘 다 에너지가 격해서 서로 지칠 수 있음' },
+  },
+  LI: {
+    emoji: '☁️',
+    type: 'LI',
+    title: '안개방황형',
+    subtitle: '왜 힘든지 모르겠는 조용한 번아웃 초기',
+    desc: '딱히 크게 힘든 것도 없는데 왠지 지치고, 무언가 의욕이 없는 상태. 번아웃이 조용히 시작되고 있지만 혼자 감당하려다 보니 스스로도 상태 파악이 잘 안 되는 타입이에요.',
+    traits: [
+      '번아웃 초기지만 혼자 감당해서 주변에서 눈치채기 어려운 타입',
+      '"딱히 힘든 것도 없는데 왜 이러지?"라는 생각 자체가 번아웃의 신호',
+      '겉으론 멀쩡해 보여도 내면의 에너지가 조용히 소진되는 중',
+    ],
+    burnoutLevel: 55,
+    expressionScore: 20,
+    tip: '"딱히 힘든 것도 없는데 왜 이러지?"라는 생각 자체가 번아웃 신호예요. 나를 돌볼 시간이 필요한 타이밍이에요.',
+    best: { emoji:'⚡', title:'경고신호형', sub:'먼저 표현해줘서 자신도 표현하게 만들어주는 파트너' },
+    worst: { emoji:'🫥', title:'감각마비형', sub:'둘 다 조용해서 아무것도 해결이 안 될 수 있음' },
+  },
+};
+
+function GoogleAd({ slot }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+  }, []);
+  return (
+    <ins ref={ref} className="adsbygoogle"
+      style={{display:'block', width:'100%'}}
+      data-ad-client="ca-pub-4166451401478371"
+      data-ad-slot={slot}
+      data-ad-format="auto"
+      data-full-width-responsive="true" />
+  );
+}
+
+const LOADING_TEXTS = ['번아웃 지수 측정 중...','에너지 레벨 분석 중...','감정 고갈 패턴 매칭 중...','결과 생성 중...'];
+
+function ProgressBar({ current, total }) {
+  const pct = Math.round((current / total) * 100);
+  return (
+    <div className="w-full mb-6">
+      <div className="flex justify-between text-xs text-gray-400 mb-1.5 font-medium">
+        <span>{current} / {total}</span><span>{pct}%</span>
+      </div>
+      <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
+        <div className="h-full rounded-full transition-all duration-500 ease-out"
+          style={{width:`${pct}%`, background: ACCENT}} />
+      </div>
+    </div>
+  );
+}
+
+function IntroPhase({ onStart, count }) {
+  return (
+    <div className="fade-up flex flex-col items-center justify-center min-h-screen px-5 py-12">
+      <div className="w-full max-w-sm">
+        <div className="text-center mb-8">
+          <div className="text-6xl mb-4">🔋</div>
+          <div className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-4"
+            style={{background: ACCENT_BG, color: ACCENT}}>
+            번아웃 유형 테스트
+          </div>
+          <h1 className="text-2xl font-extrabold text-gray-900 leading-tight mb-3">
+            나는 지금<br/>몇 % 번아웃인가?
+          </h1>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            20가지 상황으로 알아보는<br/>나의 번아웃 상태와 유형 완전 분석
+          </p>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-sm p-5 mb-5">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-2xl">🧡</span>
+            <div>
+              <div className="text-sm font-bold text-gray-900">약 3분 소요</div>
+              <div className="text-xs text-gray-400">20문항 · 4가지 번아웃 유형</div>
+            </div>
+          </div>
+          <div className="flex gap-2 flex-wrap">
+            {['🔥 완전연소형','🫥 감각마비형','⚡ 경고신호형','☁️ 안개방황형'].map(t => (
+              <div key={t} className="flex-1 bg-gray-50 rounded-xl py-2 px-1 text-center text-xs text-gray-600 font-medium" style={{minWidth:'70px'}}>{t}</div>
+            ))}
+          </div>
+        </div>
+
+        <button onClick={onStart}
+          className="w-full py-4 rounded-2xl text-white font-bold text-lg active:scale-95 transition-transform duration-150"
+          style={{background: ACCENT, boxShadow:`0 4px 24px ${ACCENT_GLOW}`}}>
+          테스트 시작하기
+        </button>
+        <p className="text-center text-xs text-gray-400 mt-3">
+          현재까지 <span className="font-bold text-gray-600">{count ? count.toLocaleString('ko-KR') + '명' : '...'}</span>이 확인했어요
+        </p>
+        <div className="text-center mt-4">
+          <a href="index.html" className="text-xs text-gray-300 hover:text-gray-400" style={{textDecoration:'none'}}>
+            ← 다른 테스트 보러가기
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function BridgePhase({ msg }) {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center" style={{background: ACCENT, zIndex:50}}>
+      <div className="bridge-anim text-center text-white px-8">
+        <div className="text-5xl mb-4">{msg.emoji}</div>
+        <div className="text-2xl font-extrabold mb-2">{msg.title}</div>
+        <div className="text-base opacity-80">{msg.sub}</div>
+      </div>
+    </div>
+  );
+}
+
+function QuestionPhase({ question, qIndex, total, onAnswer }) {
+  const [selected, setSelected] = useState(null);
+  const [key, setKey] = useState(0);
+  useEffect(() => { setSelected(null); setKey(k => k+1); }, [qIndex]);
+  const handleSelect = (choice) => {
+    if (selected !== null) return;
+    setSelected(choice);
+    setTimeout(() => onAnswer(choice), 220);
+  };
+  return (
+    <div className="min-h-screen flex flex-col px-5 py-8" style={{paddingTop:'env(safe-area-inset-top, 32px)'}}>
+      <ProgressBar current={qIndex+1} total={total} />
+      <div key={key} className="fade-up flex-1 flex flex-col justify-center">
+        <div className="bg-white rounded-2xl shadow-sm p-6 mb-4">
+          <div className="text-xs font-bold mb-3 rounded-full inline-block px-3 py-1"
+            style={{background: ACCENT_BG, color: ACCENT}}>
+            Q{qIndex+1}
+          </div>
+          <p className="text-lg font-bold text-gray-900 leading-snug">{question.q}</p>
+        </div>
+        <div className="flex flex-col gap-3">
+          {[{choice:'A', label:question.a},{choice:'B', label:question.b}].map(({choice, label}) => (
+            <button key={choice} onClick={() => handleSelect(choice)}
+              className={`btn-choice w-full text-left p-5 rounded-2xl border-2 font-semibold text-base transition-all duration-200 ${
+                selected === choice ? 'selected'
+                  : selected !== null ? 'border-gray-100 bg-gray-50 text-gray-300'
+                  : 'border-gray-100 bg-white text-gray-800 hover:border-orange-300 hover:bg-orange-50'
+              }`}>
+              <span className="inline-block w-7 h-7 rounded-full text-center leading-7 text-sm font-bold mr-3"
+                style={selected === choice
+                  ? {background:'rgba(255,255,255,0.25)', color:'#fff'}
+                  : {background:'#F3F4F6', color:'#6B7280'}}>
+                {choice}
+              </span>
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <p className="text-center text-xs text-gray-300 mt-6">선택하면 자동으로 다음 질문으로 넘어가요</p>
+    </div>
+  );
+}
+
+function LoadingPhase() {
+  const [textIdx, setTextIdx] = useState(0);
+  useEffect(() => {
+    const iv = setInterval(() => setTextIdx(i => (i+1) % LOADING_TEXTS.length), 620);
+    return () => clearInterval(iv);
+  }, []);
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center px-5 py-12">
+      <div className="flex flex-col items-center justify-center">
+        <div className="mb-8">
+          <div className="w-16 h-16 rounded-full border-4 spinner"
+            style={{borderColor:`${ACCENT_BG} ${ACCENT_BG} ${ACCENT_BG} ${ACCENT}`}} />
+        </div>
+        <h2 className="text-xl font-extrabold text-gray-900 mb-2 text-center">결과 분석 중</h2>
+        <p className="text-sm text-gray-400 fade-in" key={textIdx}>{LOADING_TEXTS[textIdx]}</p>
+      </div>
+    </div>
+  );
+}
+
+function BarStat({ label, value, color }) {
+  return (
+    <div className="mb-3">
+      <div className="flex justify-between text-xs font-semibold text-gray-600 mb-1.5">
+        <span>{label}</span><span style={{color}}>{value}%</span>
+      </div>
+      <div className="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden">
+        <div className="bar-fill h-full rounded-full"
+          style={{'--target-width':`${value}%`, width:`${value}%`, background:color}} />
+      </div>
+    </div>
+  );
+}
+
+function ResultPhase({ result, onRestart }) {
+  const handleShare = async () => {
+    const url = window.location.href;
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch(e) {
+      const el = document.createElement('textarea');
+      el.value = url; document.body.appendChild(el); el.select();
+      document.execCommand('copy'); document.body.removeChild(el);
+    }
+    alert('링크가 복사되었어요! 친구에게 공유해보세요 🔋');
+  };
+  return (
+    <div className="min-h-screen px-5 py-10 pb-20">
+      <div className="max-w-sm mx-auto">
+
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4 text-center">
+          <div className="text-5xl mb-3">{result.emoji}</div>
+          <div className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-2"
+            style={{background: ACCENT_BG, color: ACCENT}}>
+            나의 번아웃 유형
+          </div>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-1">{result.title}</h2>
+          <p className="text-sm font-semibold mb-4" style={{color: ACCENT}}>{result.subtitle}</p>
+          <p className="text-sm text-gray-600 leading-relaxed">{result.desc}</p>
+        </div>
+
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4" style={{animationDelay:'0.08s'}}>
+          <h3 className="text-sm font-extrabold text-gray-900 mb-4">🔋 나의 번아웃 지수</h3>
+          <BarStat label="🔥 번아웃 강도" value={result.burnoutLevel} color="#EF4444" />
+          <BarStat label="💚 회복 가능성" value={100 - result.burnoutLevel} color="#10B981" />
+          <BarStat label="💬 감정 표현력" value={result.expressionScore} color="#F97316" />
+          <BarStat label="🔇 감정 억제력" value={100 - result.expressionScore} color="#6B7280" />
+        </div>
+
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4" style={{animationDelay:'0.14s'}}>
+          <h3 className="text-sm font-extrabold text-gray-900 mb-4">✨ 나의 핵심 특징 3가지</h3>
+          {result.traits.map((t, i) => (
+            <div key={i} className="flex gap-3 mb-3 last:mb-0">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold"
+                style={{background: ACCENT}}>
+                {i+1}
+              </div>
+              <p className="text-sm text-gray-700 leading-relaxed">{t}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-5 mb-4" style={{animationDelay:'0.18s'}}>
+          <h3 className="text-sm font-extrabold text-gray-900 mb-2">💡 회복을 위한 한 마디</h3>
+          <p className="text-sm text-gray-600 leading-relaxed">{result.tip}</p>
+        </div>
+
+        <div className="fade-up grid grid-cols-2 gap-3 mb-4" style={{animationDelay:'0.22s'}}>
+          <div className="bg-white rounded-2xl shadow-sm p-4">
+            <div className="text-xs font-bold text-green-500 mb-2">💚 찰떡 조합</div>
+            <div className="text-2xl mb-1">{result.best.emoji}</div>
+            <div className="text-sm font-bold text-gray-900 mb-1">{result.best.title}</div>
+            <div className="text-xs text-gray-400 leading-tight">{result.best.sub}</div>
+          </div>
+          <div className="bg-white rounded-2xl shadow-sm p-4">
+            <div className="text-xs font-bold text-red-400 mb-2">🌶️ 충돌 주의</div>
+            <div className="text-2xl mb-1">{result.worst.emoji}</div>
+            <div className="text-sm font-bold text-gray-900 mb-1">{result.worst.title}</div>
+            <div className="text-xs text-gray-400 leading-tight">{result.worst.sub}</div>
+          </div>
+        </div>
+
+        <div className="fade-up mb-4" style={{animationDelay:'0.24s'}}>
+          <div className="text-xs font-bold text-gray-400 mb-2 text-center">광고</div>
+          <GoogleAd slot="5555555555" />
+        </div>
+
+        <div className="fade-up flex flex-col gap-3" style={{animationDelay:'0.28s'}}>
+          <button onClick={handleShare}
+            className="w-full py-4 rounded-2xl font-bold text-base border-2 border-gray-200 bg-white text-gray-800 active:scale-95 transition-transform duration-150">
+            🔗 결과 공유하기
+          </button>
+          <button onClick={onRestart}
+            className="w-full py-3 rounded-2xl text-sm text-gray-400 font-medium active:scale-95 transition-transform duration-150">
+            🔄 다시 테스트하기
+          </button>
+          <a href="index.html"
+            className="block w-full py-3 rounded-2xl text-sm text-gray-400 font-medium text-center active:scale-95 transition-transform duration-150"
+            style={{textDecoration:'none'}}>
+            🏠 다른 테스트 보러가기
+          </a>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const getInitial = () => {
+    const m = window.location.hash.match(/#r=([A-Z]{2})/);
+    if (m && RESULTS[m[1]]) return { phase:'RESULT', result:RESULTS[m[1]] };
+    return { phase:'INTRO', result:null };
+  };
+  const init = getInitial();
+  const [visitCount, setVisitCount] = useState(0);
+  React.useEffect(() => {
+    fetch('https://api.counterapi.dev/v1/insideme-kr/burnout/up')
+      .then(r => r.json()).then(d => setVisitCount(d.count || 0)).catch(() => {});
+  }, []);
+  const [phase, setPhase] = useState(init.phase);
+  const [qIndex, setQIndex] = useState(0);
+  const [scores, setScores] = useState({ H:0, L:0, E:0, I:0 });
+  const [result, setResult] = useState(init.result);
+  const [showBridge, setShowBridge] = useState(false);
+  const [bridgeMsg, setBridgeMsg] = useState(null);
+
+  const handleStart = () => {
+    history.replaceState(null, '', window.location.pathname);
+    setPhase('QUESTION'); setQIndex(0); setScores({H:0,L:0,E:0,I:0});
+  };
+
+  const handleAnswer = (choice) => {
+    const q = QUESTIONS[qIndex];
+    const type = choice === 'A' ? q.typeA : q.typeB;
+    const newScores = { ...scores, [type]: scores[type]+1 };
+    setScores(newScores);
+    const nextIdx = qIndex+1;
+    if (nextIdx >= QUESTIONS.length) {
+      const hl = newScores.H >= newScores.L ? 'H' : 'L';
+      const ei = newScores.E >= newScores.I ? 'E' : 'I';
+      const key = hl+ei;
+      setResult(RESULTS[key] || RESULTS['LE']);
+      history.replaceState(null, '', '#r=' + key);
+      setPhase('LOADING');
+      setTimeout(() => setPhase('RESULT'), 2500);
+      return;
+    }
+    if (BRIDGE_MESSAGES[nextIdx]) {
+      setBridgeMsg(BRIDGE_MESSAGES[nextIdx]);
+      setShowBridge(true);
+      setTimeout(() => { setShowBridge(false); setQIndex(nextIdx); }, 850);
+    } else {
+      setQIndex(nextIdx);
+    }
+  };
+
+  const handleRestart = () => {
+    history.replaceState(null, '', window.location.pathname);
+    setPhase('INTRO'); setQIndex(0); setScores({H:0,L:0,E:0,I:0}); setResult(null);
+  };
+
+  return (
+    <div style={{background:'#F3F4F6', minHeight:'100vh'}}>
+      <div className="max-w-sm mx-auto" style={{minHeight:'100vh', background:'#F3F4F6'}}>
+
+        <a href="index.html" style={{textDecoration:'none', display:'flex', alignItems:'center', gap:'8px', padding:'16px 20px 8px'}}>
+          <div style={{width:'32px', height:'32px', background:'#0064FF', borderRadius:'10px', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'16px'}}>🧠</div>
+          <span style={{fontSize:'1rem', fontWeight:900, color:'#111', letterSpacing:'-0.5px'}}>인사이드미</span>
+        </a>
+
+        {showBridge && bridgeMsg && <BridgePhase msg={bridgeMsg} />}
+        {phase === 'INTRO' && <IntroPhase onStart={handleStart} count={visitCount} />}
+        {phase === 'QUESTION' && !showBridge && (
+          <QuestionPhase question={QUESTIONS[qIndex]} qIndex={qIndex} total={QUESTIONS.length} onAnswer={handleAnswer} />
+        )}
+        {phase === 'LOADING' && <LoadingPhase />}
+        {phase === 'RESULT' && result && <ResultPhase result={result} onRestart={handleRestart} />}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

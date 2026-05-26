@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="shortcut icon" href="/favicon.svg"/>
+<meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+<meta http-equiv="X-Frame-Options" content="DENY"/>
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"/>
+
+<!-- Primary SEO -->
+<title>연애 성향 테스트 — 나는 어떤 사랑을 하는 사람? | 인사이드미</title>
+<meta name="title" content="연애 성향 테스트 — 나는 어떤 사랑을 하는 사람? | 인사이드미"/>
+<meta name="description" content="인사이드미 연애 성향 테스트 — 20가지 연애 상황으로 알아보는 나의 사랑 유형. 불꽃 낭만형, 전략적 헌터형, 수줍은 달빛형, 쿨한 관망형 중 내 연애 성향은? 무료 심리테스트 3분 완성."/>
+<meta name="keywords" content="인사이드미, 연애성향테스트, 연애심리테스트, 사랑유형테스트, 무료연애테스트, 연애유형, 연애스타일테스트, 커플테스트, 썸테스트, 내연애성향, 연애테스트, 사랑테스트"/>
+<meta name="author" content="InsideMe"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://insideme.kr/love.html"/>
+
+<!-- Open Graph (카카오톡/SNS 공유) -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://insideme.kr/love.html"/>
+<meta property="og:site_name" content="인사이드미 InsideMe"/>
+<meta property="og:title" content="나는 어떤 사랑을 하는 사람? | 인사이드미 연애 성향 테스트"/>
+<meta property="og:description" content="불꽃 낭만형? 전략적 헌터형? 수줍은 달빛형? 쿨한 관망형? 인사이드미에서 20문항으로 내 연애 성향을 파헤쳐보세요!"/>
+<meta property="og:image" content="https://insideme.kr/og/love.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="ko_KR"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:url" content="https://insideme.kr/love.html"/>
+<meta name="twitter:title" content="나는 어떤 사랑을 하는 사람? | 연애 성향 테스트"/>
+<meta name="twitter:description" content="불꽃 낭만형? 전략적 헌터형? 수줍은 달빛형? 쿨한 관망형? 20문항으로 내 연애 성향을 파헤쳐보세요!"/>
+<meta name="twitter:image" content="https://insideme.kr/og/love.png"/>
+
+<!-- JSON-LD 구조화 데이터 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Quiz",
+  "name": "연애 성향 테스트",
+  "description": "20가지 연애 상황으로 알아보는 나의 사랑 유형. 불꽃 낭만형, 전략적 헌터형, 수줍은 달빛형, 쿨한 관망형 4가지 유형으로 결과를 알려줍니다.",
+  "url": "https://insideme.kr/love.html",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "educationalLevel": "adult",
+  "author": {
+    "@type": "Organization",
+    "name": "인사이드미",
+    "alternateName": "InsideMe",
+    "url": "https://insideme.kr"
+  },
+  "about": [
+    { "@type": "Thing", "name": "연애 성향" },
+    { "@type": "Thing", "name": "사랑 유형" },
+    { "@type": "Thing", "name": "연애 심리" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://insideme.kr/" },
+    { "@type": "ListItem", "position": 2, "name": "연애 성향 테스트", "item": "https://insideme.kr/love.html" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4166451401478371" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { -webkit-tap-highlight-color: transparent; }
+  body { background: #F3F4F6; font-family: 'Pretendard','Apple SD Gothic Neo','Noto Sans KR',system-ui,sans-serif; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);} }
+  @keyframes fadeIn { from{opacity:0;}to{opacity:1;} }
+  @keyframes spin { to{transform:rotate(360deg);} }
+  @keyframes bridgeIn { 0%{opacity:0;transform:scale(0.94) translateY(10px);}30%{opacity:1;transform:scale(1) translateY(0);}70%{opacity:1;transform:scale(1) translateY(0);}100%{opacity:0;transform:scale(1.04) translateY(-10px);} }
+  @keyframes barGrow { from{width:0%;}to{width:var(--target-width);} }
+  .fade-up { animation: fadeUp 0.38s cubic-bezier(0.22,1,0.36,1) both; }
+  .fade-in { animation: fadeIn 0.3s ease both; }
+  .spinner { animation: spin 0.9s linear infinite; }
+  .bridge-anim { animation: bridgeIn 0.85s cubic-bezier(0.22,1,0.36,1) both; }
+  .bar-fill { animation: barGrow 0.9s cubic-bezier(0.22,1,0.36,1) both; }
+  .btn-choice { transition: all 0.18s cubic-bezier(0.22,1,0.36,1); }
+  .btn-choice:active { transform: scale(0.97); }
+  .btn-choice.selected { background:#FF4081!important;color:#fff!important;border-color:#FF4081!important;transform:scale(0.98); }
+</style>
+
+<!-- SEO: JS 미지원 환경(검색봇)을 위한 폴백 콘텐츠 -->
+<noscript>
+  <style>body{display:block!important;}</style>
+  <div style="max-width:480px;margin:40px auto;padding:24px;font-family:sans-serif;">
+    <h1>연애 성향 테스트 | InsideMe</h1>
+    <p>나는 어떤 사랑을 하는 사람일까? 20가지 연애 상황으로 알아보는 나의 사랑 유형 테스트.</p>
+    <h2>4가지 연애 유형</h2>
+    <ul>
+      <li>🔥 불꽃 낭만형 — 감정 올인 로맨티스트</li>
+      <li>🎯 전략적 헌터형 — 계획된 설렘 설계자</li>
+      <li>🌙 수줍은 달빛형 — 혼자 타는 짝사랑 전문가</li>
+      <li>🧊 쿨한 관망형 — 연애도 효율로 접근하는 현실주의자</li>
+    </ul>
+    <p>이 테스트를 이용하려면 JavaScript를 활성화해주세요.</p>
+  </div>
+</noscript>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+const ACCENT = '#FF4081';
+
+function GoogleAd({ slot }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+  }, []);
+  return (
+    <ins ref={ref} className="adsbygoogle"
+      style={{display:'block', width:'100%'}}
+      data-ad-client="ca-pub-4166451401478371"
+      data-ad-slot={slot}
+      data-ad-format="auto"
+      data-full-width-responsive="true" />
+  );
+}
+const ACCENT_GLOW = 'rgba(255,64,129,0.3)';
+
+const QUESTIONS = [
+  { id:1,  q:"처음 만난 자리에서 마음에 드는 사람이 생겼다면?",             a:"먼저 말 걸고 연락처를 물어본다",          b:"눈치만 보다가 기회를 기다린다",      typeA:'X', typeB:'P' },
+  { id:2,  q:"마음에 드는 사람이 생겼을 때 주변 친구들에게?",               a:"바로 털어놓고 조언을 구한다",              b:"혼자 정리될 때까지 말 안 한다",      typeA:'E', typeB:'R' },
+  { id:3,  q:"관심 있는 사람에게 카톡을 먼저 보낼 때 나는?",               a:"생각나면 바로 보낸다",                     b:"읽씹 당할까봐 고민하다 못 보낸다",   typeA:'X', typeB:'P' },
+  { id:4,  q:"좋아하는 사람이 생기면 내 SNS는?",                           a:"상대가 좋아할 것 같은 걸 올리게 된다",    b:"딱히 달라지는 건 없다",              typeA:'E', typeB:'R' },
+  { id:5,  q:"고백은 언제 하는 게 맞다고 생각해?",                          a:"감정이 확실해지면 바로",                   b:"상대 마음을 어느 정도 확인하고",     typeA:'X', typeB:'P' },
+  { id:6,  q:"사귀기 시작한 지 얼마 안 됐을 때, 연락 빈도는?",             a:"하루에도 수십 번, 항상 연결돼 있고 싶다", b:"적당히, 각자 시간도 중요하다",       typeA:'E', typeB:'R' },
+  { id:7,  q:"첫 데이트 장소는 누가 정하는 게 좋아?",                        a:"내가 완벽하게 짜서 깜짝 놀래켜 주고 싶다",b:"상대방 의견을 먼저 묻고 맞춰준다",  typeA:'X', typeB:'P' },
+  { id:8,  q:"연인이 답장이 평소보다 늦을 때 드는 생각은?",                 a:"무슨 일 생긴 건지 걱정되고 신경 쓰인다", b:"바쁜가 보다, 올 때 오겠지",          typeA:'E', typeB:'R' },
+  { id:9,  q:"기념일 챙기는 스타일은?",                                      a:"100일, 200일, 생일 모두 특별하게 준비",  b:"큰 기념일만, 나머지는 편하게",        typeA:'X', typeB:'P' },
+  { id:10, q:"연인이 친구들과 신나게 노는 사진을 올렸을 때?",               a:"나도 끼고 싶다고 솔직하게 말한다",        b:"잘 놀고 있구나, 좋다",               typeA:'E', typeB:'R' },
+  { id:11, q:"연인이랑 싸웠을 때 나의 첫 반응은?",                           a:"풀릴 때까지 대화하고 싶다",               b:"일단 혼자 시간이 필요하다",          typeA:'X', typeB:'P' },
+  { id:12, q:"상대가 나에게 서운한 감정을 털어놓을 때?",                     a:"내 감정도 같이 쏟아낸다",                  b:"상대 말을 다 듣고 논리적으로 대응", typeA:'E', typeB:'R' },
+  { id:13, q:"연인이 이유 없이 며칠째 무뚝뚝하다면 나는?",                  a:"뭔 일이냐고 직접 물어본다",               b:"알아서 말하겠지, 기다린다",          typeA:'X', typeB:'P' },
+  { id:14, q:"헤어지자는 말이 나왔을 때 내 모습은?",                         a:"감정이 폭발해서 눈물이 먼저 나온다",      b:"일단 이성적으로 이유부터 물어본다",  typeA:'E', typeB:'R' },
+  { id:15, q:"연인이 내 절친이랑 둘이서 밥을 먹었다고 한다면?",             a:"왜 나한테 말 안 했냐고 확인한다",         b:"친한 사이면 그럴 수 있지, 넘어간다",typeA:'X', typeB:'P' },
+  { id:16, q:"연애하면서 '나만의 시간'에 대한 생각은?",                      a:"연인과 함께하는 시간이 곧 내 시간",       b:"각자 독립적인 시간이 있어야 건강한 관계",typeA:'E', typeB:'R' },
+  { id:17, q:"연인이 내 이상형과 다른 외모라는 걸 알게 됐을 때?",           a:"마음이 가면 그냥 좋다",                   b:"끌리는 게 없으면 오래 못 간다",      typeA:'E', typeB:'R' },
+  { id:18, q:"오랜 연애에 권태기가 왔을 때 나는?",                           a:"새로운 데이트 코스나 이벤트를 기획한다", b:"시간이 지나면 나아지겠지, 기다린다", typeA:'X', typeB:'P' },
+  { id:19, q:"연인의 전 애인 얘기가 나왔을 때 내 심정은?",                  a:"솔직히 듣기 불편하고 내색이 된다",        b:"과거는 과거, 크게 신경 안 쓴다",     typeA:'E', typeB:'R' },
+  { id:20, q:"지금 내가 연애에서 가장 원하는 건?",                           a:"매일 설레고 감동받는 뜨거운 사랑",        b:"서로 편하고 안정적인 든든한 관계",   typeA:'X', typeB:'P' },
+];
+
+const BRIDGE_MESSAGES = {
+  5:  { emoji:'💌', title:'설레는 마음을', sub:'좀 더 들여다볼게요' },
+  10: { emoji:'🌊', title:'반환점!', sub:'진짜 본심이 나올 시간이에요' },
+  15: { emoji:'💑', title:'거의 다 왔어요!', sub:'당신의 연애 공식이 보이기 시작해요' },
+};
+
+const LOADING_TEXTS = ['연애 패턴 분석 중...','사랑 유형 매칭 중...','궁합 계산 중...','결과 생성 중...'];
+
+const RESULTS = {
+  XE: {
+    emoji:'🔥', type:'XE', title:'불꽃 낭만형', subtitle:'감정 올인 로맨티스트',
+    desc:'좋으면 바로 표현하고, 사랑하면 전부 퍼주는 타입. 연인에게 완전히 몰입하는 뜨거운 사랑을 하지만, 그만큼 상처도 깊게 받아요. 감정이 곧 에너지입니다.',
+    traits:['좋아하면 바로 표현, 감정을 숨기는 게 오히려 힘든 타입','연인에게 올인하는 스타일 — 기념일·이벤트 빠짐없이 챙김','감정 기복이 있지만, 그만큼 사랑도 누구보다 진하게 함'],
+    xScore:85, eScore:88,
+    best:{ emoji:'🌙', title:'수줍은 달빛형', sub:'표현 못하는 상대의 감정을 대신 꺼내주는 최고의 짝' },
+    worst:{ emoji:'🎯', title:'전략적 헌터형', sub:'둘 다 주도권 잡으려다 충돌 가능성' },
+  },
+  XR: {
+    emoji:'🎯', type:'XR', title:'전략적 헌터형', subtitle:'계획된 설렘 설계자',
+    desc:'좋아하면 철저히 분석하고 타이밍 봐서 정확하게 접근하는 타입. 감정보다 행동으로 사랑을 증명하고, 관계를 체계적으로 발전시키는 데 능숙해요.',
+    traits:['좋아하면 치밀하게 접근 — 감정보다 타이밍과 전략을 중시','행동으로 사랑을 증명하는 스타일, 말보다 케어로 표현','연애도 목표가 있고, 관계를 발전시키는 데 능숙함'],
+    xScore:82, eScore:30,
+    best:{ emoji:'🧊', title:'쿨한 관망형', sub:'서로 감정 낭비 없이 현실적으로 맞는 환상 궁합' },
+    worst:{ emoji:'🔥', title:'불꽃 낭만형', sub:'감성 vs 이성 충돌 — 서로 대화 방식이 너무 달라' },
+  },
+  PE: {
+    emoji:'🌙', type:'PE', title:'수줍은 달빛형', subtitle:'혼자 타는 짝사랑 전문가',
+    desc:'속으로는 드라마 주인공인데 겉으로는 평온한 척 달인. 감정은 태산인데 표현은 0, 상대가 먼저 다가와줄 때 비로소 마음의 문을 열어요.',
+    traits:['속으로는 드라마 주인공인데 겉으로는 평온한 척 달인','표현은 서툴러도 상대를 향한 감정은 누구보다 진하고 깊음','짝사랑을 오래 품는 타입 — 확신이 생겨야 겨우 표현'],
+    xScore:22, eScore:85,
+    best:{ emoji:'🔥', title:'불꽃 낭만형', sub:'먼저 다가와 꺼내줄 완벽한 상대' },
+    worst:{ emoji:'🧊', title:'쿨한 관망형', sub:'둘 다 기다리다가 아무 일도 안 일어남' },
+  },
+  PR: {
+    emoji:'🧊', type:'PR', title:'쿨한 관망형', subtitle:'연애도 효율로 접근하는 현실주의자',
+    desc:'설레도 티 안 내고, 감정에 휘둘리지 않는 멘탈 강자. 관계가 안정적으로 검증돼야 본격적으로 마음을 열어요. 연애보다 본인 삶의 밸런스를 중시해요.',
+    traits:['설레도 티 안 내고, 감정에 휘둘리지 않는 멘탈 강자','관계가 검증돼야 본격적으로 마음을 여는 신중한 스타일','연애보다 본인 삶의 밸런스를 중시하는 독립적인 타입'],
+    xScore:18, eScore:28,
+    best:{ emoji:'🎯', title:'전략적 헌터형', sub:'서로 감정 소모 없이 실용적으로 딱 맞는 궁합' },
+    worst:{ emoji:'🌙', title:'수줍은 달빛형', sub:'둘 다 기다리기만 하다가 영원히 평행선' },
+  },
+};
+
+function ProgressBar({ current, total }) {
+  const pct = Math.round((current / total) * 100);
+  return (
+    <div className="w-full mb-6">
+      <div className="flex justify-between text-xs text-gray-400 mb-1.5 font-medium">
+        <span>{current} / {total}</span><span>{pct}%</span>
+      </div>
+      <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
+        <div className="h-full rounded-full transition-all duration-500 ease-out"
+          style={{ width:`${pct}%`, background: ACCENT }} />
+      </div>
+    </div>
+  );
+}
+
+function IntroPhase({ onStart, count }) {
+  return (
+    <div className="fade-up flex flex-col items-center justify-center min-h-screen px-5 py-12">
+      <div className="w-full max-w-sm">
+        <div className="text-center mb-8">
+          <div className="text-6xl mb-4">💘</div>
+          <div className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-4"
+            style={{background:'#FFF0F5', color: ACCENT}}>
+            연애 성향 테스트
+          </div>
+          <h1 className="text-2xl font-extrabold text-gray-900 leading-tight mb-3">
+            나는 어떤 사랑을<br/>하는 사람일까?
+          </h1>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            20가지 연애 상황으로 알아보는<br/>나의 사랑 유형 완전 분석
+          </p>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-sm p-5 mb-5">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-2xl">💑</span>
+            <div>
+              <div className="text-sm font-bold text-gray-900">약 3분 소요</div>
+              <div className="text-xs text-gray-400">20문항 · 4가지 연애 유형</div>
+            </div>
+          </div>
+          <div className="flex gap-2 flex-wrap">
+            {['🔥 낭만형','🎯 헌터형','🌙 달빛형','🧊 관망형'].map(t => (
+              <div key={t} className="flex-1 bg-gray-50 rounded-xl py-2 px-1 text-center text-xs text-gray-600 font-medium" style={{minWidth:'70px'}}>{t}</div>
+            ))}
+          </div>
+        </div>
+
+        <button onClick={onStart}
+          className="w-full py-4 rounded-2xl text-white font-bold text-lg active:scale-95 transition-transform duration-150"
+          style={{background: ACCENT, boxShadow:`0 4px 24px ${ACCENT_GLOW}`}}>
+          테스트 시작하기
+        </button>
+        <p className="text-center text-xs text-gray-400 mt-3">
+          현재까지 <span className="font-bold text-gray-600">{count ? count.toLocaleString('ko-KR') + '명' : '...'}</span>이 확인했어요
+        </p>
+        <div className="text-center mt-4">
+          <a href="index.html" className="text-xs text-gray-300 hover:text-gray-400" style={{textDecoration:'none'}}>
+            ← 다른 테스트 보러가기
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function BridgePhase({ msg }) {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center" style={{background: ACCENT, zIndex:50}}>
+      <div className="bridge-anim text-center text-white px-8">
+        <div className="text-5xl mb-4">{msg.emoji}</div>
+        <div className="text-2xl font-extrabold mb-2">{msg.title}</div>
+        <div className="text-base opacity-80">{msg.sub}</div>
+      </div>
+    </div>
+  );
+}
+
+function QuestionPhase({ question, qIndex, total, onAnswer }) {
+  const [selected, setSelected] = useState(null);
+  const [key, setKey] = useState(0);
+
+  useEffect(() => { setSelected(null); setKey(k => k+1); }, [qIndex]);
+
+  const handleSelect = (choice) => {
+    if (selected !== null) return;
+    setSelected(choice);
+    setTimeout(() => onAnswer(choice), 220);
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col px-5 py-8">
+      <ProgressBar current={qIndex+1} total={total} />
+      <div key={key} className="fade-up flex-1 flex flex-col justify-center">
+        <div className="bg-white rounded-2xl shadow-sm p-6 mb-4">
+          <div className="text-xs font-bold mb-3 rounded-full inline-block px-3 py-1"
+            style={{background:'#FFF0F5', color: ACCENT}}>
+            Q{qIndex+1}
+          </div>
+          <p className="text-lg font-bold text-gray-900 leading-snug">{question.q}</p>
+        </div>
+        <div className="flex flex-col gap-3">
+          {[{choice:'A', label:question.a},{choice:'B', label:question.b}].map(({choice, label}) => (
+            <button key={choice} onClick={() => handleSelect(choice)}
+              className={`btn-choice w-full text-left p-5 rounded-2xl border-2 font-semibold text-base transition-all duration-200 ${
+                selected === choice
+                  ? 'selected'
+                  : selected !== null
+                    ? 'border-gray-100 bg-gray-50 text-gray-300'
+                    : 'border-gray-100 bg-white text-gray-800'
+              }`}
+              style={selected === null ? {} : {}}
+            >
+              <span className="inline-block w-7 h-7 rounded-full text-center leading-7 text-sm font-bold mr-3"
+                style={selected === choice
+                  ? {background:'rgba(255,255,255,0.25)', color:'#fff'}
+                  : {background:'#F3F4F6', color:'#6B7280'}}>
+                {choice}
+              </span>
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <p className="text-center text-xs text-gray-300 mt-6">선택하면 자동으로 다음 질문으로 넘어가요</p>
+    </div>
+  );
+}
+
+function LoadingPhase() {
+  const [textIdx, setTextIdx] = useState(0);
+  useEffect(() => {
+    const iv = setInterval(() => setTextIdx(i => (i+1) % LOADING_TEXTS.length), 620);
+    return () => clearInterval(iv);
+  }, []);
+
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center px-5 py-12">
+      <div className="flex flex-col items-center justify-center">
+        <div className="mb-8">
+          <div className="w-16 h-16 rounded-full border-4 border-pink-100 border-t-pink-400 spinner"/>
+        </div>
+        <h2 className="text-xl font-extrabold text-gray-900 mb-2 text-center">결과 분석 중</h2>
+        <p className="text-sm text-gray-400 fade-in" key={textIdx}>{LOADING_TEXTS[textIdx]}</p>
+      </div>
+    </div>
+  );
+}
+
+function BarStat({ label, value, color }) {
+  return (
+    <div className="mb-3">
+      <div className="flex justify-between text-xs font-semibold text-gray-600 mb-1.5">
+        <span>{label}</span><span style={{color}}>{value}%</span>
+      </div>
+      <div className="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden">
+        <div className="bar-fill h-full rounded-full"
+          style={{'--target-width':`${value}%`, width:`${value}%`, background:color}}/>
+      </div>
+    </div>
+  );
+}
+
+function ResultPhase({ result, onRestart }) {
+  const handleShare = async () => {
+    const url = window.location.href;
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch(e) {
+      const el = document.createElement('textarea');
+      el.value = url; document.body.appendChild(el); el.select();
+      document.execCommand('copy'); document.body.removeChild(el);
+    }
+    alert('링크가 복사되었어요! 친구에게 공유해보세요 💘');
+  };
+
+  return (
+    <div className="min-h-screen px-5 py-10 pb-20">
+      <div className="max-w-sm mx-auto">
+
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4 text-center">
+          <div className="text-5xl mb-3">{result.emoji}</div>
+          <div className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-2"
+            style={{background:'#FFF0F5', color: ACCENT}}>
+            나의 연애 유형
+          </div>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-1">{result.title}</h2>
+          <p className="text-sm font-semibold mb-4" style={{color: ACCENT}}>{result.subtitle}</p>
+          <p className="text-sm text-gray-600 leading-relaxed">{result.desc}</p>
+        </div>
+
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4" style={{animationDelay:'0.08s'}}>
+          <h3 className="text-sm font-extrabold text-gray-900 mb-4">📊 나의 연애 만렙 지수</h3>
+          <BarStat label="⚡ 적극성" value={result.xScore} color={ACCENT}/>
+          <BarStat label="❤️ 감성 표현력" value={result.eScore} color="#FF6B6B"/>
+          <BarStat label="🧊 이성 판단력" value={100-result.eScore} color="#7C3AED"/>
+          <BarStat label="🌿 독립성" value={100-result.xScore} color="#10B981"/>
+        </div>
+
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4" style={{animationDelay:'0.14s'}}>
+          <h3 className="text-sm font-extrabold text-gray-900 mb-4">✨ 나의 핵심 특징 3가지</h3>
+          {result.traits.map((t, i) => (
+            <div key={i} className="flex gap-3 mb-3 last:mb-0">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold"
+                style={{background: ACCENT}}>
+                {i+1}
+              </div>
+              <p className="text-sm text-gray-700 leading-relaxed">{t}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="fade-up grid grid-cols-2 gap-3 mb-4" style={{animationDelay:'0.2s'}}>
+          <div className="bg-white rounded-2xl shadow-sm p-4">
+            <div className="text-xs font-bold text-green-500 mb-2">💚 찰떡 궁합</div>
+            <div className="text-2xl mb-1">{result.best.emoji}</div>
+            <div className="text-sm font-bold text-gray-900 mb-1">{result.best.title}</div>
+            <div className="text-xs text-gray-400 leading-tight">{result.best.sub}</div>
+          </div>
+          <div className="bg-white rounded-2xl shadow-sm p-4">
+            <div className="text-xs font-bold text-red-400 mb-2">🌶️ 개밥바라기</div>
+            <div className="text-2xl mb-1">{result.worst.emoji}</div>
+            <div className="text-sm font-bold text-gray-900 mb-1">{result.worst.title}</div>
+            <div className="text-xs text-gray-400 leading-tight">{result.worst.sub}</div>
+          </div>
+        </div>
+
+        <div className="fade-up mb-4" style={{animationDelay:'0.22s'}}>
+          <div className="text-xs font-bold text-gray-400 mb-2 text-center">광고</div>
+          <GoogleAd slot="2222222222" />
+        </div>
+
+        <div className="fade-up flex flex-col gap-3" style={{animationDelay:'0.26s'}}>
+          <button onClick={handleShare}
+            className="w-full py-4 rounded-2xl font-bold text-base border-2 border-gray-200 bg-white text-gray-800 active:scale-95 transition-transform duration-150">
+            🔗 결과 공유하기
+          </button>
+
+          <button onClick={onRestart}
+            className="w-full py-3 rounded-2xl text-sm text-gray-400 font-medium active:scale-95 transition-transform duration-150">
+            🔄 다시 테스트하기
+          </button>
+          <a href="index.html"
+            className="block w-full py-3 rounded-2xl text-sm text-gray-400 font-medium text-center active:scale-95 transition-transform duration-150"
+            style={{textDecoration:'none'}}>
+            🏠 다른 테스트 보러가기
+          </a>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const getInitial = () => {
+    const m = window.location.hash.match(/#r=([A-Z]{2})/);
+    if (m && RESULTS[m[1]]) return { phase:'RESULT', result:RESULTS[m[1]] };
+    return { phase:'INTRO', result:null };
+  };
+  const init = getInitial();
+  const [visitCount, setVisitCount] = useState(0);
+  React.useEffect(() => {
+    fetch('https://api.counterapi.dev/v1/insideme-kr/love/up')
+      .then(r => r.json()).then(d => setVisitCount(d.count || 0)).catch(() => {});
+  }, []);
+  const [phase, setPhase] = useState(init.phase);
+  const [qIndex, setQIndex] = useState(0);
+  const [scores, setScores] = useState({ X:0, P:0, E:0, R:0 });
+  const [result, setResult] = useState(init.result);
+  const [showBridge, setShowBridge] = useState(false);
+  const [bridgeMsg, setBridgeMsg] = useState(null);
+
+  const handleStart = () => {
+    history.replaceState(null, '', window.location.pathname);
+    setPhase('QUESTION'); setQIndex(0); setScores({X:0,P:0,E:0,R:0});
+  };
+
+  const handleAnswer = (choice) => {
+    const q = QUESTIONS[qIndex];
+    const type = choice === 'A' ? q.typeA : q.typeB;
+    const newScores = { ...scores, [type]: scores[type]+1 };
+    setScores(newScores);
+    const nextIdx = qIndex+1;
+
+    if (nextIdx >= QUESTIONS.length) {
+      const xp = newScores.X >= newScores.P ? 'X' : 'P';
+      const er = newScores.E >= newScores.R ? 'E' : 'R';
+      const key = xp+er;
+      setResult(RESULTS[key] || RESULTS['XE']);
+      history.replaceState(null, '', '#r=' + key);
+      setPhase('LOADING');
+      setTimeout(() => setPhase('RESULT'), 2500);
+      return;
+    }
+
+    if (BRIDGE_MESSAGES[nextIdx]) {
+      setBridgeMsg(BRIDGE_MESSAGES[nextIdx]);
+      setShowBridge(true);
+      setTimeout(() => { setShowBridge(false); setQIndex(nextIdx); }, 850);
+    } else {
+      setQIndex(nextIdx);
+    }
+  };
+
+  const handleRestart = () => {
+    history.replaceState(null, '', window.location.pathname);
+    setPhase('INTRO'); setQIndex(0); setScores({X:0,P:0,E:0,R:0}); setResult(null);
+  };
+
+  return (
+    <div style={{background:'#F3F4F6', minHeight:'100vh'}}>
+      <div className="max-w-sm mx-auto" style={{minHeight:'100vh', background:'#F3F4F6'}}>
+
+        <a href="index.html" style={{textDecoration:'none', display:'flex', alignItems:'center', gap:'8px', padding:'16px 20px 8px'}}>
+          <div style={{width:'32px', height:'32px', background:'#0064FF', borderRadius:'10px', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'16px'}}>🧠</div>
+          <span style={{fontSize:'1rem', fontWeight:900, color:'#111', letterSpacing:'-0.5px'}}>인사이드미</span>
+        </a>
+
+        {showBridge && bridgeMsg && <BridgePhase msg={bridgeMsg}/>}
+        {phase==='INTRO' && <IntroPhase onStart={handleStart} count={visitCount}/>}
+        {phase==='QUESTION' && !showBridge && (
+          <QuestionPhase question={QUESTIONS[qIndex]} qIndex={qIndex} total={QUESTIONS.length} onAnswer={handleAnswer}/>
+        )}
+        {phase==='LOADING' && <LoadingPhase/>}
+        {phase==='RESULT' && result && <ResultPhase result={result} onRestart={handleRestart}/>}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body>
+</html>

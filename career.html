@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="shortcut icon" href="/favicon.svg"/>
+<meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+<meta http-equiv="X-Frame-Options" content="DENY"/>
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"/>
+
+<!-- Primary SEO -->
+<title>직업 적성 테스트 — 나는 어떤 직업 DNA를 가졌을까? | 인사이드미</title>
+<meta name="title" content="직업 적성 테스트 — 나는 어떤 직업 DNA를 가졌을까? | 인사이드미"/>
+<meta name="description" content="인사이드미 직업 적성 테스트 — 20가지 업무 상황으로 알아보는 나의 직업 적성. 열정 불꽃형, 따뜻한 연결형, 차가운 전략형, 조용한 전문가형 중 내 직업 DNA는? 무료 적성 테스트 3분 완성."/>
+<meta name="keywords" content="인사이드미, 직업적성테스트, 직업성향테스트, 무료적성검사, 직업추천테스트, 커리어테스트, 직업DNA, 취업적성테스트, 나에게맞는직업, 직업테스트, 적성검사, 진로테스트"/>
+<meta name="author" content="인사이드미 InsideMe"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://insideme.kr/career.html"/>
+
+<!-- Open Graph (카카오톡/SNS 공유) -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://insideme.kr/career.html"/>
+<meta property="og:site_name" content="인사이드미 InsideMe"/>
+<meta property="og:title" content="나는 어떤 직업 DNA를 가졌을까? | 인사이드미 직업 적성 테스트"/>
+<meta property="og:description" content="열정 불꽃형? 따뜻한 연결형? 차가운 전략형? 조용한 전문가형? 인사이드미에서 20문항으로 내 직업 적성을 파헤쳐보세요!"/>
+<meta property="og:image" content="https://insideme.kr/og/career.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="ko_KR"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:url" content="https://insideme.kr/career.html"/>
+<meta name="twitter:title" content="나는 어떤 직업 DNA를 가졌을까? | 직업 적성 테스트"/>
+<meta name="twitter:description" content="열정 불꽃형? 따뜻한 연결형? 차가운 전략형? 조용한 전문가형? 20문항으로 내 직업 적성을 파헤쳐보세요!"/>
+<meta name="twitter:image" content="https://insideme.kr/og/career.png"/>
+
+<!-- JSON-LD 구조화 데이터 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Quiz",
+  "name": "직업 적성 테스트",
+  "description": "20가지 업무 상황으로 알아보는 나의 직업 DNA. 열정 불꽃형, 따뜻한 연결형, 차가운 전략형, 조용한 전문가형 4가지 유형으로 결과를 알려줍니다.",
+  "url": "https://insideme.kr/career.html",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "educationalLevel": "adult",
+  "author": {
+    "@type": "Organization",
+    "name": "인사이드미",
+    "alternateName": "InsideMe",
+    "url": "https://insideme.kr"
+  },
+  "about": [
+    { "@type": "Thing", "name": "직업 적성" },
+    { "@type": "Thing", "name": "커리어" },
+    { "@type": "Thing", "name": "직업 DNA" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://insideme.kr/" },
+    { "@type": "ListItem", "position": 2, "name": "직업 적성 테스트", "item": "https://insideme.kr/career.html" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4166451401478371" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { -webkit-tap-highlight-color: transparent; }
+  body { background: #F3F4F6; font-family: 'Pretendard','Apple SD Gothic Neo','Noto Sans KR',system-ui,sans-serif; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);} }
+  @keyframes fadeIn { from{opacity:0;}to{opacity:1;} }
+  @keyframes spin { to{transform:rotate(360deg);} }
+  @keyframes bridgeIn { 0%{opacity:0;transform:scale(0.94) translateY(10px);}30%{opacity:1;transform:scale(1) translateY(0);}70%{opacity:1;transform:scale(1) translateY(0);}100%{opacity:0;transform:scale(1.04) translateY(-10px);} }
+  @keyframes barGrow { from{width:0%;}to{width:var(--target-width);} }
+  .fade-up { animation: fadeUp 0.38s cubic-bezier(0.22,1,0.36,1) both; }
+  .fade-in { animation: fadeIn 0.3s ease both; }
+  .spinner { animation: spin 0.9s linear infinite; }
+  .bridge-anim { animation: bridgeIn 0.85s cubic-bezier(0.22,1,0.36,1) both; }
+  .bar-fill { animation: barGrow 0.9s cubic-bezier(0.22,1,0.36,1) both; }
+  .btn-choice { transition: all 0.18s cubic-bezier(0.22,1,0.36,1); }
+  .btn-choice:active { transform: scale(0.97); }
+  .btn-choice.selected { background:#F59E0B!important;color:#fff!important;border-color:#F59E0B!important;transform:scale(0.98); }
+</style>
+
+<!-- SEO: JS 미지원 환경(검색봇)을 위한 폴백 콘텐츠 -->
+<noscript>
+  <style>body{display:block!important;}</style>
+  <div style="max-width:480px;margin:40px auto;padding:24px;font-family:sans-serif;">
+    <h1>직업 적성 테스트 | InsideMe</h1>
+    <p>나는 어떤 직업 DNA를 가졌을까? 20가지 업무 상황으로 알아보는 나의 직업 적성 테스트.</p>
+    <h2>4가지 직업 유형</h2>
+    <ul>
+      <li>🔥 열정 불꽃형 — 마케터, 크리에이터, 영업, 창업가</li>
+      <li>🤝 따뜻한 연결형 — 교사, 상담사, HR, 서비스기획</li>
+      <li>🎯 차가운 전략형 — 개발자, 컨설턴트, 금융, PM</li>
+      <li>🔬 조용한 전문가형 — 연구원, 데이터분석가, 회계사, 디자이너</li>
+    </ul>
+    <p>이 테스트를 이용하려면 JavaScript를 활성화해주세요.</p>
+  </div>
+</noscript>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+const ACCENT = '#F59E0B';
+const ACCENT_GLOW = 'rgba(245,158,11,0.35)';
+const ACCENT_BG = '#FFFBEB';
+
+const QUESTIONS = [
+  { id:1,  q:"팀 회의에서 새로운 아이디어를 제안할 때 내 근거는?",                                    a:"현장 분위기와 직관 — 느낌이 좋으면 밀어붙인다",           b:"데이터와 사례 — 숫자로 납득시킨다",                    typeA:'E', typeB:'L' },
+  { id:2,  q:"팀에 새 프로젝트가 생겼을 때 내가 자연스럽게 맡는 역할은?",                             a:"전체 방향을 잡고 팀원들을 이끄는 리더",                    b:"디테일을 꼼꼼히 챙기며 뒤를 받쳐주는 서포터",           typeA:'A', typeB:'S' },
+  { id:3,  q:"동료가 실수해서 분위기가 어색해졌을 때 나는?",                                          a:"먼저 다가가 '괜찮아'라고 위로한다",                        b:"실수 원인을 파악해 재발 방지책을 고민한다",              typeA:'E', typeB:'L' },
+  { id:4,  q:"마감이 촉박한 위기 상황, 내 본능은?",                                                   a:"총대를 메고 빠르게 결정을 내린다",                         b:"각자 역할을 정리하고 빠진 게 없는지 체크한다",           typeA:'A', typeB:'S' },
+  { id:5,  q:"처음 만나는 거래처 담당자와 미팅할 때 더 집중하는 것은?",                               a:"상대방 말투·분위기에서 니즈를 파악",                       b:"제안서 숫자와 논리가 탄탄한지 확인",                     typeA:'E', typeB:'L' },
+  { id:6,  q:"업무에서 문제점을 발견했을 때 나는?",                                                   a:"즉시 팀장에게 보고하고 개선을 주도한다",                   b:"혼자 해결책을 정리한 뒤 조용히 보고한다",               typeA:'A', typeB:'S' },
+  { id:7,  q:"하루 일과 중 에너지가 가장 올라오는 순간은?",                                           a:"팀원들과 활발하게 아이디어를 나눌 때",                     b:"혼자 깊게 파고들어 문제를 해결할 때",                    typeA:'E', typeB:'L' },
+  { id:8,  q:"팀 안에서 갈등이 생겼을 때 나의 역할은?",                                               a:"직접 중재하며 해결책을 제안한다",                          b:"양측 입장을 조용히 들으며 정리해준다",                   typeA:'A', typeB:'S' },
+  { id:9,  q:"상사가 내 기획안에 피드백을 줬을 때 먼저 드는 생각은?",                                 a:"상사의 기대와 감정을 먼저 읽는다",                         b:"논리적 허점이 있었는지 냉정히 점검한다",                 typeA:'E', typeB:'L' },
+  { id:10, q:"새로운 업무 방식을 도입한다면 내가 더 끌리는 포지션은?",                                a:"도입을 제안하고 팀을 설득하는 선봉",                       b:"도입 후 안정적으로 운영되도록 세팅하는 역할",            typeA:'A', typeB:'S' },
+  { id:11, q:"직장 생활에서 나를 가장 힘들게 하는 상황은?",                                           a:"팀 분위기가 냉랭하거나 갈등이 지속될 때",                  b:"기준이 모호하거나 비효율적인 프로세스가 계속될 때",      typeA:'E', typeB:'L' },
+  { id:12, q:"발표 자료를 준비할 때 내가 집중하는 부분은?",                                           a:"청중을 설득할 임팩트 있는 스토리라인",                     b:"오타 없이 정확하고 깔끔하게 정리된 내용",               typeA:'A', typeB:'S' },
+  { id:13, q:"업무 외 팀원과의 관계에서 나는?",                                                       a:"회식·소모임 적극 참여, 관계를 중요하게 여긴다",           b:"업무와 사생활은 구분하는 편이다",                        typeA:'E', typeB:'L' },
+  { id:14, q:"자유롭게 일할 수 있다면 나는?",                                                         a:"내가 직접 기획하고 이끄는 프로젝트를 만들고 싶다",        b:"특정 분야를 깊게 파고들어 최고 전문가가 되고 싶다",      typeA:'A', typeB:'S' },
+  { id:15, q:"처음 보는 복잡한 문제를 만났을 때 접근법은?",                                           a:"경험 있는 사람에게 먼저 물어보고 감을 잡는다",            b:"관련 자료부터 찾아보며 구조적으로 파악한다",             typeA:'E', typeB:'L' },
+  { id:16, q:"팀에서 중요한 의사결정을 해야 할 때 나는?",                                             a:"내 의견을 먼저 명확하게 밝힌다",                           b:"모든 의견을 들은 뒤 신중하게 입장을 정한다",            typeA:'A', typeB:'S' },
+  { id:17, q:"일하면서 진짜 보람을 느끼는 순간은?",                                                   a:"팀원이 내 덕분에 성장했다고 말할 때",                      b:"내가 만든 결과물의 완성도가 인정받을 때",               typeA:'E', typeB:'L' },
+  { id:18, q:"업무 지시가 불명확할 때 나는?",                                                         a:"내 판단으로 방향을 잡고 먼저 움직인다",                    b:"정확한 지침이 올 때까지 확인하고 기다린다",              typeA:'A', typeB:'S' },
+  { id:19, q:"스트레스를 주로 푸는 방식은?",                                                          a:"친구나 동료를 만나 이야기를 나눈다",                       b:"혼자 취미에 몰두하거나 조용히 쉰다",                     typeA:'E', typeB:'L' },
+  { id:20, q:"내가 꿈꾸는 커리어 목표는?",                                                            a:"내가 만든 팀이나 브랜드를 이끄는 리더",                    b:"특정 분야에서 타의 추종을 불허하는 전문가",              typeA:'A', typeB:'S' },
+];
+
+const BRIDGE_MESSAGES = {
+  5:  { emoji:'💼', title:'잠깐,', sub:'직업 DNA를 더 깊이 들여다볼게요' },
+  10: { emoji:'🔎', title:'반환점!', sub:'진짜 적성이 드러나기 시작해요' },
+  15: { emoji:'⚡', title:'거의 다 왔어요!', sub:'당신의 직업 유형이 보이기 시작해요' },
+};
+
+const RESULTS = {
+  EA: {
+    emoji: '🔥',
+    type: 'EA',
+    title: '열정 불꽃형',
+    subtitle: '사람을 움직이는 에너지 리더',
+    desc: '감성으로 사람 마음을 읽고, 그 에너지로 팀 전체를 이끄는 타입. 아이디어를 실행으로 옮기는 속도가 빠르고, 사람들이 자연스럽게 따라오는 분위기 메이커. 단, 너무 많은 걸 동시에 이끌다 번아웃 올 수 있어요.',
+    traits: [
+      '직관과 공감으로 사람을 설득하는 타고난 스피커',
+      '분위기를 주도하고 팀에 활력을 불어넣는 에너지 뱅크',
+      '실행력과 추진력으로 아이디어를 빠르게 현실로 만드는 타입',
+    ],
+    eScore: 85, aScore: 82,
+    jobs: ['마케터', '크리에이터', '영업 기획', '스타트업 창업가', 'PR·홍보'],
+    best: { emoji:'🔬', title:'조용한 전문가형', sub:'내 추진력을 탄탄한 분석력으로 채워주는 환상의 조합' },
+    worst: { emoji:'🤝', title:'따뜻한 연결형', sub:'서로 사람을 이끌려다 방향이 충돌할 수 있음' },
+  },
+  ES: {
+    emoji: '🤝',
+    type: 'ES',
+    title: '따뜻한 연결형',
+    subtitle: '사람을 잇고 성장시키는 조력자',
+    desc: '상대방의 감정을 귀신같이 읽고, 조용히 곁에서 필요한 것을 채워주는 타입. 팀의 분위기를 살피고 갈등을 부드럽게 녹이는 역할을 자연스럽게 맡아요. 리더보다는 최고의 파트너로 빛나는 유형.',
+    traits: [
+      '상대방이 무엇을 필요로 하는지 먼저 알아채는 공감 능력자',
+      '팀의 크고 작은 갈등을 조용히 풀어내는 중재자',
+      '사람을 지원하고 성장시킬 때 가장 큰 보람을 느끼는 타입',
+    ],
+    eScore: 80, aScore: 35,
+    jobs: ['교사·강사', '상담사·코치', 'HR 전문가', '서비스 기획', '사회복지사'],
+    best: { emoji:'🎯', title:'차가운 전략형', sub:'따뜻함과 냉철함이 만나 최고의 팀을 만드는 조합' },
+    worst: { emoji:'🔥', title:'열정 불꽃형', sub:'서로 감성으로만 끌어가려다 방향을 잃을 수 있음' },
+  },
+  LA: {
+    emoji: '🎯',
+    type: 'LA',
+    title: '차가운 전략형',
+    subtitle: '데이터로 판단하고 결과로 증명하는 전략가',
+    desc: '감정 대신 로직, 분위기 대신 데이터로 움직이는 타입. 문제를 구조적으로 분해하고 최선의 해결책을 빠르게 실행해요. 목표가 생기면 감정을 배제하고 끝까지 밀어붙이는 강한 실행력의 소유자.',
+    traits: [
+      '논리와 데이터를 기반으로 명확한 의사결정을 내리는 분석가',
+      '복잡한 문제를 체계적으로 분해하고 해결책을 설계하는 전략가',
+      '목표를 향해 빠르게 실행하는 강한 추진력의 소유자',
+    ],
+    eScore: 32, aScore: 80,
+    jobs: ['PM·기획자', '개발자', '경영 컨설턴트', '금융·투자', '데이터 기반 사업가'],
+    best: { emoji:'🤝', title:'따뜻한 연결형', sub:'논리에 온기를 더해줄 최고의 파트너' },
+    worst: { emoji:'🔬', title:'조용한 전문가형', sub:'둘 다 조용하고 독립적이라 소통 부재로 흐를 수 있음' },
+  },
+  LS: {
+    emoji: '🔬',
+    type: 'LS',
+    title: '조용한 전문가형',
+    subtitle: '깊이로 승부하는 집중형 장인',
+    desc: '소음 없이 자기 일에 몰두하며 최고 품질의 결과물을 만들어내는 타입. 넓이보다 깊이를 추구하고, 화려한 인정보다 본인이 납득할 수 있는 완성도를 중요하게 여겨요. 조직의 숨겨진 두뇌.',
+    traits: [
+      '특정 분야를 끝까지 파고드는 집중력과 전문성의 장인',
+      '감정에 흔들리지 않고 논리와 데이터로 일관성 있게 결과물을 만드는 타입',
+      '화려함보다 정확성과 완성도를 최우선으로 하는 퀄리티 장인',
+    ],
+    eScore: 28, aScore: 30,
+    jobs: ['연구원·과학자', '데이터 분석가', '디자이너', '회계사·세무사', '작가·번역가'],
+    best: { emoji:'🔥', title:'열정 불꽃형', sub:'내 전문성에 방향과 에너지를 불어넣어 줄 완벽한 파트너' },
+    worst: { emoji:'🎯', title:'차가운 전략형', sub:'둘 다 독립적이라 협업 시 소통이 단절될 수 있음' },
+  },
+};
+
+function GoogleAd({ slot, format = 'auto', style = {} }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    try { if (window.adsbygoogle) { (window.adsbygoogle = window.adsbygoogle || []).push({}); } } catch(e) {}
+  }, []);
+  const isLive = typeof window !== 'undefined' && window.adsbygoogle;
+  return (
+    <div style={{ width:'100%', ...style }}>
+      {isLive ? (
+        <ins ref={ref} className="adsbygoogle" style={{display:'block',width:'100%'}}
+          data-ad-client="ca-pub-4166451401478371" data-ad-slot={slot}
+          data-ad-format={format} data-full-width-responsive="true" />
+      ) : (
+        <div style={{background:'#FFFBEB',border:'1.5px dashed #FCD34D',borderRadius:'12px',padding:'18px',textAlign:'center',color:'#92400E',fontSize:'12px',fontWeight:600}}>
+          📢 광고 영역 (Google AdSense)<br/>
+          <span style={{fontWeight:400,opacity:0.7}}>슬롯 ID: {slot}</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+const LOADING_TEXTS = ['직업 DNA 분석 중...','적성 패턴 매칭 중...','커리어 유형 계산 중...','결과 생성 중...'];
+
+function ProgressBar({ current, total }) {
+  const pct = Math.round((current / total) * 100);
+  return (
+    <div className="w-full mb-6">
+      <div className="flex justify-between text-xs text-gray-400 mb-1.5 font-medium">
+        <span>{current} / {total}</span><span>{pct}%</span>
+      </div>
+      <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
+        <div className="h-full rounded-full transition-all duration-500 ease-out"
+          style={{width:`${pct}%`, background: ACCENT}} />
+      </div>
+    </div>
+  );
+}
+
+function IntroPhase({ onStart, count }) {
+  return (
+    <div className="fade-up flex flex-col items-center justify-center min-h-screen px-5 py-12">
+      <div className="w-full max-w-sm">
+        <div className="text-center mb-8">
+          <div className="text-6xl mb-4">🧬</div>
+          <div className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-4"
+            style={{background: ACCENT_BG, color: ACCENT}}>
+            직업 적성 테스트
+          </div>
+          <h1 className="text-2xl font-extrabold text-gray-900 leading-tight mb-3">
+            나는 어떤 직업 DNA를<br/>가졌을까?
+          </h1>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            20가지 업무 상황으로 알아보는<br/>나의 직업 적성 완전 분석
+          </p>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-sm p-5 mb-5">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-2xl">⚡</span>
+            <div>
+              <div className="text-sm font-bold text-gray-900">약 3분 소요</div>
+              <div className="text-xs text-gray-400">20문항 · 4가지 직업 유형</div>
+            </div>
+          </div>
+          <div className="flex gap-2 flex-wrap">
+            {['🔥 불꽃형','🤝 연결형','🎯 전략형','🔬 전문가형'].map(t => (
+              <div key={t} className="flex-1 bg-gray-50 rounded-xl py-2 px-1 text-center text-xs text-gray-600 font-medium" style={{minWidth:'70px'}}>{t}</div>
+            ))}
+          </div>
+        </div>
+
+        <button onClick={onStart}
+          className="w-full py-4 rounded-2xl text-white font-bold text-lg active:scale-95 transition-transform duration-150"
+          style={{background: ACCENT, boxShadow:`0 4px 24px ${ACCENT_GLOW}`}}>
+          테스트 시작하기
+        </button>
+        <p className="text-center text-xs text-gray-400 mt-3">
+          현재까지 <span className="font-bold text-gray-600">{count ? count.toLocaleString('ko-KR') + '명' : '...'}</span>이 확인했어요
+        </p>
+        <div className="text-center mt-4">
+          <a href="index.html" className="text-xs text-gray-300 hover:text-gray-400" style={{textDecoration:'none'}}>
+            ← 다른 테스트 보러가기
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function BridgePhase({ msg }) {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center" style={{background: ACCENT, zIndex:50}}>
+      <div className="bridge-anim text-center text-white px-8">
+        <div className="text-5xl mb-4">{msg.emoji}</div>
+        <div className="text-2xl font-extrabold mb-2">{msg.title}</div>
+        <div className="text-base opacity-80">{msg.sub}</div>
+      </div>
+    </div>
+  );
+}
+
+function QuestionPhase({ question, qIndex, total, onAnswer }) {
+  const [selected, setSelected] = useState(null);
+  const [key, setKey] = useState(0);
+
+  useEffect(() => { setSelected(null); setKey(k => k+1); }, [qIndex]);
+
+  const handleSelect = (choice) => {
+    if (selected !== null) return;
+    setSelected(choice);
+    setTimeout(() => onAnswer(choice), 220);
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col px-5 py-8" style={{paddingTop:'env(safe-area-inset-top, 32px)'}}>
+      <ProgressBar current={qIndex+1} total={total} />
+      <div key={key} className="fade-up flex-1 flex flex-col justify-center">
+        <div className="bg-white rounded-2xl shadow-sm p-6 mb-4">
+          <div className="text-xs font-bold mb-3 rounded-full inline-block px-3 py-1"
+            style={{background: ACCENT_BG, color: ACCENT}}>
+            Q{qIndex+1}
+          </div>
+          <p className="text-lg font-bold text-gray-900 leading-snug">{question.q}</p>
+        </div>
+        <div className="flex flex-col gap-3">
+          {[{choice:'A', label:question.a},{choice:'B', label:question.b}].map(({choice, label}) => (
+            <button key={choice} onClick={() => handleSelect(choice)}
+              className={`btn-choice w-full text-left p-5 rounded-2xl border-2 font-semibold text-base transition-all duration-200 ${
+                selected === choice
+                  ? 'selected'
+                  : selected !== null
+                    ? 'border-gray-100 bg-gray-50 text-gray-300'
+                    : 'border-gray-100 bg-white text-gray-800 hover:border-yellow-300 hover:bg-yellow-50'
+              }`}>
+              <span className="inline-block w-7 h-7 rounded-full text-center leading-7 text-sm font-bold mr-3"
+                style={selected === choice
+                  ? {background:'rgba(255,255,255,0.25)', color:'#fff'}
+                  : {background:'#F3F4F6', color:'#6B7280'}}>
+                {choice}
+              </span>
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <p className="text-center text-xs text-gray-300 mt-6">선택하면 자동으로 다음 질문으로 넘어가요</p>
+    </div>
+  );
+}
+
+function LoadingPhase() {
+  const [textIdx, setTextIdx] = useState(0);
+  useEffect(() => {
+    const iv = setInterval(() => setTextIdx(i => (i+1) % LOADING_TEXTS.length), 620);
+    return () => clearInterval(iv);
+  }, []);
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center px-5 py-12">
+      <div className="flex flex-col items-center justify-center">
+        <div className="mb-8">
+          <div className="w-16 h-16 rounded-full border-4 spinner"
+            style={{borderColor:`${ACCENT_BG} ${ACCENT_BG} ${ACCENT_BG} ${ACCENT}`}} />
+        </div>
+        <h2 className="text-xl font-extrabold text-gray-900 mb-2 text-center">결과 분석 중</h2>
+        <p className="text-sm text-gray-400 fade-in" key={textIdx}>{LOADING_TEXTS[textIdx]}</p>
+      </div>
+    </div>
+  );
+}
+
+function BarStat({ label, value, color }) {
+  return (
+    <div className="mb-3">
+      <div className="flex justify-between text-xs font-semibold text-gray-600 mb-1.5">
+        <span>{label}</span><span style={{color}}>{value}%</span>
+      </div>
+      <div className="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden">
+        <div className="bar-fill h-full rounded-full"
+          style={{'--target-width':`${value}%`, width:`${value}%`, background:color}} />
+      </div>
+    </div>
+  );
+}
+
+function ResultPhase({ result, onRestart }) {
+  const handleShare = async () => {
+    const url = window.location.href;
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch(e) {
+      const el = document.createElement('textarea');
+      el.value = url; document.body.appendChild(el); el.select();
+      document.execCommand('copy'); document.body.removeChild(el);
+    }
+    alert('링크가 복사되었어요! 친구에게 공유해보세요 🧬');
+  };
+  return (
+    <div className="min-h-screen px-5 py-10 pb-20">
+      <div className="max-w-sm mx-auto">
+
+        {/* 결과 헤더 */}
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4 text-center">
+          <div className="text-5xl mb-3">{result.emoji}</div>
+          <div className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-2"
+            style={{background: ACCENT_BG, color: ACCENT}}>
+            나의 직업 DNA 유형
+          </div>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-1">{result.title}</h2>
+          <p className="text-sm font-semibold mb-4" style={{color: ACCENT}}>{result.subtitle}</p>
+          <p className="text-sm text-gray-600 leading-relaxed">{result.desc}</p>
+        </div>
+
+        {/* 적성 지수 */}
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4" style={{animationDelay:'0.08s'}}>
+          <h3 className="text-sm font-extrabold text-gray-900 mb-4">📊 나의 직업 적성 지수</h3>
+          <BarStat label="❤️ 감성 공감력" value={result.eScore} color="#F59E0B" />
+          <BarStat label="🧠 논리 분석력" value={100 - result.eScore} color="#7C3AED" />
+          <BarStat label="🚀 주도 추진력" value={result.aScore} color="#EF4444" />
+          <BarStat label="🎯 집중 지원력" value={100 - result.aScore} color="#10B981" />
+        </div>
+
+        {/* 핵심 특징 */}
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4" style={{animationDelay:'0.14s'}}>
+          <h3 className="text-sm font-extrabold text-gray-900 mb-4">✨ 나의 핵심 특징 3가지</h3>
+          {result.traits.map((t, i) => (
+            <div key={i} className="flex gap-3 mb-3 last:mb-0">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold"
+                style={{background: ACCENT}}>
+                {i+1}
+              </div>
+              <p className="text-sm text-gray-700 leading-relaxed">{t}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* 어울리는 직업 */}
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4" style={{animationDelay:'0.18s'}}>
+          <h3 className="text-sm font-extrabold text-gray-900 mb-3">💡 나에게 잘 맞는 직업군</h3>
+          <div className="flex flex-wrap gap-2">
+            {result.jobs.map((job, i) => (
+              <span key={i} className="text-sm font-semibold px-3 py-1.5 rounded-full"
+                style={{background: ACCENT_BG, color: ACCENT}}>
+                {job}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* 궁합 */}
+        <div className="fade-up grid grid-cols-2 gap-3 mb-4" style={{animationDelay:'0.22s'}}>
+          <div className="bg-white rounded-2xl shadow-sm p-4">
+            <div className="text-xs font-bold text-green-500 mb-2">💚 찰떡 조합</div>
+            <div className="text-2xl mb-1">{result.best.emoji}</div>
+            <div className="text-sm font-bold text-gray-900 mb-1">{result.best.title}</div>
+            <div className="text-xs text-gray-400 leading-tight">{result.best.sub}</div>
+          </div>
+          <div className="bg-white rounded-2xl shadow-sm p-4">
+            <div className="text-xs font-bold text-red-400 mb-2">🌶️ 충돌 주의</div>
+            <div className="text-2xl mb-1">{result.worst.emoji}</div>
+            <div className="text-sm font-bold text-gray-900 mb-1">{result.worst.title}</div>
+            <div className="text-xs text-gray-400 leading-tight">{result.worst.sub}</div>
+          </div>
+        </div>
+
+        {/* 광고 */}
+        <div className="fade-up mb-4" style={{animationDelay:'0.24s'}}>
+          <div className="text-xs font-bold text-gray-400 mb-2 text-center">광고</div>
+          <GoogleAd slot="2222222222" format="auto" />
+        </div>
+
+        {/* 액션 버튼 */}
+        <div className="fade-up flex flex-col gap-3" style={{animationDelay:'0.28s'}}>
+          <button onClick={handleShare}
+            className="w-full py-4 rounded-2xl font-bold text-base border-2 border-gray-200 bg-white text-gray-800 active:scale-95 transition-transform duration-150">
+            🔗 결과 공유하기
+          </button>
+          <button onClick={onRestart}
+            className="w-full py-3 rounded-2xl text-sm text-gray-400 font-medium active:scale-95 transition-transform duration-150">
+            🔄 다시 테스트하기
+          </button>
+          <a href="index.html"
+            className="block w-full py-3 rounded-2xl text-sm text-gray-400 font-medium text-center active:scale-95 transition-transform duration-150"
+            style={{textDecoration:'none'}}>
+            🏠 다른 테스트 보러가기
+          </a>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const getInitial = () => {
+    const m = window.location.hash.match(/#r=([A-Z]{2})/);
+    if (m && RESULTS[m[1]]) return { phase:'RESULT', result:RESULTS[m[1]] };
+    return { phase:'INTRO', result:null };
+  };
+  const init = getInitial();
+  const [visitCount, setVisitCount] = useState(0);
+  React.useEffect(() => {
+    fetch('https://api.counterapi.dev/v1/insideme-kr/career/up')
+      .then(r => r.json()).then(d => setVisitCount(d.count || 0)).catch(() => {});
+  }, []);
+  const [phase, setPhase] = useState(init.phase);
+  const [qIndex, setQIndex] = useState(0);
+  const [scores, setScores] = useState({ E:0, L:0, A:0, S:0 });
+  const [result, setResult] = useState(init.result);
+  const [showBridge, setShowBridge] = useState(false);
+  const [bridgeMsg, setBridgeMsg] = useState(null);
+
+  const handleStart = () => {
+    history.replaceState(null, '', window.location.pathname);
+    setPhase('QUESTION');
+    setQIndex(0);
+    setScores({ E:0, L:0, A:0, S:0 });
+  };
+
+  const handleAnswer = (choice) => {
+    const q = QUESTIONS[qIndex];
+    const type = choice === 'A' ? q.typeA : q.typeB;
+    const newScores = { ...scores, [type]: scores[type] + 1 };
+    setScores(newScores);
+
+    const nextIdx = qIndex + 1;
+
+    if (nextIdx >= QUESTIONS.length) {
+      const el = newScores.E >= newScores.L ? 'E' : 'L';
+      const as = newScores.A >= newScores.S ? 'A' : 'S';
+      const key = el + as;
+      setResult(RESULTS[key] || RESULTS['EA']);
+      history.replaceState(null, '', '#r=' + key);
+      setPhase('LOADING');
+      setTimeout(() => setPhase('RESULT'), 2500);
+      return;
+    }
+
+    if (BRIDGE_MESSAGES[nextIdx]) {
+      setBridgeMsg(BRIDGE_MESSAGES[nextIdx]);
+      setShowBridge(true);
+      setTimeout(() => { setShowBridge(false); setQIndex(nextIdx); }, 850);
+    } else {
+      setQIndex(nextIdx);
+    }
+  };
+
+  const handleRestart = () => {
+    history.replaceState(null, '', window.location.pathname);
+    setPhase('INTRO');
+    setQIndex(0);
+    setScores({ E:0, L:0, A:0, S:0 });
+    setResult(null);
+  };
+
+  return (
+    <div style={{background:'#F3F4F6', minHeight:'100vh'}}>
+      <div className="max-w-sm mx-auto" style={{minHeight:'100vh', background:'#F3F4F6'}}>
+
+        <a href="index.html" style={{textDecoration:'none', display:'flex', alignItems:'center', gap:'8px', padding:'16px 20px 8px'}}>
+          <div style={{width:'32px', height:'32px', background:'#0064FF', borderRadius:'10px', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'16px'}}>🧠</div>
+          <span style={{fontSize:'1rem', fontWeight:900, color:'#111', letterSpacing:'-0.5px'}}>인사이드미</span>
+        </a>
+
+        {showBridge && bridgeMsg && <BridgePhase msg={bridgeMsg} />}
+        {phase === 'INTRO' && <IntroPhase onStart={handleStart} count={visitCount} />}
+        {phase === 'QUESTION' && !showBridge && (
+          <QuestionPhase question={QUESTIONS[qIndex]} qIndex={qIndex} total={QUESTIONS.length} onAnswer={handleAnswer} />
+        )}
+        {phase === 'LOADING' && <LoadingPhase />}
+        {phase === 'RESULT' && result && <ResultPhase result={result} onRestart={handleRestart} />}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

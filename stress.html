@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+<link rel="shortcut icon" href="/favicon.svg"/>
+<meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+<meta http-equiv="X-Frame-Options" content="DENY"/>
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"/>
+
+<!-- Primary SEO -->
+<title>스트레스 유형 테스트 — 나는 스트레스를 어떻게 다루는 사람? | 인사이드미</title>
+<meta name="title" content="스트레스 유형 테스트 — 나는 스트레스를 어떻게 다루는 사람? | 인사이드미"/>
+<meta name="description" content="인사이드미 스트레스 유형 테스트 — 20가지 상황으로 알아보는 나의 스트레스 유형. 화산 폭발형, 놀자 탈출형, 냉동 인간형, 조용한 잠수형 중 내 스트레스 성향은? 무료 심리테스트 3분 완성."/>
+<meta name="keywords" content="인사이드미, 스트레스유형테스트, 스트레스해소테스트, 스트레스심리테스트, 무료심리테스트, 스트레스대처유형, 번아웃테스트, 멘탈테스트, 스트레스성향, 스트레스테스트, 마음테스트"/>
+<meta name="author" content="인사이드미 InsideMe"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://insideme.kr/stress.html"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://insideme.kr/stress.html"/>
+<meta property="og:site_name" content="인사이드미 InsideMe"/>
+<meta property="og:title" content="나는 스트레스를 어떻게 다루는 사람? | 인사이드미 스트레스 유형 테스트"/>
+<meta property="og:description" content="화산 폭발형? 놀자 탈출형? 냉동 인간형? 조용한 잠수형? 인사이드미에서 20문항으로 내 스트레스 유형을 파헤쳐보세요!"/>
+<meta property="og:image" content="https://insideme.kr/og/stress.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="ko_KR"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:url" content="https://insideme.kr/stress.html"/>
+<meta name="twitter:title" content="나는 스트레스를 어떻게 다루는 사람? | 스트레스 유형 테스트"/>
+<meta name="twitter:description" content="화산 폭발형? 놀자 탈출형? 냉동 인간형? 조용한 잠수형? 20문항으로 내 스트레스 유형을 파헤쳐보세요!"/>
+<meta name="twitter:image" content="https://insideme.kr/og/stress.png"/>
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Quiz",
+  "name": "스트레스 유형 테스트",
+  "description": "20가지 스트레스 상황으로 알아보는 나의 스트레스 해소 유형. 화산 폭발형, 놀자 탈출형, 냉동 인간형, 조용한 잠수형 4가지 유형으로 결과를 알려줍니다.",
+  "url": "https://insideme.kr/stress.html",
+  "inLanguage": "ko",
+  "isAccessibleForFree": true,
+  "author": { "@type": "Organization", "name": "인사이드미", "alternateName": "InsideMe", "url": "https://insideme.kr" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://insideme.kr/" },
+    { "@type": "ListItem", "position": 2, "name": "스트레스 유형 테스트", "item": "https://insideme.kr/stress.html" }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4166451401478371" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+  * { -webkit-tap-highlight-color: transparent; }
+  body { background: #F3F4F6; font-family: 'Pretendard','Apple SD Gothic Neo','Noto Sans KR',system-ui,sans-serif; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);} }
+  @keyframes fadeIn { from{opacity:0;}to{opacity:1;} }
+  @keyframes spin { to{transform:rotate(360deg);} }
+  @keyframes bridgeIn { 0%{opacity:0;transform:scale(0.94) translateY(10px);}30%{opacity:1;transform:scale(1) translateY(0);}70%{opacity:1;transform:scale(1) translateY(0);}100%{opacity:0;transform:scale(1.04) translateY(-10px);} }
+  @keyframes barGrow { from{width:0%;}to{width:var(--target-width);} }
+  .fade-up { animation: fadeUp 0.38s cubic-bezier(0.22,1,0.36,1) both; }
+  .fade-in { animation: fadeIn 0.3s ease both; }
+  .spinner { animation: spin 0.9s linear infinite; }
+  .bridge-anim { animation: bridgeIn 0.85s cubic-bezier(0.22,1,0.36,1) both; }
+  .bar-fill { animation: barGrow 0.9s cubic-bezier(0.22,1,0.36,1) both; }
+  .btn-choice { transition: all 0.18s cubic-bezier(0.22,1,0.36,1); }
+  .btn-choice:active { transform: scale(0.97); }
+  .btn-choice.selected { background:#8B5CF6!important;color:#fff!important;border-color:#8B5CF6!important;transform:scale(0.98); }
+</style>
+
+<noscript>
+  <style>body{display:block!important;}</style>
+  <div style="max-width:480px;margin:40px auto;padding:24px;font-family:sans-serif;">
+    <h1>스트레스 유형 테스트 | InsideMe</h1>
+    <p>나는 스트레스를 어떻게 다루는 사람일까? 20가지 상황으로 알아보는 나의 스트레스 해소 유형 테스트.</p>
+    <ul>
+      <li>🔥 화산 폭발형 — 감정을 표현하며 정면 돌파</li>
+      <li>🎪 놀자 탈출형 — 일단 재밌는 걸로 도망가기</li>
+      <li>🧊 냉동 인간형 — 속으로 삭히고 혼자 해결</li>
+      <li>🐌 조용한 잠수형 — 혼자 감당하며 슬며시 사라지기</li>
+    </ul>
+    <p>이 테스트를 이용하려면 JavaScript를 활성화해주세요.</p>
+  </div>
+</noscript>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+const ACCENT = '#8B5CF6';
+const ACCENT_GLOW = 'rgba(139,92,246,0.35)';
+const ACCENT_BG = '#F5F3FF';
+
+const QUESTIONS = [
+  { id:1,  q:"직장이나 학교에서 억울한 일을 당했을 때 나는?",                                   a:"바로 감정을 꺼내서 상대방에게 말한다",            b:"속으로만 끓이고 겉으로는 괜찮은 척",              typeA:'E', typeB:'S' },
+  { id:2,  q:"스트레스가 쌓이기 시작할 때 내가 제일 먼저 하는 행동은?",                         a:"친구에게 전화해서 하소연한다",                    b:"방에 틀어박혀 혼자만의 시간을 갖는다",            typeA:'E', typeB:'S' },
+  { id:3,  q:"스트레스의 원인이 명확할 때 나는?",                                                a:"원인을 직접 해결하려고 움직인다",                 b:"그냥 피하거나 상황이 지나가길 기다린다",          typeA:'C', typeB:'V' },
+  { id:4,  q:"극도로 지쳤을 때 나의 모습은?",                                                   a:"짜증이나 눈물이 터져 나온다",                     b:"말수가 줄고 그냥 조용해진다",                     typeA:'E', typeB:'S' },
+  { id:5,  q:"스트레스를 주는 사람과 계속 마주쳐야 할 때?",                                     a:"직접 대화로 풀려고 시도한다",                     b:"최대한 마주치지 않는 방향으로 피한다",            typeA:'C', typeB:'V' },
+  { id:6,  q:"힘든 일이 있을 때 SNS에 올리는 편인가요?",                                        a:"감정이 담긴 글이나 사진을 올린다",                b:"아무것도 올리지 않고 조용히 있는다",              typeA:'E', typeB:'S' },
+  { id:7,  q:"해결되지 않은 갈등이 있을 때 나는?",                                              a:"어색해도 먼저 해결하려고 말을 꺼낸다",            b:"자연스럽게 흐지부지될 때까지 기다린다",           typeA:'C', typeB:'V' },
+  { id:8,  q:"번아웃이 왔을 때 나의 회복 방식은?",                                              a:"사람들과 어울리며 에너지를 충전한다",             b:"혼자 조용히 쉬면서 회복한다",                    typeA:'E', typeB:'S' },
+  { id:9,  q:"업무나 과제가 너무 많이 쌓였을 때?",                                              a:"주변에 도움을 요청하거나 털어놓는다",             b:"혼자 끙끙대며 다 처리하려고 한다",               typeA:'E', typeB:'S' },
+  { id:10, q:"나를 힘들게 하는 상황이 계속될 때?",                                              a:"뭔가 변화를 만들려고 행동한다",                   b:"그냥 참고 버티는 편이다",                        typeA:'C', typeB:'V' },
+  { id:11, q:"스트레스를 받으면 식욕이나 수면에 어떤 변화가 생기나요?",                          a:"폭식하거나 밥을 못 먹는 등 변화가 크게 온다",    b:"별다른 변화 없이 루틴을 유지하는 편이다",         typeA:'E', typeB:'S' },
+  { id:12, q:"직장 상사나 교수에게 불합리한 지시를 받았을 때?",                                  a:"불합리하다고 의견을 표현한다",                    b:"일단 그냥 따르고 나중에 해결책을 찾는다",         typeA:'C', typeB:'V' },
+  { id:13, q:"오랫동안 스트레스가 지속될 때 나에게 나타나는 신호는?",                            a:"감정이 자주 폭발하거나 눈물이 많아진다",          b:"무감각해지거나 무기력해진다",                     typeA:'E', typeB:'S' },
+  { id:14, q:"친한 친구가 나를 서운하게 했을 때 나는?",                                         a:"솔직하게 서운하다고 말한다",                      b:"그냥 넘어가거나 혼자 삭힌다",                    typeA:'C', typeB:'V' },
+  { id:15, q:"스트레스를 풀기 위해 자주 선택하는 방법은?",                                      a:"운동, 드라이브, 노래방 등 에너지를 발산한다",    b:"수면, 독서, 넷플릭스 등 조용히 쉰다",            typeA:'E', typeB:'S' },
+  { id:16, q:"팀 프로젝트에서 내 역할이 부당하게 몰렸을 때?",                                   a:"문제를 제기하고 재조정을 요구한다",               b:"그냥 내가 다 한다",                              typeA:'C', typeB:'V' },
+  { id:17, q:"스트레스를 받을 때 주변 사람들이 눈치채는 편인가요?",                              a:"표정이나 말투에서 바로 티가 난다",                b:"잘 모르는 편, 혼자 조용히 감당한다",             typeA:'E', typeB:'S' },
+  { id:18, q:"문제가 해결되지 않은 채로 잠자리에 들 때?",                                       a:"내일 꼭 해결하겠다고 다짐하며 잔다",              b:"일단 자고 되는 대로 되겠지 한다",                typeA:'C', typeB:'V' },
+  { id:19, q:"화가 났을 때 나의 표현 방식은?",                                                  a:"말이나 행동으로 바로 표출된다",                   b:"속으로만 삭히고 표현하지 않는다",                typeA:'E', typeB:'S' },
+  { id:20, q:"스트레스 해소를 위해 나는 무엇이 가장 필요하다고 느끼나요?",                       a:"나를 이해해주는 사람과의 대화",                   b:"아무도 없는 혼자만의 공간과 시간",               typeA:'E', typeB:'S' },
+];
+
+const BRIDGE_MESSAGES = {
+  5:  { emoji:'😤', title:'잠깐,', sub:'스트레스 패턴을 더 들여다볼게요' },
+  10: { emoji:'🌀', title:'반환점!', sub:'진짜 본모습이 드러날 시간이에요' },
+  15: { emoji:'💜', title:'거의 다 왔어요!', sub:'당신의 스트레스 DNA가 보이기 시작해요' },
+};
+
+const RESULTS = {
+  EC: {
+    emoji: '🔥',
+    type: 'EC',
+    title: '화산 폭발형',
+    subtitle: '감정을 표현하며 정면 돌파하는 에너자이저',
+    desc: '스트레스를 받으면 감정이 밖으로 폭발하고, 문제는 직접 해결하려는 타입. 감정을 숨기는 게 오히려 더 힘들어서 표현하고 나서야 편해져요. 해결 의지가 강하지만 가끔 너무 앞서가다 지칠 수 있어요.',
+    traits: [
+      '스트레스를 그 자리에서 표출하고 빠르게 해소하는 즉각 반응형',
+      '문제를 직접 해결하려는 강한 추진력 — 참는 것보다 말하는 게 편한 타입',
+      '감정 표현이 솔직해서 주변이 금방 눈치채는 투명한 유리 멘탈',
+    ],
+    eScore: 85, cScore: 80,
+    tip: '해결하려는 에너지는 좋지만, 감정이 너무 과열되기 전에 잠깐 숨 고르는 시간을 가져보세요.',
+    best: { emoji:'🧊', title:'냉동 인간형', sub:'뜨거운 감정을 식혀줄 냉철한 파트너' },
+    worst: { emoji:'🎪', title:'놀자 탈출형', sub:'문제 해결 없이 도망가는 스타일이 답답할 수 있음' },
+  },
+  EV: {
+    emoji: '🎪',
+    type: 'EV',
+    title: '놀자 탈출형',
+    subtitle: '일단 신나는 걸로 도망가는 회피 에너자이저',
+    desc: '스트레스를 받으면 감정은 터져 나오는데, 문제는 일단 피하고 보는 타입. 노래방, 여행, 친구 만남으로 일시적으로 해소하지만 근본 원인은 그대로 남아있어요. 인생을 즐길 줄 알지만 문제가 쌓이면 나중에 더 크게 터질 수 있어요.',
+    traits: [
+      '스트레스를 신나는 활동으로 발산하는 즉흥적인 해소 달인',
+      '감정 표현은 잘 하지만 근본 원인은 일단 뒤로 미루는 회피형 외향인',
+      '현재를 즐기는 능력이 뛰어나고, 주변을 밝게 만드는 에너지가 넘침',
+    ],
+    eScore: 82, cScore: 30,
+    tip: '재충전 후엔 반드시 문제로 돌아오는 용기도 필요해요. 도피는 임시방편이에요.',
+    best: { emoji:'🔥', title:'화산 폭발형', sub:'같이 발산하고 같이 해결하는 환상의 콤비' },
+    worst: { emoji:'🐌', title:'조용한 잠수형', sub:'둘 다 문제를 피하다가 아무것도 해결 안 될 수 있음' },
+  },
+  SC: {
+    emoji: '🧊',
+    type: 'SC',
+    title: '냉동 인간형',
+    subtitle: '속으로 삭히고 혼자 해결하는 냉철한 독립형',
+    desc: '겉으로는 멀쩡해 보이지만 속으로는 엄청나게 끓고 있는 타입. 감정을 밖으로 잘 표현하지 않지만, 문제는 혼자서 조용히 해결하려 해요. 멘탈이 강해 보이지만 혼자 감당하다 어느 순간 방전될 수 있어요.',
+    traits: [
+      '겉은 평온하지만 속에서 감정을 철저히 통제하는 냉철한 멘탈의 소유자',
+      '문제를 혼자 분석하고 조용히 해결하는 독립적인 해결사',
+      '감정을 드러내지 않아 주변이 눈치채지 못하지만, 내면의 피로가 쌓임',
+    ],
+    eScore: 28, cScore: 80,
+    tip: '모든 걸 혼자 감당할 필요 없어요. 가끔은 믿을 수 있는 사람에게 털어놓는 것도 강함입니다.',
+    best: { emoji:'🎪', title:'놀자 탈출형', sub:'가끔은 그냥 신나게 놀아도 된다고 알려줄 파트너' },
+    worst: { emoji:'🐌', title:'조용한 잠수형', sub:'둘 다 조용해서 서로 힘든 줄 모르고 지나침' },
+  },
+  SV: {
+    emoji: '🐌',
+    type: 'SV',
+    title: '조용한 잠수형',
+    subtitle: '혼자 감당하며 슬며시 사라지는 내향 회피형',
+    desc: '스트레스를 받으면 감정도 드러내지 않고, 문제도 피하면서 조용히 잠수타는 타입. 남에게 폐 끼치기 싫어서 혼자 다 감당하려 하지만, 쌓이고 쌓이다 어느 날 갑자기 번아웃이 오는 경우가 많아요.',
+    traits: [
+      '스트레스를 티 내지 않고 혼자 조용히 삭이는 은둔형 멘탈',
+      '갈등을 피하고 자연스럽게 흐지부지되길 기다리는 회피형',
+      '혼자만의 회복 시간이 절대적으로 필요한 내향형 충전 시스템',
+    ],
+    eScore: 25, cScore: 28,
+    tip: '혼자 감당하는 데 한계가 있어요. 작은 것부터 표현해보는 연습이 번아웃을 막아줄 거예요.',
+    best: { emoji:'🔥', title:'화산 폭발형', sub:'속에 있는 말을 꺼낼 수 있도록 도와줄 에너지 충전소' },
+    worst: { emoji:'🧊', title:'냉동 인간형', sub:'둘 다 감정을 숨겨서 서로 힘든 줄 모름' },
+  },
+};
+
+function GoogleAd({ slot }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+  }, []);
+  return (
+    <ins ref={ref} className="adsbygoogle"
+      style={{display:'block', width:'100%'}}
+      data-ad-client="ca-pub-4166451401478371"
+      data-ad-slot={slot}
+      data-ad-format="auto"
+      data-full-width-responsive="true" />
+  );
+}
+
+const LOADING_TEXTS = ['스트레스 패턴 분석 중...','감정 해소 방식 매칭 중...','멘탈 유형 계산 중...','결과 생성 중...'];
+
+function ProgressBar({ current, total }) {
+  const pct = Math.round((current / total) * 100);
+  return (
+    <div className="w-full mb-6">
+      <div className="flex justify-between text-xs text-gray-400 mb-1.5 font-medium">
+        <span>{current} / {total}</span><span>{pct}%</span>
+      </div>
+      <div className="w-full bg-gray-200 rounded-full h-1.5 overflow-hidden">
+        <div className="h-full rounded-full transition-all duration-500 ease-out"
+          style={{width:`${pct}%`, background: ACCENT}} />
+      </div>
+    </div>
+  );
+}
+
+function IntroPhase({ onStart, count }) {
+  return (
+    <div className="fade-up flex flex-col items-center justify-center min-h-screen px-5 py-12">
+      <div className="w-full max-w-sm">
+        <div className="text-center mb-8">
+          <div className="text-6xl mb-4">🌀</div>
+          <div className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-4"
+            style={{background: ACCENT_BG, color: ACCENT}}>
+            스트레스 유형 테스트
+          </div>
+          <h1 className="text-2xl font-extrabold text-gray-900 leading-tight mb-3">
+            나는 스트레스를<br/>어떻게 다루는 사람?
+          </h1>
+          <p className="text-sm text-gray-500 leading-relaxed">
+            20가지 스트레스 상황으로 알아보는<br/>나의 감정 해소 유형 완전 분석
+          </p>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-sm p-5 mb-5">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="text-2xl">💜</span>
+            <div>
+              <div className="text-sm font-bold text-gray-900">약 3분 소요</div>
+              <div className="text-xs text-gray-400">20문항 · 4가지 스트레스 유형</div>
+            </div>
+          </div>
+          <div className="flex gap-2 flex-wrap">
+            {['🔥 화산형','🎪 탈출형','🧊 냉동형','🐌 잠수형'].map(t => (
+              <div key={t} className="flex-1 bg-gray-50 rounded-xl py-2 px-1 text-center text-xs text-gray-600 font-medium" style={{minWidth:'70px'}}>{t}</div>
+            ))}
+          </div>
+        </div>
+
+        <button onClick={onStart}
+          className="w-full py-4 rounded-2xl text-white font-bold text-lg active:scale-95 transition-transform duration-150"
+          style={{background: ACCENT, boxShadow:`0 4px 24px ${ACCENT_GLOW}`}}>
+          테스트 시작하기
+        </button>
+        <p className="text-center text-xs text-gray-400 mt-3">
+          현재까지 <span className="font-bold text-gray-600">{count ? count.toLocaleString('ko-KR') + '명' : '...'}</span>이 확인했어요
+        </p>
+        <div className="text-center mt-4">
+          <a href="index.html" className="text-xs text-gray-300 hover:text-gray-400" style={{textDecoration:'none'}}>
+            ← 다른 테스트 보러가기
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function BridgePhase({ msg }) {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center" style={{background: ACCENT, zIndex:50}}>
+      <div className="bridge-anim text-center text-white px-8">
+        <div className="text-5xl mb-4">{msg.emoji}</div>
+        <div className="text-2xl font-extrabold mb-2">{msg.title}</div>
+        <div className="text-base opacity-80">{msg.sub}</div>
+      </div>
+    </div>
+  );
+}
+
+function QuestionPhase({ question, qIndex, total, onAnswer }) {
+  const [selected, setSelected] = useState(null);
+  const [key, setKey] = useState(0);
+  useEffect(() => { setSelected(null); setKey(k => k+1); }, [qIndex]);
+  const handleSelect = (choice) => {
+    if (selected !== null) return;
+    setSelected(choice);
+    setTimeout(() => onAnswer(choice), 220);
+  };
+  return (
+    <div className="min-h-screen flex flex-col px-5 py-8" style={{paddingTop:'env(safe-area-inset-top, 32px)'}}>
+      <ProgressBar current={qIndex+1} total={total} />
+      <div key={key} className="fade-up flex-1 flex flex-col justify-center">
+        <div className="bg-white rounded-2xl shadow-sm p-6 mb-4">
+          <div className="text-xs font-bold mb-3 rounded-full inline-block px-3 py-1"
+            style={{background: ACCENT_BG, color: ACCENT}}>
+            Q{qIndex+1}
+          </div>
+          <p className="text-lg font-bold text-gray-900 leading-snug">{question.q}</p>
+        </div>
+        <div className="flex flex-col gap-3">
+          {[{choice:'A', label:question.a},{choice:'B', label:question.b}].map(({choice, label}) => (
+            <button key={choice} onClick={() => handleSelect(choice)}
+              className={`btn-choice w-full text-left p-5 rounded-2xl border-2 font-semibold text-base transition-all duration-200 ${
+                selected === choice ? 'selected'
+                  : selected !== null ? 'border-gray-100 bg-gray-50 text-gray-300'
+                  : 'border-gray-100 bg-white text-gray-800 hover:border-purple-300 hover:bg-purple-50'
+              }`}>
+              <span className="inline-block w-7 h-7 rounded-full text-center leading-7 text-sm font-bold mr-3"
+                style={selected === choice
+                  ? {background:'rgba(255,255,255,0.25)', color:'#fff'}
+                  : {background:'#F3F4F6', color:'#6B7280'}}>
+                {choice}
+              </span>
+              {label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <p className="text-center text-xs text-gray-300 mt-6">선택하면 자동으로 다음 질문으로 넘어가요</p>
+    </div>
+  );
+}
+
+function LoadingPhase() {
+  const [textIdx, setTextIdx] = useState(0);
+  useEffect(() => {
+    const iv = setInterval(() => setTextIdx(i => (i+1) % LOADING_TEXTS.length), 620);
+    return () => clearInterval(iv);
+  }, []);
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center px-5 py-12">
+      <div className="flex flex-col items-center justify-center">
+        <div className="mb-8">
+          <div className="w-16 h-16 rounded-full border-4 spinner"
+            style={{borderColor:`${ACCENT_BG} ${ACCENT_BG} ${ACCENT_BG} ${ACCENT}`}} />
+        </div>
+        <h2 className="text-xl font-extrabold text-gray-900 mb-2 text-center">결과 분석 중</h2>
+        <p className="text-sm text-gray-400 fade-in" key={textIdx}>{LOADING_TEXTS[textIdx]}</p>
+      </div>
+    </div>
+  );
+}
+
+function BarStat({ label, value, color }) {
+  return (
+    <div className="mb-3">
+      <div className="flex justify-between text-xs font-semibold text-gray-600 mb-1.5">
+        <span>{label}</span><span style={{color}}>{value}%</span>
+      </div>
+      <div className="w-full bg-gray-100 rounded-full h-2.5 overflow-hidden">
+        <div className="bar-fill h-full rounded-full"
+          style={{'--target-width':`${value}%`, width:`${value}%`, background:color}} />
+      </div>
+    </div>
+  );
+}
+
+function ResultPhase({ result, onRestart }) {
+  const handleShare = async () => {
+    const url = window.location.href;
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch(e) {
+      const el = document.createElement('textarea');
+      el.value = url; document.body.appendChild(el); el.select();
+      document.execCommand('copy'); document.body.removeChild(el);
+    }
+    alert('링크가 복사되었어요! 친구에게 공유해보세요 🌀');
+  };
+  return (
+    <div className="min-h-screen px-5 py-10 pb-20">
+      <div className="max-w-sm mx-auto">
+
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4 text-center">
+          <div className="text-5xl mb-3">{result.emoji}</div>
+          <div className="inline-block text-xs font-bold px-3 py-1 rounded-full mb-2"
+            style={{background: ACCENT_BG, color: ACCENT}}>
+            나의 스트레스 유형
+          </div>
+          <h2 className="text-2xl font-extrabold text-gray-900 mb-1">{result.title}</h2>
+          <p className="text-sm font-semibold mb-4" style={{color: ACCENT}}>{result.subtitle}</p>
+          <p className="text-sm text-gray-600 leading-relaxed">{result.desc}</p>
+        </div>
+
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4" style={{animationDelay:'0.08s'}}>
+          <h3 className="text-sm font-extrabold text-gray-900 mb-4">📊 나의 스트레스 지수</h3>
+          <BarStat label="💬 감정 표현력" value={result.eScore} color="#8B5CF6" />
+          <BarStat label="🔇 감정 억제력" value={100 - result.eScore} color="#6B7280" />
+          <BarStat label="⚡ 문제 직면력" value={result.cScore} color="#EF4444" />
+          <BarStat label="🏃 회피 성향" value={100 - result.cScore} color="#10B981" />
+        </div>
+
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-6 mb-4" style={{animationDelay:'0.14s'}}>
+          <h3 className="text-sm font-extrabold text-gray-900 mb-4">✨ 나의 핵심 특징 3가지</h3>
+          {result.traits.map((t, i) => (
+            <div key={i} className="flex gap-3 mb-3 last:mb-0">
+              <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-white text-xs font-bold"
+                style={{background: ACCENT}}>
+                {i+1}
+              </div>
+              <p className="text-sm text-gray-700 leading-relaxed">{t}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="fade-up bg-white rounded-2xl shadow-sm p-5 mb-4" style={{animationDelay:'0.18s'}}>
+          <h3 className="text-sm font-extrabold text-gray-900 mb-2">💡 스트레스 관리 팁</h3>
+          <p className="text-sm text-gray-600 leading-relaxed">{result.tip}</p>
+        </div>
+
+        <div className="fade-up grid grid-cols-2 gap-3 mb-4" style={{animationDelay:'0.22s'}}>
+          <div className="bg-white rounded-2xl shadow-sm p-4">
+            <div className="text-xs font-bold text-green-500 mb-2">💚 찰떡 조합</div>
+            <div className="text-2xl mb-1">{result.best.emoji}</div>
+            <div className="text-sm font-bold text-gray-900 mb-1">{result.best.title}</div>
+            <div className="text-xs text-gray-400 leading-tight">{result.best.sub}</div>
+          </div>
+          <div className="bg-white rounded-2xl shadow-sm p-4">
+            <div className="text-xs font-bold text-red-400 mb-2">🌶️ 충돌 주의</div>
+            <div className="text-2xl mb-1">{result.worst.emoji}</div>
+            <div className="text-sm font-bold text-gray-900 mb-1">{result.worst.title}</div>
+            <div className="text-xs text-gray-400 leading-tight">{result.worst.sub}</div>
+          </div>
+        </div>
+
+        <div className="fade-up mb-4" style={{animationDelay:'0.24s'}}>
+          <div className="text-xs font-bold text-gray-400 mb-2 text-center">광고</div>
+          <GoogleAd slot="4444444444" />
+        </div>
+
+        <div className="fade-up flex flex-col gap-3" style={{animationDelay:'0.28s'}}>
+          <button onClick={handleShare}
+            className="w-full py-4 rounded-2xl font-bold text-base border-2 border-gray-200 bg-white text-gray-800 active:scale-95 transition-transform duration-150">
+            🔗 결과 공유하기
+          </button>
+          <button onClick={onRestart}
+            className="w-full py-3 rounded-2xl text-sm text-gray-400 font-medium active:scale-95 transition-transform duration-150">
+            🔄 다시 테스트하기
+          </button>
+          <a href="index.html"
+            className="block w-full py-3 rounded-2xl text-sm text-gray-400 font-medium text-center active:scale-95 transition-transform duration-150"
+            style={{textDecoration:'none'}}>
+            🏠 다른 테스트 보러가기
+          </a>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const getInitial = () => {
+    const m = window.location.hash.match(/#r=([A-Z]{2})/);
+    if (m && RESULTS[m[1]]) return { phase:'RESULT', result:RESULTS[m[1]] };
+    return { phase:'INTRO', result:null };
+  };
+  const init = getInitial();
+  const [visitCount, setVisitCount] = useState(0);
+  React.useEffect(() => {
+    fetch('https://api.counterapi.dev/v1/insideme-kr/stress/up')
+      .then(r => r.json()).then(d => setVisitCount(d.count || 0)).catch(() => {});
+  }, []);
+  const [phase, setPhase] = useState(init.phase);
+  const [qIndex, setQIndex] = useState(0);
+  const [scores, setScores] = useState({ E:0, S:0, C:0, V:0 });
+  const [result, setResult] = useState(init.result);
+  const [showBridge, setShowBridge] = useState(false);
+  const [bridgeMsg, setBridgeMsg] = useState(null);
+
+  const handleStart = () => {
+    history.replaceState(null, '', window.location.pathname);
+    setPhase('QUESTION'); setQIndex(0); setScores({E:0,S:0,C:0,V:0});
+  };
+
+  const handleAnswer = (choice) => {
+    const q = QUESTIONS[qIndex];
+    const type = choice === 'A' ? q.typeA : q.typeB;
+    const newScores = { ...scores, [type]: scores[type]+1 };
+    setScores(newScores);
+    const nextIdx = qIndex+1;
+    if (nextIdx >= QUESTIONS.length) {
+      const es = newScores.E >= newScores.S ? 'E' : 'S';
+      const cv = newScores.C >= newScores.V ? 'C' : 'V';
+      const key = es+cv;
+      setResult(RESULTS[key] || RESULTS['EC']);
+      history.replaceState(null, '', '#r=' + key);
+      setPhase('LOADING');
+      setTimeout(() => setPhase('RESULT'), 2500);
+      return;
+    }
+    if (BRIDGE_MESSAGES[nextIdx]) {
+      setBridgeMsg(BRIDGE_MESSAGES[nextIdx]);
+      setShowBridge(true);
+      setTimeout(() => { setShowBridge(false); setQIndex(nextIdx); }, 850);
+    } else {
+      setQIndex(nextIdx);
+    }
+  };
+
+  const handleRestart = () => {
+    history.replaceState(null, '', window.location.pathname);
+    setPhase('INTRO'); setQIndex(0); setScores({E:0,S:0,C:0,V:0}); setResult(null);
+  };
+
+  return (
+    <div style={{background:'#F3F4F6', minHeight:'100vh'}}>
+      <div className="max-w-sm mx-auto" style={{minHeight:'100vh', background:'#F3F4F6'}}>
+
+        <a href="index.html" style={{textDecoration:'none', display:'flex', alignItems:'center', gap:'8px', padding:'16px 20px 8px'}}>
+          <div style={{width:'32px', height:'32px', background:'#0064FF', borderRadius:'10px', display:'flex', alignItems:'center', justifyContent:'center', fontSize:'16px'}}>🧠</div>
+          <span style={{fontSize:'1rem', fontWeight:900, color:'#111', letterSpacing:'-0.5px'}}>인사이드미</span>
+        </a>
+
+        {showBridge && bridgeMsg && <BridgePhase msg={bridgeMsg} />}
+        {phase === 'INTRO' && <IntroPhase onStart={handleStart} count={visitCount} />}
+        {phase === 'QUESTION' && !showBridge && (
+          <QuestionPhase question={QUESTIONS[qIndex]} qIndex={qIndex} total={QUESTIONS.length} onAnswer={handleAnswer} />
+        )}
+        {phase === 'LOADING' && <LoadingPhase />}
+        {phase === 'RESULT' && result && <ResultPhase result={result} onRestart={handleRestart} />}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
